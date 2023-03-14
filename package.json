@@ -1,6 +1,6 @@
 {
   "name": "product_catalog_app",
-  "homepage": "https://github.com/fe-nov22-binary-raccoons/product_catalog_FE",
+  "homepage": "https://github.com/fe-nov22-binary-raccoons/catalog_product_FE",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
