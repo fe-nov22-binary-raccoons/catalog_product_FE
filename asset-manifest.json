@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fe-nov22-binary-raccoons/product_catalog_FE/static/css/main.073c9b0a.css",
+    "main.js": "/fe-nov22-binary-raccoons/product_catalog_FE/static/js/main.c1d37133.js",
+    "index.html": "/fe-nov22-binary-raccoons/product_catalog_FE/index.html",
+    "main.073c9b0a.css.map": "/fe-nov22-binary-raccoons/product_catalog_FE/static/css/main.073c9b0a.css.map",
+    "main.c1d37133.js.map": "/fe-nov22-binary-raccoons/product_catalog_FE/static/js/main.c1d37133.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.c1d37133.js"
+  ]
+}
