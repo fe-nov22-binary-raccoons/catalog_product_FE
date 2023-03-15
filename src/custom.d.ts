@@ -1,4 +1,4 @@
 declare module '*.svg' {
-  const content: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>>;
+  const content: string;
   export default content;
 }
