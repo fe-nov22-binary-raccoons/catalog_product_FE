@@ -1,0 +1,125 @@
+@import "../../styles/variables";
+@import "../../styles/normalize";
+
+.phone-card {
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px;
+  height: 506px;
+  color: $page-primary-color;
+  border: solid 1px $page-elements-color;
+  border-radius: 8px;
+  transition: box-shadow 0.5s;
+}
+
+.phone-card:hover {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.phone_image {
+  align-self: center;
+  max-height: 196px;
+  margin-bottom: 24px;
+}
+
+.phone-card_title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.phone-card_price {
+  display: flex;
+  font-size: 22px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: solid 1px $page-elements-color;
+}
+
+.current-price {
+  padding-right: 8px;
+  font-weight: 800;
+}
+
+.old-price {
+  color: $page-secondary-color;
+  text-decoration: line-through;
+}
+
+.phone-card_descriptions {
+  margin-bottom: 16px;
+}
+
+.characteristic {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+}
+
+.characteristic-title {
+  color: $page-secondary-color;
+}
+
+.phone-card_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy-btn {
+  padding: 9px 36px;
+  background-color: $page-orange-color;
+  border: solid 1px $page-orange-color;
+  border-radius: 8px;
+  color: $page-white-color;
+  font-weight: 700;
+  font-size: 14px;
+  transition: box-shadow 0.5s;
+}
+
+.buy-btn:hover {
+  box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+}
+
+.buy-btn:active {
+  box-shadow: none;
+  color: $page-orange-color;
+  border: 1px solid $page-elements-color;
+  background-color: $page-white-color;
+}
+
+.add-to-fav {
+  background-image: url('../../icons/buttons/add-to-favorite/fav-default.svg');
+  width: 40px;
+  height: 40px;
+  transition: background-image 0.5s;
+}
+
+.add-to-fav:hover {
+  background-image: url('../../icons/buttons/add-to-favorite/fav-hover.svg');
+}
+
+.add-to-fav:active {
+  background-image: url('../../icons/buttons/add-to-favorite/fav-added.svg');
+}
+
+@media only screen and (max-width: 639px) {
+  .phone-card {
+    height: 440px;
+  }
+  .phone_image {
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .buy-btn {
+    padding: 9px 16px;
+  }
+}
