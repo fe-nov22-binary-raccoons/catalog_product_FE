@@ -1,0 +1,40 @@
+$grid-columns: 24;
+$grid-gutter-width: 16px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 320px,
+  md: 640px,
+  lg: 768px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 320px,
+  md: 640px,
+  lg: 768px,
+  xl: 1200px
+);
+
+@import '~bootstrap/scss/bootstrap';
+
+@include media-breakpoint-up(sm) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
