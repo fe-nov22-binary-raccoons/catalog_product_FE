@@ -1,4 +1,4 @@
-import './footer.scss';
+import './Footer.scss';
 import logo from '../../images/footer/logo.svg';
 import emoji from '../../images/footer/ok-emoji.svg';
 import chevron from '../../images/footer/chevron-top.svg';

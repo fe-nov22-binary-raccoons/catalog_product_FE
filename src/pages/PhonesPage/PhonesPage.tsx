@@ -1,12 +1,11 @@
 import React from 'react';
 import '../page-grid.scss';
-import './Phones.scss';
+import './PhonesPage.scss';
 import phones from './phones.json';
 import { PhoneCard } from '../../components/PhoneCard';
 
-export const Phones: React.FC = () => {
+export const PhonesPage: React.FC = () => {
   return <div className="phones">
-    {/* <Header /> */}
     <div className="container">
       <div className="row">
         <div className="col-24 breadcrumbs">Phones (Breadcrumbs)</div>

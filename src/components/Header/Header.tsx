@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { PageNavLink } from '../PageNavLink/PageNavLink';
+import { PageNavLink } from './PageNavLink/PageNavLink';
 import './Header.scss';
 
 export const Header: React.FC = () => {
