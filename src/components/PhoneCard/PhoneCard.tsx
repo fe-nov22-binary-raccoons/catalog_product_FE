@@ -3,23 +3,15 @@ import { Phone } from '../../types/Phone';
 import './PhoneCard.scss';
 
 type Props = {
-  phone: Phone
+  phone: Phone;
 };
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
-  const {
-    image,
-    name,
-    price,
-    fullPrice,
-    screen,
-    capacity,
-    ram,
-  } = phone;
+  const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
-      <div className="phone-card" >
+      <div className="phone-card">
         <img className="phone_image" src={image} alt="" />
         <p className="phone-card_title">{name}</p>
         <div className="phone-card_price">

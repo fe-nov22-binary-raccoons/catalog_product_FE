@@ -11,7 +11,8 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "classnames": "^2.3.2"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -24,8 +25,7 @@
     "format": "prettier --write . --ignore-path .gitignore",
     "fix-style": "npm run format && npm run lint -- --fix",
     "prepare": "husky install",
-    "stylelint": "npx stylelint",
-    "husky": "node ./node_modules/husky/lib/bin.js"
+    "stylelint": "npx stylelint"
   },
   "eslintConfig": {
     "extends": [
@@ -54,7 +54,6 @@
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
-    "classnames": "^2.3.2",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
