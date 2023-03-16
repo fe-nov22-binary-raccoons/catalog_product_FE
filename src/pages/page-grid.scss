@@ -18,29 +18,23 @@ $container-max-widths: (
 
 @import '~bootstrap/scss/bootstrap';
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-up(sm) {
   .container {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-up(md) {
   .container {
     padding-left: 24px;
     padding-right: 24px;
   }
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-up(xl) {
   .container {
     padding-left: 32px;
     padding-right: 32px;
   }
-}
-
-// needed later to move to phones styles
-.card {
-  height: 506px;
-  border: solid 1px black;
 }
