@@ -45,3 +45,11 @@ section {
   font: inherit;
   vertical-align: baseline;
 }
+
+.heading-1 {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 56px;
+  margin-bottom: 8px;
+  color: $page-primary-color;
+}

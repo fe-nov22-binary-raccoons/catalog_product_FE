@@ -6,17 +6,17 @@ $grid-breakpoints: (
   sm: 320px,
   md: 640px,
   lg: 768px,
-  xl: 1200px
+  xl: 1200px,
 );
 
 $container-max-widths: (
   sm: 320px,
   md: 640px,
   lg: 768px,
-  xl: 1200px
+  xl: 1200px,
 );
 
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 @include media-breakpoint-up(sm) {
   .container {

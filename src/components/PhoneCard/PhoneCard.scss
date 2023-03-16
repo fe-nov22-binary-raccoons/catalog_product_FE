@@ -95,18 +95,18 @@
 }
 
 .add-to-fav {
-  background-image: url('../../icons/buttons/add-to-favorite/fav-default.svg');
+  background-image: url("../../icons/buttons/add-to-favorite/fav-default.svg");
   width: 40px;
   height: 40px;
   transition: background-image 0.5s;
 }
 
 .add-to-fav:hover {
-  background-image: url('../../icons/buttons/add-to-favorite/fav-hover.svg');
+  background-image: url("../../icons/buttons/add-to-favorite/fav-hover.svg");
 }
 
 .add-to-fav:active {
-  background-image: url('../../icons/buttons/add-to-favorite/fav-added.svg');
+  background-image: url("../../icons/buttons/add-to-favorite/fav-added.svg");
 }
 
 @media only screen and (max-width: 639px) {
