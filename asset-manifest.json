@@ -1,14 +1,27 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.073c9b0a.css",
-    "main.js": "/catalog_product_FE/static/js/main.245e65cd.js",
-    "static/media/logo.svg": "/catalog_product_FE/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/catalog_product_FE/static/css/main.77640f7c.css",
+    "main.js": "/catalog_product_FE/static/js/main.0b10a718.js",
+    "static/media/ok-emoji.svg": "/catalog_product_FE/static/media/ok-emoji.cb95806d8b0c5643daa14c9f1ccb6bf3.svg",
+    "static/media/image__emoji.svg": "/catalog_product_FE/static/media/image__emoji.5cf1503df9d705ada7b0.svg",
+    "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
+    "static/media/Mont-SemiBold.otf": "/catalog_product_FE/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
+    "static/media/Mont-Bold.otf": "/catalog_product_FE/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/nice_gadgets.svg": "/catalog_product_FE/static/media/nice_gadgets.9ebfa236e3bbae99ab9a.svg",
+    "static/media/logo.svg": "/catalog_product_FE/static/media/logo.172e94535c8dd9346c4cd0bf00fefd3f.svg",
+    "static/media/bag_icon.svg": "/catalog_product_FE/static/media/bag_icon.df23e4fbb25ff3701b16.svg",
+    "static/media/fav-hover.svg": "/catalog_product_FE/static/media/fav-hover.928c1dbcc26678e35938.svg",
+    "static/media/fav-default.svg": "/catalog_product_FE/static/media/fav-default.0413054780b220861762.svg",
+    "static/media/heart_icon.svg": "/catalog_product_FE/static/media/heart_icon.cc696932b63c19f48776.svg",
+    "static/media/fav-added.svg": "/catalog_product_FE/static/media/fav-added.267c5f154324c7c7ab70.svg",
+    "static/media/menu_icon.svg": "/catalog_product_FE/static/media/menu_icon.73ddde2c093f9fb313b9.svg",
     "index.html": "/catalog_product_FE/index.html",
-    "main.073c9b0a.css.map": "/catalog_product_FE/static/css/main.073c9b0a.css.map",
-    "main.245e65cd.js.map": "/catalog_product_FE/static/js/main.245e65cd.js.map"
+    "static/media/chevron-top.svg": "/catalog_product_FE/static/media/chevron-top.15972dbf9b01c331c56443cc760a80c4.svg",
+    "main.77640f7c.css.map": "/catalog_product_FE/static/css/main.77640f7c.css.map",
+    "main.0b10a718.js.map": "/catalog_product_FE/static/js/main.0b10a718.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.245e65cd.js"
+    "static/css/main.77640f7c.css",
+    "static/js/main.0b10a718.js"
   ]
 }
