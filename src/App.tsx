@@ -4,7 +4,7 @@ import './App.scss';
 
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
-import { Header } from './components/Header/Header';
+import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { PageNotFound } from './pages/PageNotFound';
 import { PhonesPage } from './pages/PhonesPage';
@@ -26,7 +26,7 @@ export const App: React.FC = () => {
         <Route path="tablets" element={<TabletsPage />} />
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="favorites" element={<FavoritesPage />} />
-        <Route path="bag" element={<AccessoriesPage />} />
+        <Route path="cart" element={<AccessoriesPage />} />
       </Routes>
 
       <Footer />

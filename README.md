@@ -1,3 +1,7 @@
+# NICE GADGETS by Binary Raccoons
+
+[DEMO](https://fe-nov22-binary-raccoons.github.io/catalog_product_FE/#/)
+
 ### `npm start`
 
 Runs the app in the development mode.\
