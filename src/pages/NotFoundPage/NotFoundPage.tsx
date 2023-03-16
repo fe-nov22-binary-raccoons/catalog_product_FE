@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import './PageNotFound.scss';
+import './NotFoundPage.scss';
 
 export const PageNotFound: React.FC = () => (
   <div className="page-not-found__block">

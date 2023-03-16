@@ -1,51 +1,49 @@
-// @font-face {
-//   font-family: "Mont";
-//   src: url("../../fonts/Mont/Mont-Trial-Bold.ttf") format("truetype");
-//   font-weight: 800;
-//   font-style: normal;
-// }
-
-// @font-face {
-//   font-family: "Mont";
-//   src: url("../../fonts/Mont/Mont-Trial-Regular.ttf") format("truetype");
-//   font-weight: 700;
-//   font-style: normal;
-// }
+@import "../../styles/variables";
 
 .footer {
   display: flex;
   box-sizing: border-box;
   height: 96px;
   box-shadow: 0 -1px 0 #e2e6e9;
-  padding-left: 32px;
-  padding-right: 32px;
+  margin-top: auto;
 
-  @media (max-width: 639px) {
+  @media (max-width: 640px) {
     height: 257px;
-    padding: 32px 16px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .logo {
-    display: inline-block;
+    display: flex;
+    width: max-content;
     position: relative;
-    height: 31px;
-    width: 89px;
 
     &__emoji {
       position: absolute;
-      bottom: 50%;
-      left: 50%;
+      height: 16.67;
+      width: 12.14;
+      bottom: 47.91%;
+      right: 36.15%;
     }
   }
 
   &__block {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
-    width: 1200px;
+    width: 1136px;
     margin: auto;
+    @media (max-width: 1200px) {
+      width: 720px;
+    }
 
-    @media (max-width: 639px) {
+    @media (max-width: 768px) {
+      width: 592px;
+    }
+
+    @media (max-width: 640px) {
+      width: 288px;
       flex-direction: column;
       align-items: normal;
       height: 100%;
@@ -60,7 +58,11 @@
     position: relative;
     justify-content: space-between;
 
-    @media (max-width: 639px) {
+    @media (max-width: 768px) {
+      width: 35%;
+    }
+
+    @media (max-width: 640px) {
       flex-direction: column;
       height: 30%;
     }
@@ -71,36 +73,38 @@
       line-height: 25px;
       position: relative;
       font-size: 12px;
-      color: #89939a;
-      font-family: "Mont", sans-serif;
-      font-weight: 800;
+      color: $page-secondary-color;
+      font-family: $main-font;
+      font-weight: 700;
       letter-spacing: 0.04em;
       text-decoration: none;
       text-transform: uppercase;
+      transition: color 0.4s ease;
 
-      @media (max-width: 639px) {
+      @media (max-width: 640px) {
         text-align: left;
         line-height: 11px;
         width: fit-content;
       }
 
       &::after {
-        background-color: #f86800;
+        background-color: $page-primary-color;
         display: block;
         opacity: 0;
         position: absolute;
         top: 28px;
         content: "";
-        height: 2px;
+        height: 1px;
         width: 100%;
         border-radius: 8px;
         transition: opacity 0.4s ease;
-        @media (max-width: 639px) {
+        @media (max-width: 640px) {
           top: 14px;
         }
       }
 
       &:hover {
+        color: $page-primary-color;
         &::after {
           opacity: 1;
         }
@@ -114,11 +118,13 @@
   text-decoration: none;
   align-items: center;
   font-size: 12px;
-  color: #89939a;
-  font-family: "Mont", sans-serif;
-  font-weight: 700;
+  color: $page-secondary-color;
+  font-family: $main-font;
+  font-weight: 600;
+  background: none;
+  border: none;
 
-  @media (max-width: 639px) {
+  @media (max-width: 768px) {
     align-self: center;
   }
 
@@ -127,7 +133,7 @@
     height: 32px;
     width: 32px;
     border-radius: 50%;
-    border: 1px solid #b4bdc3;
+    border: 1px solid $page-icons-color;
     transition: border-color 0.4s;
     margin-left: 20px;
 
@@ -144,10 +150,10 @@
   }
 
   &:hover {
-    color: black;
+    color: $page-primary-color;
   }
 
   &:hover &__icon {
-    border-color: black;
+    border-color: $page-primary-color;
   }
 }
