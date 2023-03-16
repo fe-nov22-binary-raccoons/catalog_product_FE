@@ -12,11 +12,11 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
       <div className="phone-card">
-        <img className="phone_image" src={image} alt="" />
+        <img className="phone-card_image" src={image} alt="" />
         <p className="phone-card_title">{name}</p>
         <div className="phone-card_price">
-          <p className="current-price">${price}</p>
-          <p className="old-price">${fullPrice}</p>
+          <p className="phone-card_current-price">${price}</p>
+          <p className="phone-card_old-price">${fullPrice}</p>
         </div>
         <div className="phone-card_descriptions">
           <div className="characteristic">

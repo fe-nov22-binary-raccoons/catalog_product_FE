@@ -1,7 +1,7 @@
-@import "../../App.scss";
+@import "../../index";
 
 .header {
-  box-shadow: 0px 1px 0px $page-elements-color;
+  box-shadow: 0 1px 0 $page-elements-color;
 
   &__top-actions {
     display: flex;
@@ -164,5 +164,5 @@
 }
 
 .icon__container {
-  box-shadow: -1px 0px 0px #e2e6e9;
+  box-shadow: -1px 0 0 #e2e6e9;
 }

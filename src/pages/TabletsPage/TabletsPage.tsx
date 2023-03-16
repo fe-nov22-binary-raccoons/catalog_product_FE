@@ -1,3 +1,3 @@
 export const TabletsPage: React.FC = () => (
-  <h1 className="title">Tablets Page</h1>
+  <h1 className="heading-1">Tablets Page</h1>
 );
