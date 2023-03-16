@@ -1,5 +1,4 @@
-@import "../../styles/variables";
-@import "../../styles/normalize";
+@import "../../index";
 
 .phone-card {
   font-family: $main-font;
@@ -8,50 +7,51 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 32px;
-  height: 506px;
+  height: 440px;
   color: $page-primary-color;
   border: solid 1px $page-elements-color;
   border-radius: 8px;
   transition: box-shadow 0.5s;
-}
 
-.phone-card:hover {
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
 
-.phone_image {
-  align-self: center;
-  max-height: 196px;
-  margin-bottom: 24px;
-}
+  &_image {
+    align-self: center;
+    height: 130px;
+    margin-bottom: 24px;
+  }
 
-.phone-card_title {
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 21px;
-}
+  &_title {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    min-height: 42px;
+  }
 
-.phone-card_price {
-  display: flex;
-  font-size: 22px;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: solid 1px $page-elements-color;
-}
+  &_price {
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px $page-elements-color;
+  }
 
-.current-price {
-  padding-right: 8px;
-  font-weight: 800;
-}
+  &_current-price {
+    padding-right: 8px;
+    font-weight: 800;
+  }
 
-.old-price {
-  color: $page-secondary-color;
-  text-decoration: line-through;
-}
+  &_old-price {
+    color: $page-secondary-color;
+    text-decoration: line-through;
+  }
 
-.phone-card_descriptions {
-  margin-bottom: 16px;
+  &_descriptions {
+    margin-bottom: 16px;
+  }
 }
 
 .characteristic {
@@ -61,10 +61,10 @@
   font-size: 12px;
   font-weight: 700;
   line-height: 15px;
-}
 
-.characteristic-title {
-  color: $page-secondary-color;
+  &-title {
+    color: $page-secondary-color;
+  }
 }
 
 .phone-card_buttons {
@@ -81,17 +81,17 @@
   font-weight: 700;
   font-size: 14px;
   transition: box-shadow 0.5s;
-}
 
-.buy-btn:hover {
-  box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
-}
+  &:hover {
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+  }
 
-.buy-btn:active {
-  box-shadow: none;
-  color: $page-orange-color;
-  border: 1px solid $page-elements-color;
-  background-color: $page-white-color;
+  &:active {
+    box-shadow: none;
+    color: $page-orange-color;
+    border: 1px solid $page-elements-color;
+    background-color: $page-white-color;
+  }
 }
 
 .add-to-fav {
@@ -99,22 +99,33 @@
   width: 40px;
   height: 40px;
   transition: background-image 0.5s;
-}
 
-.add-to-fav:hover {
-  background-image: url("../../icons/buttons/add-to-favorite/fav-hover.svg");
-}
-
-.add-to-fav:active {
-  background-image: url("../../icons/buttons/add-to-favorite/fav-added.svg");
-}
-
-@media only screen and (max-width: 639px) {
-  .phone-card {
-    height: 440px;
+  &:hover {
+    background-image: url("../../icons/buttons/add-to-favorite/fav-hover.svg");
   }
-  .phone_image {
-    height: 130px;
+
+  &:active {
+    background-image: url("../../icons/buttons/add-to-favorite/fav-added.svg");
+  }
+}
+
+@include onTablet {
+  .phone-card {
+    height: 506px;
+
+    &_image {
+      height: 196px;
+    }
+  }
+}
+
+@include onDesktop {
+  .phone-card {
+    height: 506px;
+
+    &_image {
+      height: 196px;
+    }
   }
 }
 

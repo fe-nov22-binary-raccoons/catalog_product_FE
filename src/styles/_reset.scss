@@ -1,12 +1,32 @@
-body {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-ul {
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+article,
+aside,
+footer,
+header,
+menu,
+nav,
+section {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
 }

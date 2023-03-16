@@ -1,3 +1,3 @@
 export const AccessoriesPage: React.FC = () => (
-  <h1 className="title">Accessories Page</h1>
+  <h1 className="heading-1">Accessories Page</h1>
 );
