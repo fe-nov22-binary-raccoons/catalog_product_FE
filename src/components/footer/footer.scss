@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "Mont";
+  src: url("../../fonts/Mont/Mont-Trial-Bold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url("../../fonts/Mont/Mont-Trial-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.footer {
+  display: flex;
+  box-sizing: border-box;
+  height: 96px;
+  box-shadow: 0 -1px 0 #e2e6e9;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media (max-width: 639px) {
+    height: 257px;
+    padding: 32px 16px;
+  }
+
+  .logo {
+    display: inline-block;
+    position: relative;
+    height: 31px;
+    width: 89px;
+
+    &__emoji {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+    }
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+
+    @media (max-width: 639px) {
+      flex-direction: column;
+      align-items: normal;
+      height: 100%;
+    }
+  }
+
+  &__links-block {
+    display: flex;
+    width: 30%;
+    height: 32px;
+    text-align: center;
+    position: relative;
+    justify-content: space-between;
+
+    @media (max-width: 639px) {
+      flex-direction: column;
+      height: 30%;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      line-height: 25px;
+      position: relative;
+      font-size: 12px;
+      color: #89939a;
+      font-family: "Mont", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      @media (max-width: 639px) {
+        text-align: left;
+        line-height: 11px;
+        width: fit-content;
+      }
+
+      &::after {
+        background-color: #f86800;
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 28px;
+        content: "";
+        height: 2px;
+        width: 100%;
+        border-radius: 8px;
+        transition: opacity 0.4s ease;
+        @media (max-width: 639px) {
+          top: 14px;
+        }
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.to-top-btn {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  font-size: 12px;
+  color: #89939a;
+  font-family: "Mont", sans-serif;
+  font-weight: 700;
+
+  @media (max-width: 639px) {
+    align-self: center;
+  }
+
+  &__icon {
+    position: relative;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 1px solid #b4bdc3;
+    transition: border-color 0.4s;
+    margin-left: 20px;
+
+    @media (max-width: 639px) {
+      margin-left: 12px;
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    color: black;
+  }
+
+  &:hover &__icon {
+    border-color: black;
+  }
+}
