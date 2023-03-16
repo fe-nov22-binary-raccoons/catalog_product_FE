@@ -1,34 +1,39 @@
 import './footer.scss';
-import '../../index.scss';
-import { Logo } from './logo/logo';
-import { BackToTopIcon } from './icon/backToTopIcon';
+import logo from '../../images/footer/logo.svg';
+import emoji from '../../images/footer/ok-emoji.svg';
+import chevron from '../../images/footer/chevron-top.svg';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__block">
-        <Logo />
-        <nav className="footer__nav">
-          <ul className="footer__nav__block">
-            <li className="footer__nav__item">
-              <a className="footer__nav__link" href="">
-                github
-              </a>
-            </li>
-            <li className="footer__nav__item">
-              <a className="footer__nav__link" href="">
-                contacts
-              </a>
-            </li>
-            <li className="footer__nav__item">
-              <a className="footer__nav__link" href="">
-                rights
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <a className="logo" href="#home">
+          <img src={logo} className="logo__image" />
+          <img src={emoji} className="logo__emoji" />
+        </a>
 
-        <BackToTopIcon />
+        <div className="footer__links-block">
+          <a
+            className="footer__links-block__link"
+            href="https://github.com/fe-nov22-binary-raccoons"
+          >
+            github
+          </a>
+          <a className="footer__links-block__link" href="">
+            contacts
+          </a>
+
+          <a className="footer__links-block__link" href="">
+            rights
+          </a>
+        </div>
+
+        <a className="to-top-btn" href="#top">
+          Back to top
+          <div className="to-top-btn__icon">
+            <img className="to-top-btn__chevron" src={chevron} />
+          </div>
+        </a>
       </div>
     </footer>
   );
