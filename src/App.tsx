@@ -6,14 +6,14 @@ import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { Header } from './components/Header/Header';
 import { HomePage } from './pages/HomePage';
-import { PageNotFound } from './pages/PageNotFound';
 import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { Footer } from './components/Footer';
+import { PageNotFound } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="flex-wrapper">
       <Header />
 
       <Routes>
