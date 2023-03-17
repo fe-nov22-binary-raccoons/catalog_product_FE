@@ -5,12 +5,28 @@
 
   &__title {
     font-family: "Mont", sans-serif;
-    margin-bottom: 20px;
-    color: #2a2927;
+    color: #a8a8a8;
+    font-size: 45px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 35px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      font-size: 25px;
+    }
   }
 
   &__image {
+    margin-top: 20px;
     height: 100%;
-    max-width: 300px;
+    max-width: 400px;
+
+    @media (max-width: 768px) {
+      max-width: 200px;
+      margin-top: 10px;
+    }
   }
 }
