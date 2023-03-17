@@ -24,7 +24,7 @@ export const PhonesPage: React.FC = () => {
       setIsError(false);
       const phonesFromServer = await getPhones(pageNum, pageSize);
 
-      setPhones(phonesFromServer);
+      setPhones(phonesFromServer.phones);
     } catch (error) {
       setIsError(true);
     }
