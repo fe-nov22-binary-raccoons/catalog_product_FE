@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import './PhoneCard.scss';
 
@@ -7,13 +8,18 @@ type Props = {
 };
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
-  const { image, name, price, fullPrice, screen, capacity, ram } = phone;
+  const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
+    = phone;
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
       <div className="phone-card">
-        <img className="phone-card_image" src={image} alt="" />
-        <p className="phone-card_title">{name}</p>
+        <Link className="phone-card_image-link" to={`/phones/${phoneId}`}>
+          <img className="phone-card_image" src={image} alt={name} />
+        </Link>
+        <Link className="phone-card_title" to={`/phones/${phoneId}`}>
+          {name}
+        </Link>
         <div className="phone-card_price">
           <p className="phone-card_current-price">${price}</p>
           <p className="phone-card_old-price">${fullPrice}</p>

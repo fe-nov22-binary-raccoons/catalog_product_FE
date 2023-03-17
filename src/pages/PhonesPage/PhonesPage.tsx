@@ -12,6 +12,7 @@ export const PhonesPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [pageSize, setPageSize] = useState<number>(16);
   const [pageNum] = useState<number>(1);
+  const [phonesNum, setPhonesNum] = useState<number | null>(null);
 
   const handlePageSize = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPageSize(+event.target.value);
@@ -25,6 +26,7 @@ export const PhonesPage: React.FC = () => {
       const phonesFromServer = await getPhones(pageNum, pageSize);
 
       setPhones(phonesFromServer.phones);
+      setPhonesNum(phonesFromServer.total);
     } catch (error) {
       setIsError(true);
     }
@@ -41,27 +43,30 @@ export const PhonesPage: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-24 breadcrumbs">
-            <img src="src/icons/home.svg" alt="" />
+            {/* <img src="src/icons/home.svg" alt="" /> */}
             Phones (Breadcrumbs)
           </div>
         </div>
         <div className="row">
           <div className="col-24">
             <h1 className="heading-1">Mobile phones</h1>
-            <p className="subtitle">95 models</p>
+            <p className="subtitle">{phonesNum} models</p>
           </div>
         </div>
         <div className="row phones_sort-title">
-          <label className="col-4" htmlFor="sort-select">
+          <label className="col-xl-4 col-lg-4 col-sm-12" htmlFor="sort-select">
             Sort By
           </label>
-          <label className="col-3" htmlFor="amount-select">
+          <label
+            className="col-xl-3 col-lg-4 col-sm-12"
+            htmlFor="amount-select"
+          >
             Items on page
           </label>
         </div>
 
         <div className="row phones_sort">
-          <div className="col-4">
+          <div className="col-xl-4 col-lg-4 col-sm-12">
             <select
               className="col-24 sort-select"
               name="sort-by"
@@ -78,7 +83,7 @@ export const PhonesPage: React.FC = () => {
               </option>
             </select>
           </div>
-          <div className="col-3">
+          <div className="col-xl-3 col-lg-4 col-sm-12">
             <select
               onChange={handlePageSize}
               value={pageSize}
@@ -95,7 +100,7 @@ export const PhonesPage: React.FC = () => {
               <option className="sort-option" selected value="16">
                 16
               </option>
-              <option className="sort-option" value="all">
+              <option className="sort-option" value={`${phonesNum}`}>
                 all
               </option>
             </select>
