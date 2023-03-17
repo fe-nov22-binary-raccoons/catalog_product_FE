@@ -11,6 +11,7 @@
   color: $page-primary-color;
   border: solid 1px $page-elements-color;
   border-radius: 8px;
+  background-color: $page-white-color;
   transition: box-shadow 0.5s;
 
   &:hover {
