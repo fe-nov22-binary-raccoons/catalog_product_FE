@@ -1,5 +1,5 @@
 @mixin onDesktop {
-  @media (min-width: 1024px) {
+  @media (min-width: 1199px) {
     @content;
   }
 }
@@ -8,4 +8,12 @@
   @media (min-width: 640px) {
     @content;
   }
+}
+
+@mixin fontStyles($font-style, $fw, $fs, $lh) {
+  font-family: $main-font;
+  font-style: $font-style;
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
 }
