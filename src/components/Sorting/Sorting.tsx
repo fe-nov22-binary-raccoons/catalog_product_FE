@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { SortBy } from '../../types/SortBy';
 import './Sorting.scss';
 
 type Props = {
@@ -9,9 +10,16 @@ type Props = {
 export const Sorting: React.FC<Props> = ({ total }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageSize = searchParams.get('size') || '16';
+  const sortBy = searchParams.get('sort') || 'age';
 
   const handlePageSize = (event: React.ChangeEvent<HTMLSelectElement>) => {
     searchParams.set('size', event.target.value);
+    searchParams.set('page', '1');
+    setSearchParams(searchParams);
+  };
+
+  const handleSortBy = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    searchParams.set('sort', event.target.value);
     searchParams.set('page', '1');
     setSearchParams(searchParams);
   };
@@ -36,17 +44,19 @@ export const Sorting: React.FC<Props> = ({ total }) => {
       <div className="row phones_sort">
         <div className="col-xl-4 col-lg-8 col-md-8 col-sm-12">
           <select
+            value={sortBy}
             className="col-24 sort-select"
             name="sort-by"
             id="sort-select"
+            onChange={handleSortBy}
           >
-            <option className="sort-option" value="newest">
+            <option className="sort-option" value={SortBy.Newest}>
               Newest
             </option>
-            <option className="sort-option" value="alph">
+            <option className="sort-option" value={SortBy.Alphabet}>
               Alphabet
             </option>
-            <option className="sort-option" value="cheapest">
+            <option className="sort-option" value={SortBy.Cheapest}>
               Cheapest
             </option>
           </select>
