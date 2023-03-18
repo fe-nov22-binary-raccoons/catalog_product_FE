@@ -20,6 +20,16 @@ li {
   list-style: none;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 .heading-1 {
   font-weight: 800;
   font-size: 32px;
