@@ -38,11 +38,9 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
             <p className="characteristic-value">{ram}</p>
           </div>
         </div>
-        <div className="phone-card_buttons">
-          <button className="buy-btn">Add to card</button>
-          <a href="#" className="favorites-btn">
-            <p className="add-to-fav"></p>
-          </a>
+        <div className="buttons">
+          <button className="buttons_buy-btn">Add to card</button>
+          <a href="#" className="buttons_favorites-btn"></a>
         </div>
       </div>
     </div>

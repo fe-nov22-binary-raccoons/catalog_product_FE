@@ -18,9 +18,9 @@ export const Header: React.FC = () => {
           <nav className="header__nav nav">
             <div className="nav__list">
               <PageNavLink to="/" title="Home" />
-              <PageNavLink to="phones" title="Phones" />
-              <PageNavLink to="tablets" title="Tablets" />
-              <PageNavLink to="accessories" title="Accessories" />
+              <PageNavLink to="/products/phones" title="Phones" />
+              <PageNavLink to="/products/tablets" title="Tablets" />
+              <PageNavLink to="/products/accessories" title="Accessories" />
             </div>
           </nav>
         </div>

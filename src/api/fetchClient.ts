@@ -4,7 +4,7 @@ const BASE_URL = 'https://gadgets-catalog.onrender.com/';
 // To have autocompletion and avoid mistypes
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
-function request<T>(
+async function request<T>(
   url: string,
   method: RequestMethod = 'GET',
   data: any = null, // we can send any data to the server
@@ -20,13 +20,20 @@ function request<T>(
   }
 
   // we wait for testing purpose to see loaders
-  return fetch(BASE_URL + url, options).then((response) => {
-    if (!response.ok) {
-      throw new Error();
-    }
+  try {
+    const res = await fetch(BASE_URL + url, options);
 
-    return response.json();
-  });
+    return await res.json();
+  } catch (error) {
+    throw new Error();
+  }
+  // return fetch(BASE_URL + url, options).then((response) => {
+  //   if (!response.ok) {
+  //     throw new Error();
+  //   }
+
+  //   return response.json();
+  // });
 }
 
 export const client = {

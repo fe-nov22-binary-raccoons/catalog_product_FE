@@ -82,48 +82,6 @@
   }
 }
 
-.phone-card_buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.buy-btn {
-  padding: 9px 36px;
-  background-color: $page-orange-color;
-  border: solid 1px $page-orange-color;
-  border-radius: 8px;
-  color: $page-white-color;
-  font-weight: 700;
-  font-size: 14px;
-  transition: box-shadow 0.5s;
-
-  &:hover {
-    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-  }
-
-  &:active {
-    box-shadow: none;
-    color: $page-orange-color;
-    border: 1px solid $page-elements-color;
-    background-color: $page-white-color;
-  }
-}
-
-.add-to-fav {
-  background-image: url("../../icons/buttons/add-to-favorite/fav-default.svg");
-  width: 40px;
-  height: 40px;
-  transition: background-image 0.5s;
-
-  &:hover {
-    background-image: url("../../icons/buttons/add-to-favorite/fav-hover.svg");
-  }
-
-  &:active {
-    background-image: url("../../icons/buttons/add-to-favorite/fav-added.svg");
-  }
-}
-
 @include onTablet {
   .phone-card {
     height: 506px;
