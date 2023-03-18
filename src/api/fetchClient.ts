@@ -23,17 +23,14 @@ async function request<T>(
   try {
     const res = await fetch(BASE_URL + url, options);
 
+    if (!res.ok) {
+      throw new Error(res.status, res.statusText);
+    }
+
     return await res.json();
   } catch (error) {
     throw new Error();
   }
-  // return fetch(BASE_URL + url, options).then((response) => {
-  //   if (!response.ok) {
-  //     throw new Error();
-  //   }
-
-  //   return response.json();
-  // });
 }
 
 export const client = {

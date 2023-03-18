@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 import { getItem } from '../../api/fetchPhones';
@@ -7,7 +7,7 @@ import { Loader } from '../../components/Loader';
 import { PhoneItem } from '../../types/PhoneItem';
 import './ProductPage.scss';
 
-export const ProductPage: React.FC = () => {
+export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
@@ -16,7 +16,7 @@ export const ProductPage: React.FC = () => {
 
   const { phoneId = '' } = useParams();
 
-  const loadPhone = async () => {
+  const loadPhone = useCallback(async () => {
     try {
       const phoneFromServer = await getItem(phoneId);
       const photo = phoneFromServer.images.find((img) => img.includes('00'));
@@ -33,13 +33,13 @@ export const ProductPage: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [phoneId]);
 
   useEffect(() => {
     loadPhone();
   }, [phoneId]);
 
-  const getNewPhoneByParam = (id: string, param: string, value: string) => {
+  const getNewPhoneByParam = useCallback((id: string, param: string, value: string) => {
     const splittedId = id.split('-');
 
     if (param === 'color') {
@@ -57,12 +57,12 @@ export const ProductPage: React.FC = () => {
     }
 
     return `../${idWithNewParams}`;
-  };
+  }, []);
 
-  const isColorSelected = (color: string) =>
-    pathname.split('-').includes(color.toLowerCase());
-  const isCapacitySelected = (capacity: string) =>
-    pathname.split('-').includes(capacity.toLowerCase());
+  const isColorSelected = useCallback((color: string) =>
+    pathname.split('-').includes(color.toLowerCase()), [pathname]);
+  const isCapacitySelected = useCallback((capacity: string) =>
+    pathname.split('-').includes(capacity.toLowerCase()), [pathname]);
 
   return (
     <div className="container product">
@@ -305,4 +305,6 @@ export const ProductPage: React.FC = () => {
       )}
     </div>
   );
-};
+});
+
+ProductPage.displayName = 'ProductPage';

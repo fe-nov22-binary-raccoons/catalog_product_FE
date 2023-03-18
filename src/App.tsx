@@ -30,12 +30,6 @@ export const App: React.FC = () => {
             <Route path="tablets" element={<TabletsPage />} />
             <Route path="accessories" element={<AccessoriesPage />} />
           </Route>
-          {/* <Route path="phones">
-            <Route index element={<PhonesPage />} />
-            <Route path=":phoneId" element={<ItemCardPage />} />
-          </Route>
-          <Route path="tablets" element={<TabletsPage />} />
-          <Route path="accessories" element={<AccessoriesPage />} /> */}
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="cart" element={<AccessoriesPage />} />
         </Routes>
