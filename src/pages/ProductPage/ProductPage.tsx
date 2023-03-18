@@ -39,30 +39,37 @@ export const ProductPage: React.FC = memo(() => {
     loadPhone();
   }, [phoneId]);
 
-  const getNewPhoneByParam = useCallback((id: string, param: string, value: string) => {
-    const splittedId = id.split('-');
+  const getNewPhoneByParam = useCallback(
+    (id: string, param: string, value: string) => {
+      const splittedId = id.split('-');
 
-    if (param === 'color') {
-      splittedId[splittedId.length - 1] = value.toLowerCase();
-    }
+      if (param === 'color') {
+        splittedId[splittedId.length - 1] = value.toLowerCase();
+      }
 
-    if (param === 'capacity') {
-      splittedId[splittedId.length - 2] = value.toLowerCase();
-    }
+      if (param === 'capacity') {
+        splittedId[splittedId.length - 2] = value.toLowerCase();
+      }
 
-    const idWithNewParams = splittedId.join('-');
+      const idWithNewParams = splittedId.join('-');
 
-    if (pathname === idWithNewParams) {
-      return location.pathname;
-    }
+      if (pathname === idWithNewParams) {
+        return location.pathname;
+      }
 
-    return `../${idWithNewParams}`;
-  }, []);
+      return `../${idWithNewParams}`;
+    },
+    [],
+  );
 
-  const isColorSelected = useCallback((color: string) =>
-    pathname.split('-').includes(color.toLowerCase()), [pathname]);
-  const isCapacitySelected = useCallback((capacity: string) =>
-    pathname.split('-').includes(capacity.toLowerCase()), [pathname]);
+  const isColorSelected = useCallback(
+    (color: string) => pathname.split('-').includes(color.toLowerCase()),
+    [pathname],
+  );
+  const isCapacitySelected = useCallback(
+    (capacity: string) => pathname.split('-').includes(capacity.toLowerCase()),
+    [pathname],
+  );
 
   return (
     <div className="container product">

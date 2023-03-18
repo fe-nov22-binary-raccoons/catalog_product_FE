@@ -24,7 +24,7 @@ async function request<T>(
     const res = await fetch(BASE_URL + url, options);
 
     if (!res.ok) {
-      throw new Error(res.status, res.statusText);
+      throw new Error(`${res.status} ${res.statusText}`);
     }
 
     return await res.json();
