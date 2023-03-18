@@ -6,6 +6,7 @@ import { getItem } from '../../api/fetchPhones';
 import { Loader } from '../../components/Loader';
 import { PhoneItem } from '../../types/PhoneItem';
 import './ProductPage.scss';
+import { BackToPrevPage } from '../../components/BackToPrevPage';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -74,17 +75,10 @@ export const ProductPage: React.FC = memo(() => {
   return (
     <div className="container product">
       <div className="row">
-        <div className="col-24 breadcrumbs">
-          <img src="src/icons/home.svg" alt="" />
-          Phones (Breadcrumbs)
-        </div>
+        <div className="col-24 breadcrumbs">Phones (Breadcrumbs)</div>
       </div>
 
-      <div className="row">
-        <div className="col-24 breadcrumbs">
-          <p>Back</p>
-        </div>
-      </div>
+      <BackToPrevPage />
 
       {isLoading && <Loader />}
 
