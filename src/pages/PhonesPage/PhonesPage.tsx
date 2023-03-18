@@ -5,25 +5,26 @@ import { PhoneCard } from '../../components/PhoneCard';
 import { getPhones } from '../../api/fetchPhones';
 import { Phone } from '../../types/Phone';
 import { Loader } from '../../components/Loader';
+import { Pagination } from '../../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
+import { Sorting } from '../../components/Sorting';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [pageSize, setPageSize] = useState<number>(16);
-  const [pageNum] = useState<number>(1);
-  const [phonesNum, setPhonesNum] = useState<number | null>(null);
+  const [phonesNum, setPhonesNum] = useState<number>(0);
 
-  const handlePageSize = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setPageSize(+event.target.value);
-  };
+  const [searchParams] = useSearchParams();
+  const currentPage = searchParams.get('page') || '1';
+  const pageSize = searchParams.get('size') || '16';
 
   const loadPhones = async () => {
     setIsLoading(true);
 
     try {
       setIsError(false);
-      const phonesFromServer = await getPhones(pageNum, pageSize);
+      const phonesFromServer = await getPhones(+currentPage, +pageSize);
 
       setPhones(phonesFromServer.phones);
       setPhonesNum(phonesFromServer.total);
@@ -36,7 +37,7 @@ export const PhonesPage: React.FC = () => {
 
   useEffect(() => {
     loadPhones();
-  }, [pageSize]);
+  }, [pageSize, currentPage]);
 
   return (
     <div className="phones">
@@ -53,61 +54,10 @@ export const PhonesPage: React.FC = () => {
             <p className="subtitle">{phonesNum} models</p>
           </div>
         </div>
-        <div className="row phones_sort-title">
-          <label className="col-xl-4 col-lg-4 col-sm-12" htmlFor="sort-select">
-            Sort By
-          </label>
-          <label
-            className="col-xl-3 col-lg-4 col-sm-12"
-            htmlFor="amount-select"
-          >
-            Items on page
-          </label>
-        </div>
 
-        <div className="row phones_sort">
-          <div className="col-xl-4 col-lg-4 col-sm-12">
-            <select
-              className="col-24 sort-select"
-              name="sort-by"
-              id="sort-select"
-            >
-              <option className="sort-option" value="newest">
-                Newest
-              </option>
-              <option className="sort-option" value="alph">
-                Alphabetically
-              </option>
-              <option className="sort-option" value="cheapest">
-                Cheapest
-              </option>
-            </select>
-          </div>
-          <div className="col-xl-3 col-lg-4 col-sm-12">
-            <select
-              onChange={handlePageSize}
-              value={pageSize}
-              className="col-24 sort-select"
-              name="amount-select"
-              id="amount-select"
-            >
-              <option className="sort-option" value="4">
-                4
-              </option>
-              <option className="sort-option" value="8">
-                8
-              </option>
-              <option className="sort-option" selected value="16">
-                16
-              </option>
-              <option className="sort-option" value={`${phonesNum}`}>
-                all
-              </option>
-            </select>
-          </div>
-        </div>
+        <Sorting total={phonesNum} />
       </div>
-      <div className="container">
+      <div className="container phones-list">
         <div className="row gy-4">
           {!!phones.length
             && !isLoading
@@ -122,12 +72,18 @@ export const PhonesPage: React.FC = () => {
           {!phones.length && !isError && !isLoading && (
             <h2 className="heading-2">There are no phones yet</h2>
           )}
-
-          {/* {phones.map((phone) => (
-            <PhoneCard phone={phone} key={phone.id} />
-          ))} */}
         </div>
       </div>
+
+      {!isLoading && !isError && !!phones.length && (
+        <div className="container">
+          <div className="row">
+            <nav className="pagination-wrap">
+              <Pagination total={phonesNum} pageSize={+pageSize} />
+            </nav>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

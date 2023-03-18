@@ -1,0 +1,96 @@
+@import "../../index";
+
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  width: 248px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  background-color: $page-hover-color;
+  color: $page-primary-color;
+  border: solid 1px $page-elements-color;
+  border-radius: 50%;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: $page-primary-color;
+  }
+
+  &:hover {
+    border-color: $page-primary-color;
+    background-color: $page-hover-color;
+    color: $page-primary-color;
+  }
+
+  &:active {
+    background-color: $page-primary-color;
+    color: $page-white-color;
+    outline: none;
+  }
+}
+
+.arrow-left {
+  background-image: url("../../icons/arrows/arrow-left-bl.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $page-icons-color;
+  transition: background-image 0.3s;
+
+  &:active {
+    background-image: url("../../icons/arrows/arrow-left-wh.svg");
+  }
+}
+
+.arrow-right {
+  background-image: url("../../icons/arrows/arrow-right-bl.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $page-icons-color;
+  transition: background-image 0.3s;
+
+  &:active {
+    background-image: url("../../icons/arrows/arrow-right-wh.svg");
+  }
+}
+
+.page-link.active,
+.active > .page-link {
+  background-color: $page-primary-color;
+  border-color: $page-primary-color;
+  color: $page-white-color;
+  outline: none;
+}
+
+.page-link.disabled,
+.disabled > .arrow-left {
+  background-image: url("../../icons/arrows/arrow-left.svg");
+}
+
+.page-link.disabled,
+.disabled > .arrow-right {
+  background-image: url("../../icons/arrows/arrow-right.svg");
+}
+
+.page-item:last-child .page-link {
+  border-radius: 50%;
+}
+
+.page-item:first-child .page-link {
+  border-radius: 50%;
+}

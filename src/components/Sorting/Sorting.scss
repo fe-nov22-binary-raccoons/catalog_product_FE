@@ -1,0 +1,44 @@
+@import "../../index";
+
+.phones_sort {
+  font-size: 12px;
+  color: $page-secondary-color;
+  margin-bottom: 24px;
+}
+
+.sort-select {
+  padding: 10px 18px 10px 12px;
+  background-color: $page-hover-color;
+  border: 1px solid $page-icons-color;
+  border-radius: 8px;
+  font-family: $main-font;
+  color: $page-primary-color;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  transition: border-color 0.5s;
+
+  background-image: url("../../icons/arrows/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 18px) center;
+
+  &:hover {
+    border-color: $page-secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $page-primary-color;
+  }
+
+  &:active {
+    background-image: url("../../icons/arrows/arrow-up.svg");
+  }
+}
+
+.sort-option {
+  font-size: 14px;
+  color: $page-secondary-color;
+  background-color: $page-white-color;
+}
