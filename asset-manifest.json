@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/catalog_product_FE/static/css/main.b394617a.css",
-    "main.js": "/catalog_product_FE/static/js/main.d8832209.js",
+    "main.js": "/catalog_product_FE/static/js/main.1696ddde.js",
     "static/media/ok-emoji.svg": "/catalog_product_FE/static/media/ok-emoji.cb95806d8b0c5643daa14c9f1ccb6bf3.svg",
     "static/media/image__emoji.svg": "/catalog_product_FE/static/media/image__emoji.5cf1503df9d705ada7b0.svg",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -25,10 +25,10 @@
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.98c9dd6d98b47f2f1977.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.1ea6958a07717117d3d5.svg",
     "main.b394617a.css.map": "/catalog_product_FE/static/css/main.b394617a.css.map",
-    "main.d8832209.js.map": "/catalog_product_FE/static/js/main.d8832209.js.map"
+    "main.1696ddde.js.map": "/catalog_product_FE/static/js/main.1696ddde.js.map"
   },
   "entrypoints": [
     "static/css/main.b394617a.css",
-    "static/js/main.d8832209.js"
+    "static/js/main.1696ddde.js"
   ]
 }
