@@ -1,0 +1,82 @@
+@import "../../styles/variables";
+
+.swiper-box {
+  height: 400px;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+
+.swiper-slide {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.swiperNavNext,
+.swiperNavPrev {
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  border-radius: 48px;
+  border: 1px solid $page-icons-color;
+  cursor: pointer;
+  transition: border-color 0.7s ease;
+}
+
+.swiperNavPrev {
+  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+  transform: rotate(180deg);
+}
+
+.swiperNavNext {
+  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+}
+
+.swiperNavNext:hover {
+  border-color: $page-primary-color;
+}
+
+.swiperNavPrev:hover {
+  border-color: $page-primary-color;
+}
+
+.disabled-right {
+  border: 1px solid $page-elements-color;
+  background-image: url("../../images/bannerSwiper/stroke-right.svg");
+  pointer-events: none;
+}
+
+.disabled-left {
+  border: 1px solid $page-elements-color;
+  pointer-events: none;
+  background-image: url("../../images/bannerSwiper/stroke-right.svg");
+  transform: rotate(180deg);
+}
+
+.bullet {
+  display: inline-block;
+  width: 14px;
+  margin-left: 14px;
+  height: 4px;
+  background: $page-elements-color;
+}
+
+.bullet-active {
+  display: inline-block;
+  height: 4px;
+  width: 14px;
+  background: $page-primary-color;
+}
+
+.swiper-pagination {
+  position: absolute;
+  top: 418px;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
