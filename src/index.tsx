@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import { App } from './App';
 import { HashRouter as Router } from 'react-router-dom';
+import { ThemeProvider } from './test/ThemeProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLDivElement,
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
 );

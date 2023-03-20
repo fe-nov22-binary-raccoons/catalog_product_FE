@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
@@ -11,11 +12,26 @@ import { TabletsPage } from './pages/TabletsPage';
 import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
+import { ThemeContext } from './test/ThemeProvider';
 
 export const App: React.FC = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const lpo = () => {
+    document.querySelector('body')?.setAttribute('data-theme', theme);
+  };
+
+  lpo();
+
   return (
-    <div className="flex-wrapper">
+    <div className="flex-wrapper" id={theme}>
       <Header />
+
+      <input
+        type={'checkbox'}
+        onChange={() => toggleTheme()}
+        checked={theme === 'light'}
+      />
 
       <main className="page-bg">
         <Routes>

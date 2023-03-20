@@ -97,7 +97,7 @@ select::-ms-expand {
     display: block;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid #b4bdc4;
+    border: 1px solid $page-icons-color;
     border-radius: 48px;
     width: 40px;
     transition: background-image 0.5s;
