@@ -53,11 +53,9 @@ export const FavoritesPage: React.FC = () => {
           </div>
 
           {!!products.length && (
-            // <div className="row justify-content-end">
             <div className="col-4 align-self-end">
               <button className="buttons_buy-btn delete-all">Delete all</button>
             </div>
-            //</div>
           )}
         </div>
       </div>
