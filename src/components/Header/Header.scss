@@ -2,6 +2,7 @@
 
 .header {
   box-shadow: 0 1px 0 $page-elements-color;
+  margin-bottom: 32px;
 
   &__top-actions {
     display: flex;
@@ -28,17 +29,17 @@
       padding: 17px 24px;
     }
   }
-}
 
-.header__container {
-  display: flex;
+  &__container {
+    display: flex;
 
-  @include onTablet {
-    gap: 16px;
-  }
+    @include onTablet {
+      gap: 16px;
+    }
 
-  @include onDesktop {
-    gap: 24px;
+    @include onDesktop {
+      gap: 24px;
+    }
   }
 }
 
@@ -47,31 +48,13 @@
     width: 64px;
     height: 20px;
     background-size: contain;
-    background-image: url(../../images/header/nice_gadgets.svg);
+    background-image: url(../../images/header/logo.svg);
     position: relative;
     background-repeat: no-repeat;
 
     @include onDesktop {
       width: 80px;
       height: 30px;
-    }
-
-    &--emoji {
-      background-image: url(../../images/header/image__emoji.svg);
-      position: absolute;
-      background-size: contain;
-      height: 12px;
-      width: 9px;
-      top: 13px;
-      left: 46px;
-      background-repeat: no-repeat;
-
-      @include onDesktop {
-        height: 15px;
-        width: 12px;
-        top: 17px;
-        left: 64px;
-      }
     }
   }
 }
@@ -124,6 +107,34 @@
   }
 }
 
+.counter__number {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 7px;
+  color: $page-white-color;
+  width: 10px;
+  height: 10px;
+  border: 1px solid $page-white-color;
+
+  background-color: $page-blue-color;
+  border-radius: 50px;
+
+  @include onTablet {
+    top: 12px;
+    // line-height: 12px;
+    right: 12px;
+    display: flex;
+  }
+
+  @include onDesktop {
+    top: 20px;
+    right: 20px;
+  }
+}
+
 .icon {
   box-sizing: border-box;
   display: none;
@@ -133,6 +144,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  color: $page-primary-color;
   cursor: pointer;
 
   @include onTablet {
@@ -144,6 +156,11 @@
     margin: 25px;
   }
 
+  &__container {
+    box-shadow: -1px 0 0 #e2e6e9;
+    position: relative;
+  }
+
   &--heart {
     background-image: url(../../images/header/heart_icon.svg);
   }
@@ -152,9 +169,17 @@
     background-image: url(../../images/header/bag_icon.svg);
   }
 
+  &--close {
+    display: block;
+    background-image: url(../../images/header/close_icon.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &--menu {
     display: block;
-    margin: 16px;
     background-image: url(../../images/header/menu_icon.svg);
 
     @include onTablet {
@@ -163,6 +188,10 @@
   }
 }
 
-.icon__container {
-  box-shadow: -1px 0 0 #e2e6e9;
+.is-open {
+  display: block;
+
+  @include onTablet {
+    display: none;
+  }
 }
