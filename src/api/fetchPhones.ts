@@ -3,7 +3,10 @@ import { PhonesList } from '../types/PhonesList';
 import { client } from './fetchClient';
 
 export const getPhones = (
-  productType: string, page = 1, size = 16, sortBy = 'age',
+  productType: string,
+  page = 1,
+  size = 16,
+  sortBy = 'age',
 ) => {
   return client.get<PhonesList>(
     `products?page=${page}&size=${size}&sortBy=${sortBy}&productType=${productType}`,

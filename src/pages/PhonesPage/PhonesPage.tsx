@@ -29,7 +29,10 @@ export const PhonesPage: React.FC = () => {
     try {
       setIsError(false);
       const phonesFromServer = await getPhones(
-        'phones', +currentPage, +pageSize, sortBy,
+        'phones',
+        +currentPage,
+        +pageSize,
+        sortBy,
       );
 
       setPhones(phonesFromServer.products);

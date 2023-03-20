@@ -32,7 +32,7 @@ export const HomePage = () => {
       <div className="row">
         <div className="col-24">
           <h1 className="heading-1 margin-top-50">
-          Welcome to Nice Gadgets store!
+            Welcome to Nice Gadgets store!
           </h1>
         </div>
       </div>
