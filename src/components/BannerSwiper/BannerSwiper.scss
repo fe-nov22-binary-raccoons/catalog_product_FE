@@ -7,7 +7,7 @@
   display: block;
 
   @media (max-width: 1199px) {
-    height: 189px;
+    height: max-content;
   }
 }
 
@@ -23,6 +23,7 @@
 .swiperNavNext,
 .swiperNavPrev {
   background-repeat: no-repeat;
+  height: 100%;
   background-size: auto;
   background-position: center;
   border-radius: 48px;
@@ -37,10 +38,18 @@
 .swiperNavPrev {
   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
   transform: rotate(180deg);
+  @media (max-width: 1200px) {
+    background-position: left;
+    border: none;
+  }
 }
 
 .swiperNavNext {
   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+  @media (max-width: 1200px) {
+    background-position: left;
+    border: none;
+  }
 }
 
 .swiperNavNext:hover {
@@ -51,18 +60,19 @@
   border-color: $page-primary-color;
 }
 
-.disabled-right {
-  border: 1px solid $page-elements-color;
-  background-image: url("../../images/bannerSwiper/stroke-right.svg");
-  pointer-events: none;
-}
+// this code we need for disable buttons if loop=false
+// .disabled-right {
+//   border: 1px solid $page-elements-color;
+//   background-image: url("../../images/bannerSwiper/stroke-right.svg");
+//   pointer-events: none;
+// }
 
-.disabled-left {
-  border: 1px solid $page-elements-color;
-  pointer-events: none;
-  background-image: url("../../images/bannerSwiper/stroke-right.svg");
-  transform: rotate(180deg);
-}
+// .disabled-left {
+//   border: 1px solid $page-elements-color;
+//   pointer-events: none;
+//   background-image: url("../../images/bannerSwiper/stroke-right.svg");
+//   transform: rotate(180deg);
+// }
 
 .bullet {
   display: inline-block;
