@@ -7,8 +7,8 @@ import house from '../../icons/home.svg';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 
 type Props = {
-  name: string | undefined;
-  id: string;
+  name?: string | undefined;
+  id?: string;
 };
 
 export const BreadCrumbs: React.FC<Props> = memo(({ name, id }) => {

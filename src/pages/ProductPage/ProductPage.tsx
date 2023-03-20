@@ -3,7 +3,7 @@ import { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-import { getItem } from '../../api/fetchPhones';
+import { getItem } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
 import { PhoneItem } from '../../types/PhoneItem';
 import './ProductPage.scss';

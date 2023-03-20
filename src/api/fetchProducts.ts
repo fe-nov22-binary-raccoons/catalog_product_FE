@@ -2,7 +2,7 @@ import { PhoneItem } from '../types/PhoneItem';
 import { PhonesList } from '../types/PhonesList';
 import { client } from './fetchClient';
 
-export const getPhones = (
+export const getProducts = (
   productType: string,
   page = 1,
   size = 16,

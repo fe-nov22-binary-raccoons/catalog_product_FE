@@ -1,12 +1,8 @@
 @import "../../index";
 
-.phones {
-  background-color: $page-hover-color;
-}
-
-.gy-4 {
-  --bs-gutter-y: 40px;
-}
+// .products {
+//   background-color: $page-hover-color;
+// }
 
 .breadcrumbs {
   margin-bottom: 40px;
@@ -20,10 +16,8 @@
   color: $page-secondary-color;
 }
 
-.phones_sort-title {
-  font-size: 12px;
-  color: $page-secondary-color;
-  margin-bottom: 4px;
+.gy-4 {
+  --bs-gutter-y: 40px;
 }
 
 .phones-list {

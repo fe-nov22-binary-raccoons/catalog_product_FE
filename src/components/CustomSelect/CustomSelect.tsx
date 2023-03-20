@@ -16,7 +16,7 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
     onChange(value1);
   };
 
-  function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
+  function useOnClickOutside(ref: React.RefObject<HTMLDivElement>) {
     useEffect(() => {
       function handleClickOutside(event: MouseEvent) {
         if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -34,7 +34,7 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
 
   const wrapperRef = useRef(null);
 
-  useOutsideAlerter(wrapperRef);
+  useOnClickOutside(wrapperRef);
 
   return (
     <div ref={wrapperRef} className="custom-select-wrapper">

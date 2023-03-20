@@ -1,30 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
-import './PhoneCard.scss';
+import './ProductCard.scss';
 
 type Props = {
-  phone: Phone;
+  product: Phone;
 };
 
-export const PhoneCard: React.FC<Props> = ({ phone }) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
-    = phone;
+    = product;
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
-      <div className="phone-card">
-        <Link className="phone-card_image-link" to={`${phoneId}`}>
-          <img className="phone-card_image" src={image} alt={name} />
+      <div className="product-card">
+        <Link className="product-card_image-link" to={`${phoneId}`}>
+          <img className="product-card_image" src={image} alt={name} />
         </Link>
-        <Link className="phone-card_title" to={`${phoneId}`}>
+        <Link className="product-card_title" to={`${phoneId}`}>
           {name}
         </Link>
-        <div className="phone-card_price">
-          <p className="phone-card_current-price">${price}</p>
-          <p className="phone-card_old-price">${fullPrice}</p>
+        <div className="product-card_price">
+          <p className="product-card_current-price">${price}</p>
+          <p className="product-card_old-price">${fullPrice}</p>
         </div>
-        <div className="phone-card_descriptions">
+        <div className="product-card_descriptions">
           <div className="characteristic">
             <p className="characteristic-title">Screen</p>
             <p className="characteristic-value">{screen}</p>
