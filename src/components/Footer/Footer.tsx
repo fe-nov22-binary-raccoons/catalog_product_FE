@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__block">
-        <a className="logo" href="/">
+        <a className="logo" href="#/">
           <img src={logo} />
           <img src={emoji} className="logo__emoji" />
         </a>
@@ -27,8 +27,7 @@ export const Footer: React.FC = () => {
           </a>
           <a
             className="footer__links-block__link"
-            href=""
-            target="_blank"
+            href="#/contacts"
             rel="noreferrer"
           >
             contacts
@@ -36,8 +35,7 @@ export const Footer: React.FC = () => {
 
           <a
             className="footer__links-block__link"
-            href=""
-            target="_blank"
+            href="#/rights"
             rel="noreferrer"
           >
             rights
