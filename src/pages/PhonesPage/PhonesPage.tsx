@@ -8,6 +8,9 @@ import { Loader } from '../../components/Loader';
 import { Pagination } from '../../components/Pagination';
 import { useSearchParams } from 'react-router-dom';
 import { Sorting } from '../../components/Sorting';
+import { SortBy } from '../../types/SortBy';
+import { ErrorMessage } from '../../components/ErrorMessage';
+import { ErrorMessages } from '../../types/ErrorMessages';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -18,15 +21,21 @@ export const PhonesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const currentPage = searchParams.get('page') || '1';
   const pageSize = searchParams.get('size') || '16';
+  const sortBy = searchParams.get('sort') || SortBy.Newest;
 
   const loadPhones = async () => {
     setIsLoading(true);
 
     try {
       setIsError(false);
-      const phonesFromServer = await getPhones(+currentPage, +pageSize);
+      const phonesFromServer = await getPhones(
+        'phones',
+        +currentPage,
+        +pageSize,
+        sortBy,
+      );
 
-      setPhones(phonesFromServer.phones);
+      setPhones(phonesFromServer.products);
       setPhonesNum(phonesFromServer.total);
     } catch (error) {
       setIsError(true);
@@ -37,7 +46,12 @@ export const PhonesPage: React.FC = () => {
 
   useEffect(() => {
     loadPhones();
-  }, [pageSize, currentPage]);
+  }, [pageSize, currentPage, sortBy]);
+
+  const showPagination
+    = !isLoading && !isError && !!phones.length && +pageSize !== phonesNum;
+  const showNoPhones = !phones.length && !isError && !isLoading;
+  const showPhoneCards = !!phones.length && !isLoading;
 
   return (
     <div className="phones">
@@ -59,23 +73,20 @@ export const PhonesPage: React.FC = () => {
       </div>
       <div className="container phones-list">
         <div className="row gy-4">
-          {!!phones.length
-            && !isLoading
+          {showPhoneCards
             && phones.map((ph) => <PhoneCard phone={ph} key={ph.id} />)}
 
           {isLoading && <Loader />}
 
           {!phones.length && isError && (
-            <h2 className="heading-2">Something went wrong</h2>
+            <ErrorMessage text={ErrorMessages.OnLoad} />
           )}
 
-          {!phones.length && !isError && !isLoading && (
-            <h2 className="heading-2">There are no phones yet</h2>
-          )}
+          {showNoPhones && <ErrorMessage text={ErrorMessages.OnEmptyData} />}
         </div>
       </div>
 
-      {!isLoading && !isError && !!phones.length && (
+      {showPagination && (
         <div className="container">
           <div className="row">
             <nav className="pagination-wrap">

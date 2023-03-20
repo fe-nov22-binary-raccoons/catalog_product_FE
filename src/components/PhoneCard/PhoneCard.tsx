@@ -14,10 +14,10 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
       <div className="phone-card">
-        <Link className="phone-card_image-link" to={`../phones/${phoneId}`}>
+        <Link className="phone-card_image-link" to={`${phoneId}`}>
           <img className="phone-card_image" src={image} alt={name} />
         </Link>
-        <Link className="phone-card_title" to={`../phones/${phoneId}`}>
+        <Link className="phone-card_title" to={`${phoneId}`}>
           {name}
         </Link>
         <div className="phone-card_price">

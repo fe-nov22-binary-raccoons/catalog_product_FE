@@ -8,12 +8,16 @@ import { FavoritesPage } from './pages/FavoritesPage';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
-import { TabletsPage } from './pages/TabletsPage';
+// import { TabletsPage } from './pages/TabletsPage';
 import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
 import { ThemeContext } from './test/ThemeProvider';
 // import { DarkModeSwitch } from 'react-toggle-dark-mode';
+// import { BannerSwiper } from './components/BannerSwiper';
+import { Contacts } from './pages/Contacts';
+import { Rights } from './pages/Rights';
+import { TabletsPage } from './pages/TabletsPage';
 
 export const App: React.FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -40,22 +44,24 @@ export const App: React.FC = () => {
           <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="products">
+          {/* <Route path="products">
             <Route path="phones">
               <Route index element={<PhonesPage />} />
               <Route path=":phoneId" element={<ProductPage />} />
             </Route>
-            <Route path="tablets" element={<TabletsPage />} />
+            <Route path="tablets" element={<BannerSwiper />} />
             <Route path="accessories" element={<AccessoriesPage />} />
-          </Route>
-          {/* <Route path="phones">
+          </Route> */}
+          <Route path="phones">
             <Route index element={<PhonesPage />} />
-            <Route path=":phoneId" element={<ItemCardPage />} />
+            <Route path=":phoneId" element={<ProductPage />} />
           </Route>
           <Route path="tablets" element={<TabletsPage />} />
-          <Route path="accessories" element={<AccessoriesPage />} /> */}
+          <Route path="accessories" element={<AccessoriesPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="cart" element={<AccessoriesPage />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="rights" element={<Rights />} />
         </Routes>
       </main>
 

@@ -29,9 +29,7 @@ export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
           params={{
             page: String(+currentPage - 1),
           }}
-        >
-          {/* ‹ */}
-        </SearchLink>
+        ></SearchLink>
       </li>
       {pageList.map((page) => (
         <li
@@ -61,9 +59,7 @@ export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
           params={{
             page: String(+currentPage + 1),
           }}
-        >
-          {/* › */}
-        </SearchLink>
+        ></SearchLink>
       </li>
     </ul>
   );

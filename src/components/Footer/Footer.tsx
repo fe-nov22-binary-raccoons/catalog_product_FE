@@ -31,8 +31,7 @@ export const Footer: React.FC = () => {
           </a>
           <a
             className="footer__links-block__link"
-            href=""
-            target="_blank"
+            href="#/contacts"
             rel="noreferrer"
           >
             contacts
@@ -40,8 +39,7 @@ export const Footer: React.FC = () => {
 
           <a
             className="footer__links-block__link"
-            href=""
-            target="_blank"
+            href="#/rights"
             rel="noreferrer"
           >
             rights
