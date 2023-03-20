@@ -2,6 +2,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getItem } from '../../api/fetchPhones';
 import { Loader } from '../../components/Loader';
 import { PhoneItem } from '../../types/PhoneItem';
@@ -23,6 +24,7 @@ export const ProductPage: React.FC = memo(() => {
       const photo = phoneFromServer.images.find((img) => img.includes('00'));
 
       setPhoneItem(phoneFromServer);
+      setIsError(false);
 
       if (photo) {
         setMainPhoto(photo);
@@ -30,6 +32,7 @@ export const ProductPage: React.FC = memo(() => {
         setMainPhoto(phoneFromServer.images[0]);
       }
     } catch (error) {
+      setPhoneItem(null);
       setIsError(true);
     } finally {
       setIsLoading(false);
@@ -74,12 +77,12 @@ export const ProductPage: React.FC = memo(() => {
 
   return (
     <div className="container product">
+      <BreadCrumbs name={phoneItem?.name} id={phoneId} />
       <div className="row">
-        <div className="col-24 breadcrumbs">Phones (Breadcrumbs)</div>
+        <div className="col-24">
+          <p>Back</p>
+        </div>
       </div>
-
-      <BackToPrevPage />
-
       {isLoading && <Loader />}
 
       {isError && <p>Error</p>}
@@ -238,12 +241,12 @@ export const ProductPage: React.FC = memo(() => {
                   <p className="heading-3 product_info-sp-title">About</p>
 
                   {phoneItem.description.map(({ title, text }) => (
-                    <>
+                    <Fragment key={`${title}${text}`}>
                       <p className="heading-4 product_info-sp-subtitle">
                         {title}
                       </p>
                       <p className="product_info-sp-text">{text}</p>
-                    </>
+                    </Fragment>
                   ))}
                 </div>
                 <div className="product_info-sp-block col-xl-11 col-md-24">
