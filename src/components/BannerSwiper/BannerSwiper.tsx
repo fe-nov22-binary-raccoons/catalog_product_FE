@@ -30,16 +30,21 @@ export const BannerSwiper: React.FC = () => {
           prevEl: prevRef.current!,
           nextEl: nextRef.current!,
         }}
-        spaceBetween={50}
+        spaceBetween={10}
         speed={800}
         slidesPerView={1}
+        breakpoints={{
+          640: {
+            spaceBetween: 30,
+          },
+        }}
         pagination={{
           el: '.swiper-pagination',
           clickable: true,
           bulletActiveClass: 'bullet-active',
           bulletClass: 'bullet',
         }}
-        className="banner-swiper col-22"
+        className="banner-swiper col-xl-22 col-md-22 col-sm-24"
         onSlideChange={(swiper) => {
           if (swiper.activeIndex === 0) {
             if (prevRef.current) {
@@ -78,7 +83,7 @@ export const BannerSwiper: React.FC = () => {
         {banners.map((banner) => (
           <SwiperSlide key={banner[1]}>
             <a href="/#/products/phones">
-              <img src={banner[0]} />
+              <img src={banner[0]} className="banner-image" />
             </a>
           </SwiperSlide>
         ))}

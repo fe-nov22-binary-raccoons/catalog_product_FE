@@ -5,6 +5,10 @@
   position: relative;
   box-sizing: border-box;
   display: block;
+
+  @media (max-width: 1199px) {
+    height: 189px;
+  }
 }
 
 .swiper-slide {
@@ -25,6 +29,9 @@
   border: 1px solid $page-icons-color;
   cursor: pointer;
   transition: border-color 0.7s ease;
+  @media (max-width: 640px) {
+    display: none;
+  }
 }
 
 .swiperNavPrev {
@@ -79,4 +86,22 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+
+  @media (max-width: 1199px) {
+    top: 273px;
+  }
+
+  @media (max-width: 767px) {
+    top: 228px;
+  }
+
+  @media (max-width: 640px) {
+    top: 310px;
+  }
+}
+
+.banner-image {
+  @media (max-width: 640px) {
+    content: url("../../images/bannerSwiper/banner-320.png");
+  }
 }
