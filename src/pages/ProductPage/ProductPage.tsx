@@ -1,13 +1,15 @@
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { getItem } from '../../api/fetchPhones';
 import { Loader } from '../../components/Loader';
 import { PhoneItem } from '../../types/PhoneItem';
 import './ProductPage.scss';
+import { BackToPrevPage } from '../../components/BackToPrevPage';
 
-export const ProductPage: React.FC = () => {
+export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
@@ -16,12 +18,13 @@ export const ProductPage: React.FC = () => {
 
   const { phoneId = '' } = useParams();
 
-  const loadPhone = async () => {
+  const loadPhone = useCallback(async () => {
     try {
       const phoneFromServer = await getItem(phoneId);
       const photo = phoneFromServer.images.find((img) => img.includes('00'));
 
       setPhoneItem(phoneFromServer);
+      setIsError(false);
 
       if (photo) {
         setMainPhoto(photo);
@@ -29,56 +32,57 @@ export const ProductPage: React.FC = () => {
         setMainPhoto(phoneFromServer.images[0]);
       }
     } catch (error) {
+      setPhoneItem(null);
       setIsError(true);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [phoneId]);
 
   useEffect(() => {
     loadPhone();
   }, [phoneId]);
 
-  const getNewPhoneByParam = (id: string, param: string, value: string) => {
-    const splittedId = id.split('-');
+  const getNewPhoneByParam = useCallback(
+    (id: string, param: string, value: string) => {
+      const splittedId = id.split('-');
 
-    if (param === 'color') {
-      splittedId[splittedId.length - 1] = value.toLowerCase();
-    }
+      if (param === 'color') {
+        splittedId[splittedId.length - 1] = value.toLowerCase();
+      }
 
-    if (param === 'capacity') {
-      splittedId[splittedId.length - 2] = value.toLowerCase();
-    }
+      if (param === 'capacity') {
+        splittedId[splittedId.length - 2] = value.toLowerCase();
+      }
 
-    const idWithNewParams = splittedId.join('-');
+      const idWithNewParams = splittedId.join('-');
 
-    if (pathname === idWithNewParams) {
-      return location.pathname;
-    }
+      if (pathname === idWithNewParams) {
+        return location.pathname;
+      }
 
-    return `../${idWithNewParams}`;
-  };
+      return `../${idWithNewParams}`;
+    },
+    [],
+  );
 
-  const isColorSelected = (color: string) =>
-    pathname.split('-').includes(color.toLowerCase());
-  const isCapacitySelected = (capacity: string) =>
-    pathname.split('-').includes(capacity.toLowerCase());
+  const isColorSelected = useCallback(
+    (color: string) => pathname.split('-').includes(color.toLowerCase()),
+    [pathname],
+  );
+  const isCapacitySelected = useCallback(
+    (capacity: string) => pathname.split('-').includes(capacity.toLowerCase()),
+    [pathname],
+  );
 
   return (
     <div className="container product">
+      <BreadCrumbs name={phoneItem?.name} id={phoneId} />
       <div className="row">
-        <div className="col-24 breadcrumbs">
-          <img src="src/icons/home.svg" alt="" />
-          Phones (Breadcrumbs)
-        </div>
-      </div>
-
-      <div className="row">
-        <div className="col-24 breadcrumbs">
+        <div className="col-24">
           <p>Back</p>
         </div>
       </div>
-
       {isLoading && <Loader />}
 
       {isError && <p>Error</p>}
@@ -237,12 +241,12 @@ export const ProductPage: React.FC = () => {
                   <p className="heading-3 product_info-sp-title">About</p>
 
                   {phoneItem.description.map(({ title, text }) => (
-                    <>
+                    <Fragment key={`${title}${text}`}>
                       <p className="heading-4 product_info-sp-subtitle">
                         {title}
                       </p>
                       <p className="product_info-sp-text">{text}</p>
-                    </>
+                    </Fragment>
                   ))}
                 </div>
                 <div className="product_info-sp-block col-xl-11 col-md-24">
@@ -305,4 +309,6 @@ export const ProductPage: React.FC = () => {
       )}
     </div>
   );
-};
+});
+
+ProductPage.displayName = 'ProductPage';

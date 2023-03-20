@@ -1,4 +1,6 @@
 import { CategoryCard } from '../../components/CategoryCard';
+import { BannerSwiper } from '../../components/BannerSwiper';
+import './HomePage.scss';
 
 export const HomePage = () => {
   const categories = [
@@ -26,14 +28,17 @@ export const HomePage = () => {
   ];
 
   return (
-    <div className="home-page">
-      <div className="container">
-        <div className="row">
-          <div className="col-24">
-            <h1 className="heading-1">Home Page</h1>
-          </div>
-        </div>
+    <div className="home-page container">
+    <div className="row">
+      <div className="col-24">
+        <h1 className="heading-1 margin-top-50">
+          Welcome to Nice Gadgets store!
+        </h1>
       </div>
+    </div>
+    <div className="row margin-bot-30"></div>
+    <BannerSwiper />
+  </div>
 
       <section className="home-page_categories">
         <div className="container">
@@ -54,5 +59,3 @@ export const HomePage = () => {
         </div>
       </section>
     </div>
-  );
-};
