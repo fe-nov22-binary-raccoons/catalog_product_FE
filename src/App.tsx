@@ -13,9 +13,10 @@ import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
 import { ThemeContext } from './test/ThemeProvider';
+// import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 export const App: React.FC = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const lpo = () => {
     document.querySelector('body')?.setAttribute('data-theme', theme);
@@ -27,11 +28,12 @@ export const App: React.FC = () => {
     <div className="flex-wrapper" id={theme}>
       <Header />
 
-      <input
-        type={'checkbox'}
-        onChange={() => toggleTheme()}
+      {/* <DarkModeSwitch
+        style={{ marginBottom: '2rem', backgroundColor: '#F86800', borderRadius: '50%', padding: '2px' }}
         checked={theme === 'light'}
-      />
+        onChange={toggleTheme}
+        size={30}
+      /> */}
 
       <main className="page-bg">
         <Routes>

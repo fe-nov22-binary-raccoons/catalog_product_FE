@@ -1,23 +1,23 @@
 import './Footer.scss';
-import emoji from '../../images/footer/ok-emoji.svg';
-import logo from '../../images/footer/nice-gadgets.svg';
-import { ReactComponent as Logo } from '../../icons/arrows/arrow-left.svg';
-// import { useContext } from 'react';
-// import { ThemeContext } from '../../test/ThemeProvider';
+import { ReactComponent as LogoEmoji } from '../../images/footer/ok-emoji.svg';
+import { ReactComponent as Logo } from '../../images/footer/nice-gadgets.svg';
+import { ReactComponent as BackToTop } from '../../icons/arrows/arrow-up.svg';
+import { useContext } from 'react';
+import { ThemeContext } from '../../test/ThemeProvider';
 
 export const Footer: React.FC = () => {
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // const { iconColor } = useContext(ThemeContext);
+  const { iconColor } = useContext(ThemeContext);
 
   return (
     <footer className="footer">
       <div className="footer__block">
         <a className="logo" href="/">
-          <img src={logo} />
-          <img src={emoji} className="logo__emoji" />
+          <Logo fill={iconColor} />
+          <LogoEmoji />
         </a>
 
         <div className="footer__links-block">
@@ -51,8 +51,7 @@ export const Footer: React.FC = () => {
         <button className="to-top-btn" onClick={scrollToTop}>
           Back to top
           <div className="to-top-btn__icon">
-            {/* <span className="to-top-btn__chevron" /> */}
-            <Logo />
+            <BackToTop fill={iconColor} />
           </div>
         </button>
       </div>
