@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { memo, useCallback, useEffect, useState } from 'react';
+import { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
@@ -80,7 +80,7 @@ export const ProductPage: React.FC = memo(() => {
       <BreadCrumbs name={phoneItem?.name} id={phoneId} />
       <div className="row">
         <div className="col-24">
-          <p>Back</p>
+          <BackToPrevPage />
         </div>
       </div>
       {isLoading && <Loader />}

@@ -1,7 +1,7 @@
 import { Phone } from './Phone';
 
 export interface PhonesList {
-  phones: Phone[];
+  products: Phone[];
   total: number;
   page: number;
   size: number;

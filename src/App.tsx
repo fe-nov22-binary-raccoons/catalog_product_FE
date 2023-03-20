@@ -11,9 +11,10 @@ import { PhonesPage } from './pages/PhonesPage';
 import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
-import { BannerSwiper } from './components/BannerSwiper';
+// import { BannerSwiper } from './components/BannerSwiper';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
+import { TabletsPage } from './pages/TabletsPage';
 
 export const App: React.FC = () => {
   return (
