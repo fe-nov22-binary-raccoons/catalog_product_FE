@@ -1,34 +1,41 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.b394617a.css",
-    "main.js": "/catalog_product_FE/static/js/main.17e32076.js",
+    "main.css": "/catalog_product_FE/static/css/main.70eb3e50.css",
+    "main.js": "/catalog_product_FE/static/js/main.f79af1e7.js",
     "static/media/ok-emoji.svg": "/catalog_product_FE/static/media/ok-emoji.cb95806d8b0c5643daa14c9f1ccb6bf3.svg",
     "static/media/image__emoji.svg": "/catalog_product_FE/static/media/image__emoji.5cf1503df9d705ada7b0.svg",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog_product_FE/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/catalog_product_FE/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/Banner.png": "/catalog_product_FE/static/media/Banner.71e7e0917555f044d60b.png",
+    "static/media/Banner2.png": "/catalog_product_FE/static/media/Banner2.71e7e0917555f044d60b.png",
+    "static/media/Banner3.png": "/catalog_product_FE/static/media/Banner3.71e7e0917555f044d60b.png",
+    "static/media/banner-320.png": "/catalog_product_FE/static/media/banner-320.5ab4e0f94787219dc791.png",
     "static/media/nice-gadgets.svg": "/catalog_product_FE/static/media/nice-gadgets.dd642ac9ef3c35d3a8b15f1cf22015ed.svg",
     "static/media/nice_gadgets.svg": "/catalog_product_FE/static/media/nice_gadgets.9ebfa236e3bbae99ab9a.svg",
     "static/media/bag_icon.svg": "/catalog_product_FE/static/media/bag_icon.df23e4fbb25ff3701b16.svg",
     "static/media/favorite-btn.svg": "/catalog_product_FE/static/media/favorite-btn.fbe27f369fe787a4547a.svg",
     "static/media/heart_icon.svg": "/catalog_product_FE/static/media/heart_icon.cc696932b63c19f48776.svg",
+    "static/media/home.svg": "/catalog_product_FE/static/media/home.9a24a70540404ccecd05fd9f900ddeeb.svg",
     "static/media/favorite-btn-active.svg": "/catalog_product_FE/static/media/favorite-btn-active.74bfb93a9a92c37617b1.svg",
     "static/media/menu_icon.svg": "/catalog_product_FE/static/media/menu_icon.73ddde2c093f9fb313b9.svg",
     "index.html": "/catalog_product_FE/index.html",
     "static/media/arrow-right-bl.svg": "/catalog_product_FE/static/media/arrow-right-bl.bf3a1891ec880be9db05.svg",
+    "static/media/stroke-right-dark.svg": "/catalog_product_FE/static/media/stroke-right-dark.bf3a1891ec880be9db05.svg",
+    "static/media/stroke-right.svg": "/catalog_product_FE/static/media/stroke-right.2a072ff1bf1fd396b30e.svg",
     "static/media/arrow-right-wh.svg": "/catalog_product_FE/static/media/arrow-right-wh.e23937e4bbae227c749c.svg",
-    "static/media/arrow-left-bl.svg": "/catalog_product_FE/static/media/arrow-left-bl.0b08164152d124b68b1d.svg",
+    "static/media/arrow-left-bl.svg": "/catalog_product_FE/static/media/arrow-left-bl.0b08164152d124b68b1db8ba6716975f.svg",
     "static/media/arrow-left-wh.svg": "/catalog_product_FE/static/media/arrow-left-wh.325ae91378276b354771.svg",
     "static/media/chevron-top.svg": "/catalog_product_FE/static/media/chevron-top.15972dbf9b01c331c56443cc760a80c4.svg",
     "static/media/arrow-left.svg": "/catalog_product_FE/static/media/arrow-left.7460d67936be8c4491a8.svg",
-    "static/media/arrow-right.svg": "/catalog_product_FE/static/media/arrow-right.e028d3889646e0b5e56c.svg",
+    "static/media/arrow-right.svg": "/catalog_product_FE/static/media/arrow-right.e028d3889646e0b5e56cf54f47bb701a.svg",
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.98c9dd6d98b47f2f1977.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.1ea6958a07717117d3d5.svg",
-    "main.b394617a.css.map": "/catalog_product_FE/static/css/main.b394617a.css.map",
-    "main.17e32076.js.map": "/catalog_product_FE/static/js/main.17e32076.js.map"
+    "main.70eb3e50.css.map": "/catalog_product_FE/static/css/main.70eb3e50.css.map",
+    "main.f79af1e7.js.map": "/catalog_product_FE/static/js/main.f79af1e7.js.map"
   },
   "entrypoints": [
-    "static/css/main.b394617a.css",
-    "static/js/main.17e32076.js"
+    "static/css/main.70eb3e50.css",
+    "static/js/main.f79af1e7.js"
   ]
 }
