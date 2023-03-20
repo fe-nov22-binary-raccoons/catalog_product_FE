@@ -1,7 +1,13 @@
 @import "../../index";
 
-.phones_sort {
+.products_sort {
   font-size: 12px;
   color: $page-secondary-color;
   margin-bottom: 24px;
+}
+
+.products_sort-title {
+  font-size: 12px;
+  color: $page-secondary-color;
+  margin-bottom: 4px;
 }

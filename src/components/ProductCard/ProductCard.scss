@@ -1,6 +1,6 @@
 @import "../../index";
 
-.phone-card {
+.product-card {
   font-family: $main-font;
   display: flex;
   flex-direction: column;
@@ -83,7 +83,7 @@
 }
 
 @include onTablet {
-  .phone-card {
+  .product-card {
     height: 506px;
 
     &_image {
@@ -93,7 +93,7 @@
 }
 
 @include onDesktop {
-  .phone-card {
+  .product-card {
     height: 506px;
 
     &_image {
@@ -107,7 +107,7 @@
     padding: 9px 16px;
   }
 
-  .phone-card_image {
+  .product-card_image {
     height: 165px;
   }
 }
