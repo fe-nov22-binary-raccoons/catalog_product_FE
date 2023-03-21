@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
@@ -13,11 +14,20 @@ import { MenuPage } from './pages/MenuPage';
 import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
+import { ThemeContext } from './components/ThemeProvider/ThemeProvider';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
 import { TabletsPage } from './pages/TabletsPage';
 
 export const App: React.FC = () => {
+  const { theme } = useContext(ThemeContext);
+
+  const addThemeAttribute = () => {
+    document.querySelector('body')?.setAttribute('data-theme', theme);
+  };
+
+  addThemeAttribute();
+
   return (
     <div className="flex-wrapper">
       <Header />

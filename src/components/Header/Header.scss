@@ -30,6 +30,23 @@
     }
   }
 
+  &__theme-switch {
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e2e6e9;
+    }
+
+    @include onTablet {
+      margin-right: 0;
+    }
+  }
+}
+
   &__container {
     display: flex;
 
@@ -47,14 +64,26 @@
   &__image {
     width: 64px;
     height: 20px;
-    background-size: contain;
-    background-image: url(../../images/header/logo.svg);
     position: relative;
-    background-repeat: no-repeat;
 
     @include onDesktop {
       width: 80px;
       height: 30px;
+    }
+
+    &--emoji {
+      position: absolute;
+      height: 12px;
+      width: 9px;
+      top: 13px;
+      left: 46px;
+
+      @include onDesktop {
+        height: 15px;
+        width: 12px;
+        top: 17px;
+        left: 64px;
+      }
     }
   }
 }
@@ -135,9 +164,6 @@
   width: 16px;
   height: 16px;
   position: relative;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   color: $page-primary-color;
   cursor: pointer;
 
@@ -152,15 +178,6 @@
 
   &__container {
     box-shadow: -1px 0 0 #e2e6e9;
-  }
-
-  &--heart {
-    background-image: url(../../images/header/heart_icon.svg);
-    position: relative;
-  }
-
-  &--bag {
-    background-image: url(../../images/header/bag_icon.svg);
   }
 
   &--close {
@@ -181,6 +198,9 @@
     }
   }
 }
+
+.icon__container {
+  box-shadow: -1px 0 0 $page-elements-color;
 
 .is-open {
   display: block;

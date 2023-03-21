@@ -1,9 +1,15 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getNumbers } from '../../utils/paginationHelper';
 import { SearchLink } from '../SearchLink';
+
+import { ReactComponent as ArrowLeft } from '../../icons/arrows/arrow-left.svg';
+import {
+  ReactComponent as ArrowRight,
+} from '../../icons/arrows/arrow-right.svg';
 import './Pagination.scss';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 type Props = {
   total: number;
@@ -11,6 +17,7 @@ type Props = {
 };
 
 export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
+  const { iconColor } = useContext(ThemeContext);
   const [searchParams] = useSearchParams();
   const currentPage = searchParams.get('page') || '1';
   const lastPage = Math.ceil(total / pageSize);
@@ -32,7 +39,9 @@ export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
                 params={{
                   page: String(+currentPage - 1),
                 }}
-              ></SearchLink>
+              >
+                <ArrowLeft fill={iconColor} />
+              </SearchLink>
             </li>
             {pageList.map((page) => (
               <li
@@ -62,7 +71,9 @@ export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
                 params={{
                   page: String(+currentPage + 1),
                 }}
-              ></SearchLink>
+              >
+                <ArrowRight fill={iconColor} />
+              </SearchLink>
             </li>
           </ul>
         </nav>

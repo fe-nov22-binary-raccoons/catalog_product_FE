@@ -1,12 +1,20 @@
 @import "../../index";
 
-.breadcrumbs_button-text {
-  margin-left: 10px;
-  @include fontStyles(normal, 700, 12px, 15px);
-  color: $page-secondary-color;
-  transition: color 0.3s;
+.back-to-prev {
+  margin-bottom: 16px;
 
-  &:hover {
-    color: $page-primary-color;
+  &_button {
+    display: flex;
+  }
+
+  &_button-text {
+    margin-left: 10px;
+    @include fontStyles(normal, 700, 12px, 12px);
+    color: $page-secondary-color;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $page-primary-color;
+    }
   }
 }
