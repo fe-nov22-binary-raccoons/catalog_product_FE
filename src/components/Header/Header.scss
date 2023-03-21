@@ -47,15 +47,16 @@
   }
 }
 
-.header__container {
-  display: flex;
+  &__container {
+    display: flex;
 
-  @include onTablet {
-    gap: 16px;
-  }
+    @include onTablet {
+      gap: 16px;
+    }
 
-  @include onDesktop {
-    gap: 24px;
+    @include onDesktop {
+      gap: 24px;
+    }
   }
 }
 
@@ -104,6 +105,10 @@
     text-transform: uppercase;
     text-decoration: none;
 
+    &:hover {
+      color: $page-primary-color;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -135,15 +140,41 @@
   }
 }
 
+.counter__number {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 7px;
+  color: $page-white-color;
+  width: 10px;
+  height: 10px;
+  border: 1px solid $page-white-color;
+
+  background-color: $page-blue-color;
+  border-radius: 50px;
+
+  @include onTablet {
+    top: 12px;
+    // line-height: 12px;
+    right: 12px;
+    display: flex;
+  }
+
+  @include onDesktop {
+    top: 20px;
+    right: 20px;
+  }
+}
+
 .icon {
   box-sizing: border-box;
   display: none;
   width: 16px;
   height: 16px;
   position: relative;
-  // background-size: contain;
-  // background-position: center;
-  // background-repeat: no-repeat;
+  color: $page-primary-color;
   cursor: pointer;
 
   @include onTablet {
@@ -155,17 +186,22 @@
     margin: 25px;
   }
 
-  // &--heart {
-  //   background-image: url(../../images/header/heart_icon.svg);
-  // }
+  &__container {
+    box-shadow: -1px 0 0 #e2e6e9;
+    position: relative;
+  }
 
-  // &--bag {
-  //   background-image: url(../../images/header/bag_icon.svg);
-  // }
+  &--close {
+    display: block;
+    background-image: url(../../images/header/close_icon.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
 
   &--menu {
     display: block;
-    margin: 16px;
     background-image: url(../../images/header/menu_icon.svg);
 
     @include onTablet {
@@ -176,4 +212,11 @@
 
 .icon__container {
   box-shadow: -1px 0 0 $page-elements-color;
+
+.is-open {
+  display: block;
+
+  @include onTablet {
+    display: none;
+  }
 }
