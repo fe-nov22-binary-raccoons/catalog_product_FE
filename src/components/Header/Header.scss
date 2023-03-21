@@ -141,31 +141,21 @@
 }
 
 .counter__number {
-  display: none;
   position: absolute;
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  font-size: 7px;
+  font-size: 10px;
   color: $page-white-color;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border: 1px solid $page-white-color;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
 
   background-color: $page-blue-color;
   border-radius: 50px;
-
-  @include onTablet {
-    top: 12px;
-    // line-height: 12px;
-    right: 12px;
-    display: flex;
-  }
-
-  @include onDesktop {
-    top: 20px;
-    right: 20px;
-  }
 }
 
 .icon {
@@ -188,7 +178,6 @@
 
   &__container {
     box-shadow: -1px 0 0 #e2e6e9;
-    position: relative;
   }
 
   &--close {
