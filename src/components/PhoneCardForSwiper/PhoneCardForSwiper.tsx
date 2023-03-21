@@ -13,10 +13,10 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="phone-card-swiper">
-      <Link className="phone-card-swiper_image-link" to={`${phoneId}`}>
+      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`}>
         <img className="phone-card-swiper_image" src={image} alt={name} />
       </Link>
-      <Link className="phone-card-swiper_title" to={`${phoneId}`}>
+      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`}>
         {name}
       </Link>
       <div className="phone-card-swiper_price">

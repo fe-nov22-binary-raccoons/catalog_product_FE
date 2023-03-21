@@ -4,19 +4,53 @@
   height: 400px;
   position: relative;
   box-sizing: border-box;
-  display: block;
+  width: 1139px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 
-  @media (max-width: 1199px) {
-    height: max-content;
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    height: 189px;
+    width: 720px;
+  }
+
+  @media (max-width: 768px) {
+    width: 592px;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
 }
 
-.swiper-slide {
-  img {
+.slides-box {
+  width: 1043px;
+  height: 400px;
+
+  @media (max-width: 1200px) {
+    width: 618px;
+    height: 238px;
+  }
+
+  @media (max-width: 768px) {
+    width: 490px;
+    height: 189px;
+  }
+
+  @media (max-width: 640px) {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
   }
 }
 
@@ -26,31 +60,27 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 32px;
+  background-size: auto;
+  background-position: center;
   border-radius: 48px;
   border: 1px solid $page-icons-color;
   cursor: pointer;
   transition: border-color 0.7s ease;
-  @media (max-width: 640px) {
+  @media (max-width: 639px) {
     display: none;
   }
 }
 
-// .swiperNavPrev {
-//   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-//   transform: rotate(180deg);
-// @media (max-width: 1200px) {
-//   background-position: left;
-//   border: none;
-// }
-// }
 
-// .swiperNavNext {
-//   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-//   @media (max-width: 1200px) {
-//     background-position: left;
-//     border: none;
-//   }
-// }
+.swiperNavPrev {
+  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+  transform: rotate(180deg);
+}
+
+.swiperNavNext {
+  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+}
 
 .swiperNavNext:hover {
   border-color: $page-primary-color;
@@ -59,20 +89,6 @@
 .swiperNavPrev:hover {
   border-color: $page-primary-color;
 }
-
-// this code we need for disable buttons if loop=false
-// .disabled-right {
-//   border: 1px solid $page-elements-color;
-//   // background-image: url("../../images/bannerSwiper/stroke-right.svg");
-//   pointer-events: none;
-// }
-
-// .disabled-left {
-//   border: 1px solid $page-elements-color;
-//   pointer-events: none;
-//   // background-image: url("../../images/bannerSwiper/stroke-right.svg");
-//   // transform: rotate(180deg);
-// }
 
 .bullet {
   display: inline-block;
@@ -90,27 +106,18 @@
 }
 
 .swiper-pagination {
-  position: absolute;
-  top: 418px;
-  height: max-content;
+  position: static !important;
+  // height: max-content;
   display: flex;
   justify-content: center;
   cursor: pointer;
-
-  @media (max-width: 1199px) {
-    top: 273px;
-  }
-
-  @media (max-width: 767px) {
-    top: 228px;
-  }
-
-  @media (max-width: 640px) {
-    top: 310px;
-  }
 }
 
 .banner-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
   @media (max-width: 640px) {
     content: url("../../images/bannerSwiper/banner-320.png");
   }

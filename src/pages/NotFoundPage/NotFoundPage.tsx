@@ -1,12 +1,17 @@
-/* eslint-disable max-len */
 import './NotFoundPage.scss';
 
 export const PageNotFound: React.FC = () => (
-  <div className="page-not-found__block">
-    <h1 className="page-not-found__block__title">Page not found</h1>
-    <img
-      className="page-not-found__block__image"
-      src="https://i.pinimg.com/originals/fc/c7/f1/fcc7f1a702b158a9125831f1c0a400b9.jpg"
-    />
+  <div className="not-found-page container">
+    <div className="row">
+      <div className="col-24 ">
+        <h1 className="heading-2">Page not found</h1>
+      </div>
+
+      <a href="#/">
+        <div className="buttons_buy-btn back_home-btn reload-btn">
+          Back to Home
+        </div>
+      </a>
+    </div>
   </div>
 );

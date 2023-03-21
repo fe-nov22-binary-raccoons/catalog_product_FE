@@ -1,11 +1,16 @@
-import './Contacts.scss';
+import underConstruction from '../../images/under-construction.png';
 
 export const Contacts = () => (
   <div className="container">
     <div className="row">
-      <div className="col-24">
-        <h1 className="heading-1 margin-top-50">Contacts</h1>
-      </div>
+      <h1 className="heading-1 col-24" style={{ marginBottom: '60px' }}>
+        Contacts
+      </h1>
+      <img
+        className="col-18"
+        src={underConstruction}
+        alt="under-construction"
+      />
     </div>
   </div>
 );
