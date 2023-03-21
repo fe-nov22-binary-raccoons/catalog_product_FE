@@ -14,7 +14,7 @@
   --page-white-color: #fff;
 }
 
-#dark {
+[data-theme="dark"] {
   --page-hover-color: #0f1121;
   --page-primary-color: #f1f2f9;
   --page-orange-color: #905bff;
@@ -24,10 +24,6 @@
   --page-elements-color: #323542;
   --page-white-color: #0f1121;
 }
-
-// #dark .to-top-btn__chevron {
-//   background-image: url(./icons/home.svg);
-// }
 
 @font-face {
   font-family: "Mont";

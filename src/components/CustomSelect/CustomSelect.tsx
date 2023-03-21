@@ -1,9 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { CustomSelectProps } from '../../types/CustomSelectProps';
 import './CustomSelect.scss';
 
+import { ReactComponent as ArrowDown } from '../../icons/arrows/arrow-down.svg';
+import { ThemeContext } from '../../test/ThemeProvider';
+
 export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { iconColor } = useContext(ThemeContext);
 
   const selectedLabel = options.find((option) => option.value === value)?.label;
 
@@ -43,7 +47,12 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
         onClick={handleClick}
         tabIndex={0}
       >
-        <div className="selected-option">{selectedLabel}</div>
+        <div className="selected-option">
+          {selectedLabel}
+        </div>
+        <ArrowDown
+          fill={iconColor === '#0f0f11' ? '#b4bdc4' : '#4a4d58'}
+          className={isOpen ? 'select-icon' : ''} />
       </div>
       {isOpen && (
         <div className="options-wrapper">

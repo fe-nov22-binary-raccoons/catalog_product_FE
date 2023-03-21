@@ -11,6 +11,7 @@ import { Sorting } from '../../components/Sorting';
 import { SortBy } from '../../types/SortBy';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -58,8 +59,7 @@ export const PhonesPage: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-24 breadcrumbs">
-            {/* <img src="src/icons/home.svg" alt="" /> */}
-            Phones (Breadcrumbs)
+            <BreadCrumbs />
           </div>
         </div>
         <div className="row">

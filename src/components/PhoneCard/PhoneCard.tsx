@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
+
+import {
+  ReactComponent as HeartIcon,
+} from '../../icons/buttons/add-to-favorite/favorite-btn.svg';
+import {
+  ReactComponent as HeartIconActive,
+} from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './PhoneCard.scss';
+import { ThemeContext } from '../../test/ThemeProvider';
 
 type Props = {
   phone: Phone;
 };
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { iconColor } = useContext(ThemeContext);
   const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
     = phone;
+
+  const handleFavorite = useCallback(() => {
+    setIsFavorite(!isFavorite);
+  }, [isFavorite]);
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
@@ -40,7 +54,14 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
         </div>
         <div className="buttons">
           <button className="buttons_buy-btn">Add to card</button>
-          <a href="#" className="buttons_favorites-btn"></a>
+          {/* <a href="#" className="buttons_favorites-btn"></a> */}
+          <button className="buttons_favorites-btn" onClick={handleFavorite}>
+            {!isFavorite ? (
+              <HeartIcon fill={iconColor} />
+            ) : (
+              <HeartIconActive fill="#476df4" />
+            )}
+          </button>
         </div>
       </div>
     </div>

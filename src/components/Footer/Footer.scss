@@ -139,25 +139,12 @@
     transition: border-color 0.4s;
     margin-left: 20px;
 
+    &:hover {
+      border-color: $page-primary-color;
+    }
+
     @media (max-width: 639px) {
       margin-left: 12px;
     }
   }
-
-  // &__chevron {
-  //   background-image: url(../../icons/home.svg);
-  //   width: 100%;
-  //   display: block;
-  //   height: 100%;
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  // }
-
-  // &:hover {
-  //   color: $page-primary-color;
-  // }
-
-  // &:hover &__icon {
-  //   border-color: $page-primary-color;
-  // }
 }

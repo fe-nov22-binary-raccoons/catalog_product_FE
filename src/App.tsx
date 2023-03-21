@@ -22,22 +22,15 @@ import { TabletsPage } from './pages/TabletsPage';
 export const App: React.FC = () => {
   const { theme } = useContext(ThemeContext);
 
-  const lpo = () => {
+  const addThemeAttribute = () => {
     document.querySelector('body')?.setAttribute('data-theme', theme);
   };
 
-  lpo();
+  addThemeAttribute();
 
   return (
-    <div className="flex-wrapper" id={theme}>
+    <div className="flex-wrapper">
       <Header />
-
-      {/* <DarkModeSwitch
-        style={{ marginBottom: '2rem', backgroundColor: '#F86800', borderRadius: '50%', padding: '2px' }}
-        checked={theme === 'light'}
-        onChange={toggleTheme}
-        size={30}
-      /> */}
 
       <main className="page-bg">
         <Routes>

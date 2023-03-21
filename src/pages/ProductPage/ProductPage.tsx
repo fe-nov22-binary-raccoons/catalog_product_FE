@@ -1,21 +1,39 @@
 /* eslint-disable max-len */
-import { Fragment, memo, useCallback, useEffect, useState } from 'react';
+import {
+  Fragment,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
+
+
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-import { getItem } from '../../api/fetchPhones';
 import { Loader } from '../../components/Loader';
-import { PhoneItem } from '../../types/PhoneItem';
-import './ProductPage.scss';
 import { BackToPrevPage } from '../../components/BackToPrevPage';
+
+import { getItem } from '../../api/fetchPhones';
+import { PhoneItem } from '../../types/PhoneItem';
+
+import { ReactComponent as HeartIcon } from '../../icons/buttons/add-to-favorite/favorite-btn.svg';
+import { ReactComponent as HeartIconActive } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
+import './ProductPage.scss';
+import { ThemeContext } from '../../test/ThemeProvider';
+// import { Color, colors } from '../../types/Colors';
+import { colorCollection } from '../../utils/colorCollection';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
   const [mainPhoto, setMainPhoto] = useState<string>('');
-  const { pathname } = useLocation();
+  const [isFavorite, setIsFavorite] = useState(false);
 
+  const { iconColor } = useContext(ThemeContext);
+  const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
 
   const loadPhone = useCallback(async () => {
@@ -74,6 +92,10 @@ export const ProductPage: React.FC = memo(() => {
     (capacity: string) => pathname.split('-').includes(capacity.toLowerCase()),
     [pathname],
   );
+
+  const handleFavorite = useCallback(() => {
+    setIsFavorite(!isFavorite);
+  }, [isFavorite]);
 
   return (
     <div className="container product">
@@ -135,24 +157,32 @@ export const ProductPage: React.FC = memo(() => {
                     </p>
 
                     <ul className="about-right_color-selector-list">
-                      {phoneItem.colorsAvailable.map((color) => (
-                        <li
-                          key={color}
-                          style={{ backgroundColor: color }}
-                          className={cn('about-right_color-selector-item', {
-                            'is-color-selected': isColorSelected(color),
-                          })}
-                        >
-                          <Link
-                            to={getNewPhoneByParam(
-                              phoneItem.id,
-                              'color',
-                              color,
-                            )}
-                            className="about-right_color-selector-link"
-                          ></Link>
-                        </li>
-                      ))}
+                      {phoneItem.colorsAvailable.map((color) => {
+                        const pluckedColor = colorCollection.pluck(color).first<string>();
+                        const bgColor = pluckedColor || color;
+
+                        // eslint-disable-next-line no-console
+                        console.log(bgColor);
+
+                        return (
+                          <li
+                            key={color}
+                            style={{ backgroundColor: color }}
+                            className={cn('about-right_color-selector-item', {
+                              'is-color-selected': isColorSelected(color),
+                            })}
+                          >
+                            <Link
+                              to={getNewPhoneByParam(
+                                phoneItem.id,
+                                'color',
+                                color,
+                              )}
+                              className="about-right_color-selector-link"
+                            ></Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 
@@ -202,10 +232,16 @@ export const ProductPage: React.FC = memo(() => {
                       Add to card
                     </button>
 
-                    <a
-                      href="#"
+                    <button
                       className="buttons_favorites-btn about-right_buttons-like"
-                    ></a>
+                      onClick={handleFavorite}
+                    >
+                      {!isFavorite ? (
+                        <HeartIcon fill={iconColor} />
+                      ) : (
+                        <HeartIconActive fill="#476df4" />
+                      )}
+                    </button>
                   </div>
                   <div className="about-right_descriptions">
                     <div className="characteristic">

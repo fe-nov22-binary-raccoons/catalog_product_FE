@@ -93,22 +93,17 @@ select::-ms-expand {
   }
 
   &_favorites-btn {
-    background-image: url("../icons/buttons/add-to-favorite/favorite-btn.svg");
-    display: block;
-    background-position: center;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    background-color: $page-white-color;
     border: 1px solid $page-icons-color;
     border-radius: 48px;
-    width: 40px;
-    transition: background-image 0.5s;
+    transition: background-image 0.5s, border-color 0.5s;
 
     &:hover {
       border-color: $page-primary-color;
-    }
-
-    &:active {
-      background-image: url("../icons/buttons/add-to-favorite/favorite-btn-active.svg");
-      border-color: $page-elements-color;
     }
   }
 }

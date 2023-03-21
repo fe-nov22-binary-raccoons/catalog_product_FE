@@ -45,30 +45,6 @@
   }
 }
 
-.arrow-left {
-  background-image: url("../../icons/arrows/arrow-left-bl.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid $page-icons-color;
-  transition: background-image 0.3s;
-
-  &:active {
-    background-image: url("../../icons/arrows/arrow-left-wh.svg");
-  }
-}
-
-.arrow-right {
-  background-image: url("../../icons/arrows/arrow-right-bl.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid $page-icons-color;
-  transition: background-image 0.3s;
-
-  &:active {
-    background-image: url("../../icons/arrows/arrow-right-wh.svg");
-  }
-}
-
 .page-link.active,
 .active > .page-link {
   background-color: $page-primary-color;
@@ -78,13 +54,14 @@
 }
 
 .page-link.disabled,
-.disabled > .arrow-left {
-  background-image: url("../../icons/arrows/arrow-left.svg");
+.disabled > .arrow-left > svg {
+  // background-color: $page-hover-color;
+  fill: $page-icons-color;
 }
 
 .page-link.disabled,
-.disabled > .arrow-right {
-  background-image: url("../../icons/arrows/arrow-right.svg");
+.disabled > .arrow-right > svg {
+  fill: $page-icons-color;
 }
 
 .page-item:last-child .page-link {

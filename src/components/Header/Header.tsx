@@ -32,11 +32,12 @@ export const Header: React.FC = () => {
 
         <DarkModeSwitch
           style={{
-            marginBottom: '2rem',
-            backgroundColor: '#F86800',
             borderRadius: '50%',
             padding: '2px',
+            marginLeft: 'auto',
           }}
+          moonColor='#0f0f11'
+          sunColor='#75767f'
           checked={theme === 'light'}
           onChange={toggleTheme}
           size={30}

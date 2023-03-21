@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 type ContextType = {
   theme: string;
@@ -16,13 +16,30 @@ export const ThemeContext = createContext<ContextType>({
   iconColor: '',
 });
 
+// const useLocalStorage = (key, initialValue) => { };
+
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [theme, setTheme] = useState('light');
-  const [iconColor, setIconColor] = useState('#0F0F11');
+  const [theme, setTheme] = useState(
+    localStorage.getItem('selectedTheme') || 'light',
+  );
+  const [iconColor, setIconColor] = useState(
+    localStorage.getItem('selectedTheme') === 'light'
+      ? '#0f0f11'
+      : '#fff',
+  );
+
+  if (!(theme === 'dark')) {
+    localStorage.setItem('selectedTheme', 'light');
+  }
+
+  useEffect(() => localStorage.setItem(
+    'selectedTheme',
+    theme === 'dark' ? 'dark' : 'light',
+  ), [theme]);
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
-    setIconColor((curr) => (curr === '#0F0F11' ? '#fff' : '#0F0F11'));
+    setIconColor((curr) => (curr === '#0f0f11' ? '#fff' : '#0f0f11'));
   };
 
   return (

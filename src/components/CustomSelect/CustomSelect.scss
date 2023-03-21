@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 18px 10px 12px;
+  padding: 10px 15px 10px 12px;
   background-color: $page-hover-color;
   border: 1px solid $page-icons-color;
   border-radius: 8px;
@@ -19,14 +19,6 @@
   transition: border-color 0.5s, background-color 0.5s;
   box-sizing: border-box;
 
-  &::after {
-    content: url("../../icons/arrows/arrow-down.svg");
-    position: absolute;
-    right: 16px;
-    top: 60%;
-    transform: translateY(-50%);
-  }
-
   &:hover {
     border-color: $page-secondary-color;
   }
@@ -34,10 +26,6 @@
   &:focus {
     outline: none;
     border-color: $page-primary-color;
-  }
-
-  &.open::after {
-    content: url("../../icons/arrows/arrow-up.svg");
   }
 }
 
@@ -74,4 +62,8 @@
       cursor: pointer;
     }
   }
+}
+
+.select-icon {
+  transform: rotate(180deg);
 }
