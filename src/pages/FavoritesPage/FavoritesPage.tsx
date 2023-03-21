@@ -4,6 +4,7 @@ import { getProducts } from '../../api/fetchProducts';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { ProductsList } from '../../components/ProductsList';
 import { Phone } from '../../types/Phone';
+import './FavoritesPage.scss';
 
 export const FavoritesPage: React.FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);
@@ -46,10 +47,16 @@ export const FavoritesPage: React.FC = () => {
         <BreadCrumbs />
 
         <div className="row">
-          <div className="col-24">
+          <div className="col-20">
             <h1 className="heading-1">Favorites Page</h1>
             <p className="subtitle">{productsNum} models</p>
           </div>
+
+          {!!products.length && (
+            <div className="col-4 align-self-end">
+              <button className="buttons_buy-btn delete-all">Delete all</button>
+            </div>
+          )}
         </div>
       </div>
 

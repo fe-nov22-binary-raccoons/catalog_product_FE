@@ -75,8 +75,11 @@
       cursor: pointer;
     }
   }
-}
 
-.option .selected:focus {
-  border-color: $page-primary-color;
+  .selected-option {
+    color: $page-primary-color;
+    background-color: $page-hover-color;
+    border-color: $page-hover-color;
+    cursor: pointer;
+  }
 }
