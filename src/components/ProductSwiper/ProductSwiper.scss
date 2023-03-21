@@ -5,9 +5,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 24px;
   }
 
   &__title {
+    margin-bottom: 0 !important;
+
     @media (max-width: 640px) {
       width: 136px;
     }
@@ -52,9 +55,3 @@
 .banner-swiper {
   height: max-content;
 }
-
-// .product-swiper {
-//   @media (max-width: 1200px) {
-//     overflow: visible;
-//   }
-// }

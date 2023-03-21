@@ -29,18 +29,23 @@ export const HomePage = () => {
   ];
 
   return (
-    <div className="home-page container">
-      <div className="row margin-bot-30">
-        <div className="col-24">
-          <h1 className="heading-1 margin-top-50">
-            Welcome to Nice Gadgets store!
-          </h1>
+    <>
+      <div className="home-page container">
+        <div className="row">
+          <div className="col-24 ">
+            <div className="home-page__title">
+              <h1 className="heading-1">Welcome to Nice Gadgets store!</h1>
+            </div>
+          </div>
         </div>
       </div>
-      <BannerSwiper />
-      <div className="margin-bot-30"></div>
-      <ProductSwiper endPoint="products/new" title="Brand new models" />
-      <section className="home-page_categories">
+      <div className="banner-swiper-block">
+        <BannerSwiper />
+      </div>
+      <div className="new-products-block">
+        <ProductSwiper endPoint="products/new" title="Brand new models" />
+      </div>
+      <section className="home-page_categories container">
         {/* <div className="container"> */}
         <div className="row">
           <h2 className="col-24 heading-2">Shop be category</h2>
@@ -58,7 +63,9 @@ export const HomePage = () => {
         </div>
         {/* </div> */}
       </section>
-      <ProductSwiper endPoint="products/discount" title="Hot prices" />
-    </div>
+      <div className="discount-products-block">
+        <ProductSwiper endPoint="products/discount" title="Hot prices" />
+      </div>
+    </>
   );
 };
