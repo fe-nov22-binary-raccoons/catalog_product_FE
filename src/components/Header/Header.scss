@@ -45,7 +45,6 @@
       margin-right: 0;
     }
   }
-}
 
   &__container {
     display: flex;
@@ -177,7 +176,7 @@
   }
 
   &__container {
-    box-shadow: -1px 0 0 #e2e6e9;
+    box-shadow: -1px 0 0 $page-elements-color;
   }
 
   &--close {
@@ -198,9 +197,6 @@
     }
   }
 }
-
-.icon__container {
-  box-shadow: -1px 0 0 $page-elements-color;
 
 .is-open {
   display: block;
