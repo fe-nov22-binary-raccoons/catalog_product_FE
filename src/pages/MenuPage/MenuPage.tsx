@@ -1,10 +1,12 @@
 import './MenuPage.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { MenuNavLink } from './MenuNavLink/MenuNavLink';
+import classNames from 'classnames';
 
 export const MenuPage: React.FC = () => {
   const [isMenuPage, setIsMenuPage] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     if (isMenuPage) {
@@ -69,21 +71,33 @@ export const MenuPage: React.FC = () => {
               />
             </div>
 
-            <div className="menu__buttons-conteiner">
-              <div className="menu__icon menu__icon-border">
+            <div className="menu__buttons-container">
+              <div
+                className={classNames('menu__icon menu__icon-border', {
+                  'icon-active': location.pathname.includes('favorites'),
+                })}
+              >
                 <NavLink
                   to="favorites"
                   onClick={() => setIsMenuPage(false)}
                   className="icon__action icon__action-favorites"
-                ></NavLink>
+                >
+                  <span className="counter__number">3</span>
+                </NavLink>
               </div>
 
-              <div className="menu__icon menu__icon-border">
+              <div
+                className={classNames('menu__icon menu__icon-border', {
+                  'icon-active': location.pathname.includes('cart'),
+                })}
+              >
                 <NavLink
-                  to="bag"
+                  to="cart"
                   onClick={() => setIsMenuPage(false)}
                   className="icon__action icon__action-bag"
-                ></NavLink>
+                >
+                  <span className="counter__number">3</span>
+                </NavLink>
               </div>
             </div>
           </nav>
