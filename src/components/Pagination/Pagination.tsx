@@ -9,7 +9,7 @@ import {
   ReactComponent as ArrowRight,
 } from '../../icons/arrows/arrow-right.svg';
 import './Pagination.scss';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 type Props = {
   total: number;

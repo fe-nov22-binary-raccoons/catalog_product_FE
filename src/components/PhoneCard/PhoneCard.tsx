@@ -9,7 +9,7 @@ import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './PhoneCard.scss';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 type Props = {
   phone: Phone;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ReactComponent as ArrowLeft,
 } from '../../icons/arrows/arrow-left-bl.svg';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 import './BactToPrevPage.scss';
 
 export const BackToPrevPage: React.FC = () => {

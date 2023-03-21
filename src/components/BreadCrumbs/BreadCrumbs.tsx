@@ -7,7 +7,7 @@ import {
 } from '../../icons/arrows/arrow-right.svg';
 import { ReactComponent as HomeIcon } from '../../icons/home.svg';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 type Props = {
   name?: string | undefined;

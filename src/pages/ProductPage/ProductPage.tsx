@@ -10,7 +10,6 @@ import {
 import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 
-
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { Loader } from '../../components/Loader';
 import { BackToPrevPage } from '../../components/BackToPrevPage';
@@ -21,9 +20,11 @@ import { PhoneItem } from '../../types/PhoneItem';
 import { ReactComponent as HeartIcon } from '../../icons/buttons/add-to-favorite/favorite-btn.svg';
 import { ReactComponent as HeartIconActive } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './ProductPage.scss';
-import { ThemeContext } from '../../test/ThemeProvider';
-// import { Color, colors } from '../../types/Colors';
-import { colorCollection } from '../../utils/colorCollection';
+import { ThemeContext } from '../../components/ThemeProvider/ThemeProvider';
+import { ErrorMessage } from '../../components/ErrorMessage';
+import { ErrorMessages } from '../../types/ErrorMessages';
+import { Colors } from '../../types/Colors';
+import { colors } from '../../utils/colorCollection';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -107,7 +108,7 @@ export const ProductPage: React.FC = memo(() => {
       </div>
       {isLoading && <Loader />}
 
-      {isError && <p>Error</p>}
+      {isError && <ErrorMessage text={ErrorMessages.OnLoad} />}
 
       {!!phoneItem && (
         <>
@@ -158,16 +159,13 @@ export const ProductPage: React.FC = memo(() => {
 
                     <ul className="about-right_color-selector-list">
                       {phoneItem.colorsAvailable.map((color) => {
-                        const pluckedColor = colorCollection.pluck(color).first<string>();
-                        const bgColor = pluckedColor || color;
-
-                        // eslint-disable-next-line no-console
-                        console.log(bgColor);
+                        const colorToType = color as keyof Colors;
+                        const colorToRender = colors[colorToType] ?? color;
 
                         return (
                           <li
-                            key={color}
-                            style={{ backgroundColor: color }}
+                            key={colorToRender}
+                            style={{ backgroundColor: colorToRender }}
                             className={cn('about-right_color-selector-item', {
                               'is-color-selected': isColorSelected(color),
                             })}

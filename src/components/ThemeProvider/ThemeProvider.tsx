@@ -16,8 +16,6 @@ export const ThemeContext = createContext<ContextType>({
   iconColor: '',
 });
 
-// const useLocalStorage = (key, initialValue) => { };
-
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState(
     localStorage.getItem('selectedTheme') || 'light',

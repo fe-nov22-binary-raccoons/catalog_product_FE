@@ -3,7 +3,7 @@ import { CustomSelectProps } from '../../types/CustomSelectProps';
 import './CustomSelect.scss';
 
 import { ReactComponent as ArrowDown } from '../../icons/arrows/arrow-down.svg';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
   const [isOpen, setIsOpen] = useState(false);

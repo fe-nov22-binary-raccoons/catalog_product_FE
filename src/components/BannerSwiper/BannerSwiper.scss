@@ -22,9 +22,12 @@
 
 .swiperNavNext,
 .swiperNavPrev {
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: auto;
+  // background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 48px;
   border: 1px solid $page-icons-color;
   cursor: pointer;
@@ -34,14 +37,14 @@
   }
 }
 
-.swiperNavPrev {
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-  transform: rotate(180deg);
-}
+// .swiperNavPrev {
+//   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+//   transform: rotate(180deg);
+// }
 
-.swiperNavNext {
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-}
+// .swiperNavNext {
+//   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
+// }
 
 .swiperNavNext:hover {
   border-color: $page-primary-color;
@@ -53,15 +56,15 @@
 
 .disabled-right {
   border: 1px solid $page-elements-color;
-  background-image: url("../../images/bannerSwiper/stroke-right.svg");
+  // background-image: url("../../images/bannerSwiper/stroke-right.svg");
   pointer-events: none;
 }
 
 .disabled-left {
   border: 1px solid $page-elements-color;
   pointer-events: none;
-  background-image: url("../../images/bannerSwiper/stroke-right.svg");
-  transform: rotate(180deg);
+  // background-image: url("../../images/bannerSwiper/stroke-right.svg");
+  // transform: rotate(180deg);
 }
 
 .bullet {

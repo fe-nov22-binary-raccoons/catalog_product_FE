@@ -29,6 +29,22 @@
       padding: 17px 24px;
     }
   }
+
+  &__theme-switch {
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e2e6e9;
+    }
+
+    @include onTablet {
+      margin-right: 0;
+    }
+  }
 }
 
 .header__container {
@@ -47,10 +63,7 @@
   &__image {
     width: 64px;
     height: 20px;
-    background-size: contain;
-    background-image: url(../../images/header/nice_gadgets.svg);
     position: relative;
-    background-repeat: no-repeat;
 
     @include onDesktop {
       width: 80px;
@@ -58,14 +71,11 @@
     }
 
     &--emoji {
-      background-image: url(../../images/header/image__emoji.svg);
       position: absolute;
-      background-size: contain;
       height: 12px;
       width: 9px;
       top: 13px;
       left: 46px;
-      background-repeat: no-repeat;
 
       @include onDesktop {
         height: 15px;
@@ -131,9 +141,9 @@
   width: 16px;
   height: 16px;
   position: relative;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center;
+  // background-repeat: no-repeat;
   cursor: pointer;
 
   @include onTablet {
@@ -145,13 +155,13 @@
     margin: 25px;
   }
 
-  &--heart {
-    background-image: url(../../images/header/heart_icon.svg);
-  }
+  // &--heart {
+  //   background-image: url(../../images/header/heart_icon.svg);
+  // }
 
-  &--bag {
-    background-image: url(../../images/header/bag_icon.svg);
-  }
+  // &--bag {
+  //   background-image: url(../../images/header/bag_icon.svg);
+  // }
 
   &--menu {
     display: block;

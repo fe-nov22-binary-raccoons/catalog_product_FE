@@ -1,7 +1,5 @@
-export const colors: Color = {
-  rosegold: '#b76e79',
-};
-
-export type Color = {
+export type Colors = {
   rosegold: string;
+  spacegray: string;
+  midnightgreen: string;
 };

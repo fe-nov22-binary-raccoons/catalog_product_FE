@@ -12,7 +12,7 @@ import { PhonesPage } from './pages/PhonesPage';
 import { Footer } from './components/Footer';
 import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
-import { ThemeContext } from './test/ThemeProvider';
+import { ThemeContext } from './components/ThemeProvider/ThemeProvider';
 // import { DarkModeSwitch } from 'react-toggle-dark-mode';
 // import { BannerSwiper } from './components/BannerSwiper';
 import { Contacts } from './pages/Contacts';

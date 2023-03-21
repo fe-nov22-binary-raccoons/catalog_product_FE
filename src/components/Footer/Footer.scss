@@ -148,3 +148,13 @@
     }
   }
 }
+
+.footer__logo {
+  position: relative;
+
+  &--emoji {
+    position: absolute;
+    top: -2px;
+    left: 40px;
+  }
+}

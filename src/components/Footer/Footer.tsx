@@ -3,7 +3,7 @@ import { ReactComponent as LogoEmoji } from '../../images/footer/ok-emoji.svg';
 import { ReactComponent as Logo } from '../../images/footer/nice-gadgets.svg';
 import { ReactComponent as BackToTop } from '../../icons/arrows/arrow-up.svg';
 import { useContext } from 'react';
-import { ThemeContext } from '../../test/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 export const Footer: React.FC = () => {
   function scrollToTop() {
@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__block">
-        <a className="logo" href="/">
-          <Logo fill={iconColor} />
-          <LogoEmoji />
+        <a className="footer__logo" href="/">
+          <Logo  fill={iconColor} />
+          <LogoEmoji className="footer__logo--emoji"/>
         </a>
 
         <div className="footer__links-block">
