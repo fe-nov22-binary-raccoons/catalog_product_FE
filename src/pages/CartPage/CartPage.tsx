@@ -1,8 +1,8 @@
-import './BagPage.scss';
+import './CartPage.scss';
 import React from 'react';
-import { BagPageItem } from '../BagPageItem';
+import { CartPageItem } from '../CartPageItem';
 
-export const BagPage: React.FC = () => {
+export const CartPage: React.FC = () => {
   const cost = 2657;
   const counter = [1, 7, 8];
 
@@ -14,15 +14,15 @@ export const BagPage: React.FC = () => {
 
       <div className="bag__container row">
         <div className="bag__item-list col-xl-16 col-lg-24 col-md-24 col-sm-24">
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
-          <BagPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
+          <CartPageItem counter={counter} />
         </div>
 
         <div className="col-xl-8 col-lg-24 col-md-24 col-sm-24">

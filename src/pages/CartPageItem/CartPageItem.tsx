@@ -1,11 +1,11 @@
-import './BagPageItem.scss';
+import './CartPageItem.scss';
 import React from 'react';
 
 type Props = {
   counter: number[];
 };
 
-export const BagPageItem: React.FC<Props> = ({ counter }) => {
+export const CartPageItem: React.FC<Props> = ({ counter }) => {
   return (
     <div className="item">
       <div className="item__container-up">

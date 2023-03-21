@@ -26,12 +26,14 @@ export const Header: React.FC = () => (
 
       <div className="header__menu">
         <div className="icon__container">
-          <NavLink to="/favorites" className="icon icon--heart"></NavLink>
-          <div className="counter__number">3</div>
+          <NavLink to="favorites" className="icon icon--heart">
+            <span className="counter__number">9</span>
+          </NavLink>
         </div>
         <div className="icon__container">
-          <NavLink to="bag" className="icon icon--bag"></NavLink>
-          <div className="counter__number">3</div>
+          <NavLink to="cart" className="icon icon--bag">
+            <span className="counter__number">3</span>
+          </NavLink>
         </div>
 
         <div className="icon__container">
