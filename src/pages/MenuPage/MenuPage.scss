@@ -1,0 +1,202 @@
+@import "../../index";
+@import "../../components/Header/Header";
+
+.page__menu {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  background-color: $page-white-color;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $page-white-color;
+    border: 1px solid $page-elements-color;
+    border-top: 0;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $page-primary-color;
+    }
+
+    &-icon {
+      padding: 0;
+      display: none;
+
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      border: none;
+
+      background-color: $page-white-color;
+      cursor: pointer;
+
+      @media (max-width: 639px) {
+        display: flex;
+      }
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100%;
+
+    background-color: $page-white-color;
+
+    &-container {
+      display: flex;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    flex-grow: 8.5;
+    border-bottom: 1px solid $page-elements-color;
+    height: 48px;
+    top: 0;
+    justify-content: space-between;
+
+    &-image {
+      display: block;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      background-image: url(../../images/header/logo.svg);
+      width: 64px;
+      height: 20px;
+      margin: 14px 12px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    border-right: 0;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      border-color: $page-primary-color;
+    }
+
+    &-border {
+      border: 1px solid $page-elements-color;
+      border-right: 0;
+    }
+
+    &__action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 48px;
+      height: 48px;
+      border: none;
+    }
+  }
+
+  &__list {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: block;
+    margin-top: 32px;
+    line-height: 11px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $page-secondary-color;
+
+    &:hover {
+      color: $page-primary-color;
+    }
+  }
+
+  &__buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    width: 100%;
+    height: 64px;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.icon__action {
+  box-sizing: border-box;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &-favorites {
+    background-image: url(../../images/header/heart_icon.svg);
+  }
+
+  &-bag {
+    background-image: url(../../images/header/bag_icon.svg);
+  }
+}
+
+.item-active {
+  color: $page-primary-color;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 20px;
+    height: 2px;
+    width: 100%;
+    background-color: $page-primary-color;
+  }
+}
+
+.icon-active {
+  border-bottom: 2px solid $page-primary-color;
+}

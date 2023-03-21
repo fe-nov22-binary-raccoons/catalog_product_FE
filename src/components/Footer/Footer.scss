@@ -4,8 +4,8 @@
   display: flex;
   box-sizing: border-box;
   height: 96px;
-  box-shadow: 0 -1px 0 #e2e6e9;
-  margin-top: auto;
+  box-shadow: 0 -1px 0 $page-elements-color;
+  background-color: $page-white-color;
 
   @media (max-width: 640px) {
     height: 257px;
@@ -129,7 +129,9 @@
   }
 
   &__icon {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 32px;
     width: 32px;
     border-radius: 50%;
@@ -137,23 +139,22 @@
     transition: border-color 0.4s;
     margin-left: 20px;
 
+    &:hover {
+      border-color: $page-primary-color;
+    }
+
     @media (max-width: 639px) {
       margin-left: 12px;
     }
   }
+}
 
-  &__chevron {
+.footer__logo {
+  position: relative;
+
+  &--emoji {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &:hover {
-    color: $page-primary-color;
-  }
-
-  &:hover &__icon {
-    border-color: $page-primary-color;
+    top: -2px;
+    left: 40px;
   }
 }

@@ -29,17 +29,33 @@
       padding: 17px 24px;
     }
   }
-}
 
-.header__container {
-  display: flex;
+  &__theme-switch {
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: background-color 0.3s;
 
-  @include onTablet {
-    gap: 16px;
+    &:hover {
+      background-color: #e2e6e9;
+    }
+
+    @include onTablet {
+      margin-right: 0;
+    }
   }
 
-  @include onDesktop {
-    gap: 24px;
+  &__container {
+    display: flex;
+
+    @include onTablet {
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      gap: 24px;
+    }
   }
 }
 
@@ -47,10 +63,7 @@
   &__image {
     width: 64px;
     height: 20px;
-    background-size: contain;
-    background-image: url(../../images/header/nice_gadgets.svg);
     position: relative;
-    background-repeat: no-repeat;
 
     @include onDesktop {
       width: 80px;
@@ -58,14 +71,11 @@
     }
 
     &--emoji {
-      background-image: url(../../images/header/image__emoji.svg);
       position: absolute;
-      background-size: contain;
       height: 12px;
       width: 9px;
       top: 13px;
       left: 46px;
-      background-repeat: no-repeat;
 
       @include onDesktop {
         height: 15px;
@@ -93,6 +103,10 @@
     color: $page-secondary-color;
     text-transform: uppercase;
     text-decoration: none;
+
+    &:hover {
+      color: $page-primary-color;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -125,15 +139,31 @@
   }
 }
 
+.counter__number {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 10px;
+  color: $page-white-color;
+  width: 15px;
+  height: 15px;
+  border: 1px solid $page-white-color;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+
+  background-color: $page-blue-color;
+  border-radius: 50px;
+}
+
 .icon {
   box-sizing: border-box;
   display: none;
   width: 16px;
   height: 16px;
   position: relative;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  color: $page-primary-color;
   cursor: pointer;
 
   @include onTablet {
@@ -145,17 +175,21 @@
     margin: 25px;
   }
 
-  &--heart {
-    background-image: url(../../images/header/heart_icon.svg);
+  &__container {
+    box-shadow: -1px 0 0 $page-elements-color;
   }
 
-  &--bag {
-    background-image: url(../../images/header/bag_icon.svg);
+  &--close {
+    display: block;
+    background-image: url(../../images/header/close_icon.svg);
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &--menu {
     display: block;
-    margin: 16px;
     background-image: url(../../images/header/menu_icon.svg);
 
     @include onTablet {
@@ -164,6 +198,10 @@
   }
 }
 
-.icon__container {
-  box-shadow: -1px 0 0 #e2e6e9;
+.is-open {
+  display: block;
+
+  @include onTablet {
+    display: none;
+  }
 }

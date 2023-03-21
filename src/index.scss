@@ -3,6 +3,28 @@
 @import "./styles/normalize";
 @import "./styles/mixin";
 
+:root {
+  --page-hover-color: #fafbfc;
+  --page-primary-color: #0f0f11;
+  --page-orange-color: #f86800;
+  --page-blue-color: #476df4;
+  --page-secondary-color: #89939a;
+  --page-icons-color: #b4bdc4;
+  --page-elements-color: #e2e6e9;
+  --page-white-color: #fff;
+}
+
+[data-theme="dark"] {
+  --page-hover-color: #0f1121;
+  --page-primary-color: #f1f2f9;
+  --page-orange-color: #905bff;
+  --page-blue-color: #eb5757;
+  --page-secondary-color: #75767f;
+  --page-icons-color: #4a4d58;
+  --page-elements-color: #323542;
+  --page-white-color: #0f1121;
+}
+
 @font-face {
   font-family: "Mont";
   src: local("Mont"), url("./fonts/Mont/Mont-Bold.otf") format("truetype");

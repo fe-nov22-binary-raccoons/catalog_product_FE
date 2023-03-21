@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import './BannerSwiper.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
@@ -9,10 +9,14 @@ import 'swiper/css';
 import banner1 from '../../images/bannerSwiper/Banner.png';
 import banner2 from '../../images/bannerSwiper/Banner2.png';
 import banner3 from '../../images/bannerSwiper/Banner3.png';
+import { ReactComponent as ArrowLeft } from '../../images/bannerSwiper/stroke-left.svg';
+import { ReactComponent as ArrowRight } from '../../images/bannerSwiper/stroke-right.svg';
+import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 export const BannerSwiper: React.FC = () => {
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
+  const { iconColor } = useContext(ThemeContext);
 
   const banners = [
     [banner1, 1],
@@ -67,7 +71,6 @@ export const BannerSwiper: React.FC = () => {
         </div>
         <div className="swiperNavNext" ref={nextRef}></div>
       </div>
-
       <div className="swiper-pagination"></div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../page-grid.scss';
 import './PhonesPage.scss';
-import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { Sorting } from '../../components/Sorting';
 import { Pagination } from '../../components/Pagination';
 import { ProductsList } from '../../components/ProductsList';
@@ -9,6 +8,7 @@ import { getProducts } from '../../api/fetchProducts';
 import { Phone } from '../../types/Phone';
 import { SortBy } from '../../types/SortBy';
 import { useSearchParams } from 'react-router-dom';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);

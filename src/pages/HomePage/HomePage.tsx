@@ -2,31 +2,33 @@ import { CategoryCard } from '../../components/CategoryCard';
 import { BannerSwiper } from '../../components/BannerSwiper';
 import './HomePage.scss';
 import { ProductSwiper } from '../../components/ProductSwiper';
+import { getCategories } from '../../api/fetchCategory';
+import { useEffect, useState } from 'react';
+import { Category } from '../../types/Category';
+import { Loader } from '../../components/Loader';
+import { ErrorMessage } from '../../components/ErrorMessage';
+import { ErrorMessages } from '../../types/ErrorMessages';
 
 export const HomePage = () => {
-  const categories = [
-    {
-      id: 1,
-      name: 'Mobile phones',
-      itemsCount: 94,
-      img: 'https://i.ibb.co/9tRcHMV/category-phones.png',
-      path: 'phones',
-    },
-    {
-      id: 2,
-      name: 'Tablets',
-      itemsCount: 54,
-      img: 'https://i.ibb.co/ZfxmNQ4/category-tablets.png',
-      path: 'tablets',
-    },
-    {
-      id: 3,
-      name: 'Accessories',
-      itemsCount: 104,
-      img: 'https://i.ibb.co/cCqB3t2/category-accessories.png',
-      path: 'accessories',
-    },
-  ];
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const loadCategories = async () => {
+    try {
+      const categoriesFromServer = await getCategories();
+
+      setCategories(categoriesFromServer.categories);
+    } catch (error) {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadCategories();
+  }, []);
 
   return (
     <>
@@ -46,22 +48,27 @@ export const HomePage = () => {
         <ProductSwiper endPoint="products/new" title="Brand new models" />
       </div>
       <section className="home-page_categories container">
-        {/* <div className="container"> */}
         <div className="row">
           <h2 className="col-24 heading-2">Shop be category</h2>
         </div>
         <div className="row">
-          {categories.map((category) => (
-            <CategoryCard
-              name={category.name}
-              itemsCount={category.itemsCount}
-              img={category.img}
-              path={category.path}
-              key={category.id}
-            />
-          ))}
+          {isLoading && <Loader />}
+
+          {isError && <ErrorMessage text={ErrorMessages.OnLoad} />}
+
+          {!!categories && (
+            categories.map((category) => (
+              <CategoryCard
+                name={category.name}
+                itemsCount={category.itemsCount}
+                img={category.img}
+                path={category.path}
+                backgroundColor={category.backgroundColor}
+                key={category.id}
+              />
+            ))
+          )}
         </div>
-        {/* </div> */}
       </section>
       <div className="discount-products-block">
         <ProductSwiper endPoint="products/discount" title="Hot prices" />

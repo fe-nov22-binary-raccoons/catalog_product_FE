@@ -56,7 +56,9 @@
 
 .swiperNavNext,
 .swiperNavPrev {
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 32px;
   background-size: auto;
@@ -69,6 +71,7 @@
     display: none;
   }
 }
+
 
 .swiperNavPrev {
   background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");

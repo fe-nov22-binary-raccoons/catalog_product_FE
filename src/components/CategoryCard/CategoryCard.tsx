@@ -6,6 +6,7 @@ type Props = {
   itemsCount: number;
   img: string;
   path: string;
+  backgroundColor: string;
 };
 
 export const CategoryCard: React.FC<Props> = ({
@@ -13,10 +14,15 @@ export const CategoryCard: React.FC<Props> = ({
   itemsCount,
   img,
   path,
+  backgroundColor,
 }) => {
   return (
     <div className="col-lg-8 col-md-8 col-sm-24 category-card">
-      <Link className="category-card_image-link" to={`/${path}`}>
+      <Link
+        className="category-card_image-link"
+        to={`/${path}`}
+        style={{ backgroundColor: backgroundColor || '#89939a' }}
+      >
         <img className="category-card_image" src={img} alt={name} />
       </Link>
       <Link className="category-card_title-link" to={`/${path}`}>
