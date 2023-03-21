@@ -11,10 +11,10 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { getItem } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
 import { BackToPrevPage } from '../../components/BackToPrevPage';
 
-import { getItem } from '../../api/fetchPhones';
 import { PhoneItem } from '../../types/PhoneItem';
 
 import { ReactComponent as HeartIcon } from '../../icons/buttons/add-to-favorite/favorite-btn.svg';

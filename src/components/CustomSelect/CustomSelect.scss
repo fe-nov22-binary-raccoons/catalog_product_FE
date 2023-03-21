@@ -2,6 +2,7 @@
 
 .custom-select-wrapper {
   position: relative;
+  z-index: 1;
 }
 
 .custom-select {
@@ -61,6 +62,13 @@
       border-color: $page-hover-color;
       cursor: pointer;
     }
+  }
+
+  .selected-option {
+    color: $page-primary-color;
+    background-color: $page-hover-color;
+    border-color: $page-hover-color;
+    cursor: pointer;
   }
 }
 

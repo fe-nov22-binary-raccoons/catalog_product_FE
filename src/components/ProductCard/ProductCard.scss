@@ -1,0 +1,113 @@
+@import "../../index";
+
+.product-card {
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px;
+  height: 440px;
+  color: $page-primary-color;
+  border: solid 1px $page-elements-color;
+  border-radius: 8px;
+  background-color: $page-white-color;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &_image {
+    height: 130px;
+    margin-bottom: 24px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &_image-link {
+    align-self: center;
+  }
+
+  &_title {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 21px;
+    min-height: 42px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $page-orange-color;
+    }
+  }
+
+  &_price {
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px $page-elements-color;
+  }
+
+  &_current-price {
+    padding-right: 8px;
+    font-weight: 800;
+  }
+
+  &_old-price {
+    color: $page-secondary-color;
+    text-decoration: line-through;
+  }
+
+  &_descriptions {
+    margin-bottom: 16px;
+  }
+}
+
+.characteristic {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+
+  &-title {
+    color: $page-secondary-color;
+  }
+}
+
+@include onTablet {
+  .product-card {
+    height: 506px;
+
+    &_image {
+      height: 196px;
+    }
+  }
+}
+
+@include onDesktop {
+  .product-card {
+    height: 506px;
+
+    &_image {
+      height: 196px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .buy-btn {
+    padding: 9px 16px;
+  }
+
+  .product-card_image {
+    height: 165px;
+  }
+}

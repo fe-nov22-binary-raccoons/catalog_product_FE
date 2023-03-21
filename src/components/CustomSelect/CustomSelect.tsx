@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { CustomSelectProps } from '../../types/CustomSelectProps';
+import { Option } from '../../types/Option';
 import './CustomSelect.scss';
 
 import { ReactComponent as ArrowDown } from '../../icons/arrows/arrow-down.svg';
@@ -8,16 +10,43 @@ import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { iconColor } = useContext(ThemeContext);
-
-  const selectedLabel = options.find((option) => option.value === value)?.label;
+  const selectedOption = options.find((option) => option.value === value);
+  const [selectedOnKey, setSelectedOnKey] = useState(selectedOption);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (value1: string) => {
+  const handleOptionClick = (newValue: string) => {
     setIsOpen(false);
-    onChange(value1);
+    onChange(newValue);
+  };
+
+  const handleOptionKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const index = selectedOnKey ? options.indexOf(selectedOnKey) : 0;
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      const nextIndex = index === 0 ? options.length - 1 : index - 1;
+
+      setSelectedOnKey(options[nextIndex]);
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      const nextIndex = index === options.length - 1 ? 0 : index + 1;
+
+      setSelectedOnKey(options[nextIndex]);
+    } else if (event.key === 'Escape') {
+      setIsOpen(false);
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      setIsOpen((prev) => !prev);
+      onChange(selectedOnKey?.value || value);
+    } else if (event.key === 'Tab') {
+      setIsOpen(false);
+    }
+  };
+
+  const handleOptionMouseEnter = (option: Option) => {
+    setSelectedOnKey(option);
   };
 
   function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
@@ -41,14 +70,18 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
   useOutsideAlerter(wrapperRef);
 
   return (
-    <div ref={wrapperRef} className="custom-select-wrapper">
+    <div
+      ref={wrapperRef}
+      className="custom-select-wrapper"
+      onKeyDown={handleOptionKeyDown}
+      tabIndex={0}
+    >
       <div
-        className={`custom-select ${isOpen ? 'open' : ''}`}
+        className={classNames('custom-select', { open: isOpen })}
         onClick={handleClick}
-        tabIndex={0}
       >
-        <div className="selected-option">
-          {selectedLabel}
+        <div>
+          {selectedOption?.label}
         </div>
         <ArrowDown
           fill={iconColor === '#0f0f11' ? '#b4bdc4' : '#4a4d58'}
@@ -60,8 +93,11 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
             {options.map((option) => (
               <div
                 key={option.value}
-                className="option"
+                className={classNames('option', {
+                  'selected-option': option.value === selectedOnKey?.value,
+                })}
                 onClick={() => handleOptionClick(option.value)}
+                onMouseEnter={() => handleOptionMouseEnter(option)}
               >
                 {option.label}
               </div>

@@ -1,43 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import '../page-grid.scss';
 import './PhonesPage.scss';
-import { PhoneCard } from '../../components/PhoneCard';
-import { getPhones } from '../../api/fetchPhones';
-import { Phone } from '../../types/Phone';
-import { Loader } from '../../components/Loader';
-import { Pagination } from '../../components/Pagination';
-import { useSearchParams } from 'react-router-dom';
 import { Sorting } from '../../components/Sorting';
+import { Pagination } from '../../components/Pagination';
+import { ProductsList } from '../../components/ProductsList';
+import { getProducts } from '../../api/fetchProducts';
+import { Phone } from '../../types/Phone';
 import { SortBy } from '../../types/SortBy';
-import { ErrorMessage } from '../../components/ErrorMessage';
-import { ErrorMessages } from '../../types/ErrorMessages';
+import { useSearchParams } from 'react-router-dom';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 export const PhonesPage: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [phonesNum, setPhonesNum] = useState<number>(0);
+  const [productsNum, setProductsNum] = useState<number>(0);
 
   const [searchParams] = useSearchParams();
   const currentPage = searchParams.get('page') || '1';
   const pageSize = searchParams.get('size') || '16';
   const sortBy = searchParams.get('sort') || SortBy.Newest;
 
-  const loadPhones = async () => {
+  const loadProducts = async () => {
     setIsLoading(true);
 
     try {
       setIsError(false);
-      const phonesFromServer = await getPhones(
+      const productsFromServer = await getProducts(
         'phones',
         +currentPage,
         +pageSize,
         sortBy,
       );
 
-      setPhones(phonesFromServer.products);
-      setPhonesNum(phonesFromServer.total);
+      setPhones(productsFromServer.products);
+      setProductsNum(productsFromServer.total);
     } catch (error) {
       setIsError(true);
     }
@@ -46,54 +43,31 @@ export const PhonesPage: React.FC = () => {
   };
 
   useEffect(() => {
-    loadPhones();
+    loadProducts();
   }, [pageSize, currentPage, sortBy]);
 
   const showPagination
-    = !isLoading && !isError && !!phones.length && +pageSize !== phonesNum;
-  const showNoPhones = !phones.length && !isError && !isLoading;
-  const showPhoneCards = !!phones.length && !isLoading;
+    = !isLoading && !isError && !!phones.length && +pageSize !== productsNum;
 
   return (
-    <div className="phones">
+    <div className="products">
       <div className="container">
-        <div className="row">
-          <div className="col-24 breadcrumbs">
-            <BreadCrumbs />
-          </div>
-        </div>
+        <BreadCrumbs />
+
         <div className="row">
           <div className="col-24">
             <h1 className="heading-1">Mobile phones</h1>
-            <p className="subtitle">{phonesNum} models</p>
+            <p className="subtitle">{productsNum} models</p>
           </div>
         </div>
 
-        <Sorting total={phonesNum} />
+        <Sorting total={productsNum} />
       </div>
-      <div className="container phones-list">
-        <div className="row gy-4">
-          {showPhoneCards
-            && phones.map((ph) => <PhoneCard phone={ph} key={ph.id} />)}
 
-          {isLoading && <Loader />}
-
-          {!phones.length && isError && (
-            <ErrorMessage text={ErrorMessages.OnLoad} />
-          )}
-
-          {showNoPhones && <ErrorMessage text={ErrorMessages.OnEmptyData} />}
-        </div>
-      </div>
+      <ProductsList products={phones} isError={isError} isLoading={isLoading} />
 
       {showPagination && (
-        <div className="container">
-          <div className="row">
-            <nav className="pagination-wrap">
-              <Pagination total={phonesNum} pageSize={+pageSize} />
-            </nav>
-          </div>
-        </div>
+        <Pagination total={productsNum} pageSize={+pageSize} />
       )}
     </div>
   );

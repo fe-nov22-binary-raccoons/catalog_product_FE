@@ -40,7 +40,7 @@ export const Sorting: React.FC<Props> = ({ total }) => {
 
   return (
     <>
-      <div className="row phones_sort-title">
+      <div className="row products_sort-title">
         <label
           className="col-xl-4 col-lg-8 col-md-8 col-sm-12"
           htmlFor="sort-select"
@@ -55,7 +55,7 @@ export const Sorting: React.FC<Props> = ({ total }) => {
         </label>
       </div>
 
-      <div className="row phones_sort">
+      <div className="row products_sort">
         <div className="col-xl-4 col-lg-8 col-md-8 col-sm-12">
           <CustomSelect
             options={options}
