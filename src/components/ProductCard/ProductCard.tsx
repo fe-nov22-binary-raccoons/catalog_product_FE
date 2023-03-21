@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import './ProductCard.scss';
+
+import {
+  ReactComponent as HeartIcon,
+} from '../../icons/buttons/add-to-favorite/favorite-btn.svg';
+import { ThemeContext } from '../ThemeProvider';
 
 type Props = {
   product: Phone;
@@ -10,6 +15,8 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product }) => {
   const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
     = product;
+
+  const { iconColor } = useContext(ThemeContext);
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
@@ -40,7 +47,9 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
         <div className="buttons">
           <button className="buttons_buy-btn">Add to card</button>
-          <a href="#" className="buttons_favorites-btn"></a>
+          <a href="#" className="buttons_favorites-btn">
+            <HeartIcon fill={iconColor} />
+          </a>
         </div>
       </div>
     </div>

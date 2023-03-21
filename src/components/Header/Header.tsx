@@ -2,8 +2,13 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { PageNavLink } from './PageNavLink/PageNavLink';
 
-import { ReactComponent as LogoEmoji } from '../../images/footer/ok-emoji.svg';
-import { ReactComponent as Logo } from '../../images/footer/nice-gadgets.svg';
+import { ReactComponent as Logo } from '../../images/header/logo.svg';
+import {
+  ReactComponent as HeartIcon,
+} from '../../images/header/heart_icon.svg';
+import {
+  ReactComponent as BagIcon,
+} from '../../images/header/bag_icon.svg';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
@@ -20,9 +25,7 @@ export const Header: React.FC = () => {
         <div className="header__container">
           <div className="header__logo">
             <NavLink to="/" className="logo">
-              <div className="logo__image"></div>
-              <Logo fill={iconColor} className="logo__image" />
-              <LogoEmoji className="logo__image--emoji" />
+              <Logo fill={iconColor} />
             </NavLink>
           </div>
 
@@ -36,29 +39,31 @@ export const Header: React.FC = () => {
           </nav>
         </div>
 
+        <div className="header__theme-switch">
+          <DarkModeSwitch
+            style={{
+              padding: '1px',
+            }}
+            moonColor='#0f0f11'
+            sunColor='#75767f'
+            checked={theme === 'light'}
+            onChange={toggleTheme}
+            size={25}
+          />
+        </div>
+
         <div className="header__menu">
           <div className="icon__container">
             <NavLink to="favorites" className="icon icon--heart">
+              <HeartIcon fill={iconColor} />
               <span className="counter__number">9</span>
             </NavLink>
           </div>
           <div className="icon__container">
             <NavLink to="cart" className="icon icon--bag">
+              <BagIcon fill={iconColor} />
               <span className="counter__number">3</span>
             </NavLink>
-          </div>
-
-          <div className="header__theme-switch">
-            <DarkModeSwitch
-              style={{
-                padding: '1px',
-              }}
-              moonColor='#0f0f11'
-              sunColor='#75767f'
-              checked={theme === 'light'}
-              onChange={toggleTheme}
-              size={25}
-            />
           </div>
 
           <div className="icon__container">

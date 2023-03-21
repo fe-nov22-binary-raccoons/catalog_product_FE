@@ -19,6 +19,7 @@
   font-size: 14px;
   transition: border-color 0.5s, background-color 0.5s;
   box-sizing: border-box;
+  cursor: pointer;
 
   &:hover {
     border-color: $page-secondary-color;
