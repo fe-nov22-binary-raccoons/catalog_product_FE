@@ -8,7 +8,7 @@ type Props = {
 export const BagPageItem: React.FC<Props> = ({ counter }) => {
   return (
     <div className="item">
-      <div className="item__conteiner-up">
+      <div className="item__container-up">
         <div className="item__icon"></div>
 
         <div className="item__photo"></div>
@@ -18,16 +18,16 @@ export const BagPageItem: React.FC<Props> = ({ counter }) => {
         </div>
       </div>
 
-      <div className="item__count-conteinter ">
-        <div className="item__buttons">
-          <div className="item__conteiner">
-            <div className="icon--remove item--icon"></div>
+      <div className="item__amount-container ">
+        <div className="item__amount-buttons">
+          <div className="item__amount-icon">
+            <div className="icon__button icon__button-remove"></div>
           </div>
 
-          <div>{counter[0]}</div>
+          <div className="item__amount-number">{counter[0]}</div>
 
-          <div className="item__conteiner">
-            <div className="icon--add icon"></div>
+          <div className="item__amount-icon">
+            <div className="icon__button icon__button-add"></div>
           </div>
         </div>
 
