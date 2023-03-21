@@ -161,6 +161,8 @@
 }
 
 .logo > svg {
+  width: 64px;
+  height: 20px;
   @include onDesktop {
     width: 80px;
     height: 26px;

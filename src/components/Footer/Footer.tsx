@@ -1,6 +1,5 @@
 import './Footer.scss';
-import { ReactComponent as LogoEmoji } from '../../images/footer/ok-emoji.svg';
-import { ReactComponent as Logo } from '../../images/footer/nice-gadgets.svg';
+import { ReactComponent as Logo } from '../../images/header/logo.svg';
 import { ReactComponent as BackToTop } from '../../icons/arrows/arrow-up.svg';
 import { useContext } from 'react';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
@@ -16,8 +15,7 @@ export const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer__block">
         <a className="footer__logo" href="/">
-          <Logo  fill={iconColor} />
-          <LogoEmoji className="footer__logo--emoji"/>
+          <Logo fill={iconColor} />
         </a>
 
         <div className="footer__links-block">

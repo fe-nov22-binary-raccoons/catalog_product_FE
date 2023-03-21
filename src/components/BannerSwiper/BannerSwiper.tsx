@@ -27,12 +27,12 @@ export const BannerSwiper: React.FC = () => {
 
   return (
     <div className="swiper-box row">
-      <div className="col-1 ">
-        <div className="swiperNavPrev disabled-left" ref={prevRef}>
+      <div className="col-xl-1 col-md-2">
+        <div className="swiperNavPrev" ref={prevRef}>
           <ArrowLeft fill={iconColor} />
         </div>
       </div>
-      <div className="col-xl-22 col-md-22 col-sm-24">
+      <div className="col-xl-22 col-md-20 col-sm-24">
         <Swiper
           modules={[Navigation, Pagination]}
           navigation={{
@@ -95,8 +95,10 @@ export const BannerSwiper: React.FC = () => {
           ))}
         </Swiper>
       </div>
-      <div className="col-1">
-        <ArrowRight fill={iconColor} />
+      <div className="col-xl-1 col-md-2">
+        <div className="swiperNavNext" ref={prevRef}>
+          <ArrowRight fill={iconColor} />
+        </div>
       </div>
       <div className="swiper-pagination"></div>
     </div>

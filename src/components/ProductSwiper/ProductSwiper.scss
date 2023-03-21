@@ -20,25 +20,19 @@
 
 .navPrev-icon,
 .navNext-icon {
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 32px;
   height: 32px;
   border-radius: 48px;
   border: 1px solid #b4bdc4;
-  transition: border-color 0.7s ease;
+  transition: border-color 0.5s ease;
   cursor: pointer;
-}
-
-.navPrev-icon {
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-  transform: rotate(180deg);
 }
 
 .navNext-icon {
   margin-left: 16px;
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
 }
 
 .navNext-icon:hover {
