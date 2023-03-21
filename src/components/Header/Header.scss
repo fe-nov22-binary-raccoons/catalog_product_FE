@@ -1,8 +1,8 @@
 @import "../../index";
 
 .header {
-  box-shadow: 0 1px 0 $page-elements-color;
-  margin-bottom: 32px;
+  background-color: $page-white-color;
+  border-bottom: 1px solid $page-elements-color;
 
   &__top-actions {
     display: flex;

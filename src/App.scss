@@ -1,1 +1,16 @@
-// empty
+@import "./styles/variables";
+@import "./styles/reset";
+@import "./styles/normalize";
+@import "./styles/mixin";
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page-bg {
+  flex: 1 1 auto;
+  background-color: $page-hover-color;
+  padding: 25px 0 80px;
+}

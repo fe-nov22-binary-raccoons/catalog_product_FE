@@ -1,0 +1,115 @@
+@import "../../index";
+
+.phone-card-swiper {
+  font-family: $main-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px;
+  height: 440px;
+  color: $page-primary-color;
+  border: solid 1px $page-elements-color;
+  border-radius: 8px;
+  background-color: $page-white-color;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &_image {
+    height: 130px;
+    margin-bottom: 24px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &_image-link {
+    align-self: center;
+  }
+
+  &_title {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 21px;
+    min-height: 42px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $page-orange-color;
+    }
+  }
+
+  &_price {
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px $page-elements-color;
+  }
+
+  &_current-price {
+    padding-right: 8px;
+    font-weight: 800;
+  }
+
+  &_old-price {
+    color: $page-secondary-color;
+    text-decoration: line-through;
+  }
+
+  &_descriptions {
+    margin-bottom: 16px;
+  }
+}
+
+@include onTablet {
+  .phone-card-swiper {
+    height: 506px !important;
+
+    &_image {
+      height: 196px !important;
+    }
+  }
+}
+
+@include onDesktop {
+  .phone-card-swiper {
+    height: 506px !important;
+
+    &_image {
+      height: 196px !important;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .buy-btn {
+    padding: 9px 16px !important;
+  }
+  .phone-card-swiper {
+    height: 512px !important;
+    width: 237px;
+
+    &_image {
+      height: 181px !important;
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .phone-card-swiper {
+    height: 439px !important;
+    width: 212px;
+
+    &_image {
+      height: 129px !important;
+    }
+  }
+}

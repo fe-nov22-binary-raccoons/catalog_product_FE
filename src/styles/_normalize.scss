@@ -11,9 +11,23 @@ html {
   font-size: 12px;
 }
 
+a {
+  text-decoration: none;
+}
+
 li {
   text-transform: uppercase;
   list-style: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 .heading-1 {
@@ -48,6 +62,55 @@ li {
   line-height: 20px;
   margin-bottom: 8px;
   color: $page-primary-color;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  &_buy-btn {
+    flex: 1 1 auto;
+    padding: 9px 0;
+    margin-right: 8px;
+    background-color: $page-orange-color;
+    border: solid 1px $page-orange-color;
+    border-radius: 8px;
+    color: $page-white-color;
+    font-weight: 700;
+    font-size: 14px;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      box-shadow: none;
+      color: $page-orange-color;
+      border: 1px solid $page-elements-color;
+      background-color: $page-white-color;
+    }
+  }
+
+  &_favorites-btn {
+    background-image: url("../icons/buttons/add-to-favorite/favorite-btn.svg");
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+    width: 40px;
+    transition: background-image 0.5s;
+
+    &:hover {
+      border-color: $page-primary-color;
+    }
+
+    &:active {
+      background-image: url("../icons/buttons/add-to-favorite/favorite-btn-active.svg");
+      border-color: $page-elements-color;
+    }
+  }
 }
 
 @include onTablet {

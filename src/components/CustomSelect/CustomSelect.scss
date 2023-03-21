@@ -1,0 +1,85 @@
+@import "../../index";
+
+.custom-select-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.custom-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px 10px 12px;
+  background-color: $page-hover-color;
+  border: 1px solid $page-icons-color;
+  border-radius: 8px;
+  color: $page-primary-color;
+  font-weight: 700;
+  font-size: 14px;
+  transition: border-color 0.5s, background-color 0.5s;
+  box-sizing: border-box;
+
+  &::after {
+    content: url("../../icons/arrows/arrow-down.svg");
+    position: absolute;
+    right: 16px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    border-color: $page-secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $page-primary-color;
+  }
+
+  &.open::after {
+    content: url("../../icons/arrows/arrow-up.svg");
+  }
+}
+
+.options-wrapper {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.options {
+  padding: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $page-white-color;
+  border: 1px solid $page-elements-color;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin-top: 4px;
+
+  .option {
+    padding: 6px 0 5px 12px;
+    font-size: 14px;
+    color: $page-secondary-color;
+    border: 1px solid $page-white-color;
+    border-radius: 8px;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+      color: $page-primary-color;
+      background-color: $page-hover-color;
+      border-color: $page-hover-color;
+      cursor: pointer;
+    }
+  }
+
+  .selected-option {
+    color: $page-primary-color;
+    background-color: $page-hover-color;
+    border-color: $page-hover-color;
+    cursor: pointer;
+  }
+}

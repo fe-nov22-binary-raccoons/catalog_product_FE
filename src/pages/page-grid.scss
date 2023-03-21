@@ -20,21 +20,18 @@ $container-max-widths: (
 
 @include media-breakpoint-up(sm) {
   .container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0 16px;
   }
 }
 
 @include media-breakpoint-up(md) {
   .container {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0 24px;
   }
 }
 
 @include media-breakpoint-up(xl) {
   .container {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0 32px;
   }
 }
