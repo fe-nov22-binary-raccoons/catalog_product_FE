@@ -1,0 +1,129 @@
+@import "../../index";
+
+.item {
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 1px solid $page-elements-color;
+  flex-direction: column;
+  height: 160px;
+
+  @include onTablet {
+    height: 128px;
+    flex-direction: row;
+  }
+
+  &__icon {
+    width: 5px;
+    height: 5px;
+    padding: 10px;
+    background-image: url(../../images/header/close_icon.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  &__amount-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__amount-number {
+    margin: 0 14px;
+  }
+
+  &__amount-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid $page-icons-color;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // background-color: red;
+    // background-image: url(../../images/header/icon_plus.svg);
+    // background-size: contain;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // cursor: pointer;
+
+    &:hover {
+      border: 1px solid $page-primary-color;
+    }
+  }
+
+  &__price {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    width: 75px;
+    text-align: right;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    width: 128px;
+    height: 84px;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onTablet {
+      width: 176px;
+      height: 63px;
+    }
+
+    @include onDesktop {
+      width: 336px;
+      height: 21px;
+    }
+  }
+
+  &__photo {
+    width: 66px;
+    height: 66px;
+    background-color: greenyellow;
+  }
+
+  &__container-up {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 84px;
+    gap: 25px;
+  }
+
+  &__amount-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.icon__button {
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &-add {
+    background-image: url(../../images/header/icon_plus.svg);
+  }
+
+  &-remove {
+    background-image: url(../../images/header/icon_minus.svg);
+  }
+}
