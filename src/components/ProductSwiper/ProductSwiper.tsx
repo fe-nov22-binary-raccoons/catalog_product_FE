@@ -42,7 +42,7 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
 
   useEffect(() => {
     loadPhones();
-  }, []);
+  }, [endPoint]);
 
   const btnPrevRef = useRef<HTMLDivElement>(null);
   const btnNextRef = useRef<HTMLDivElement>(null);
