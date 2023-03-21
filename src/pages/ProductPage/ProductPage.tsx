@@ -25,6 +25,7 @@ import { ErrorMessage } from '../../components/ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
 import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
+import { ProductSwiper } from '../../components/ProductSwiper';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -339,6 +340,7 @@ export const ProductPage: React.FC = memo(() => {
               </div>
             </article>
           </section>
+          <ProductSwiper endPoint={`products/${phoneId}/recommended`} title="You may also like" />
         </>
       )}
     </div>

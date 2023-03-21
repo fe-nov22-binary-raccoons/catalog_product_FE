@@ -107,9 +107,17 @@
   .phone-card-swiper {
     height: 439px !important;
     width: 212px;
+    padding: 20px;
 
     &_image {
       height: 129px !important;
+    }
+    &_title {
+      line-height: 21px;
+    }
+
+    &_price {
+      font-size: 16px;
     }
   }
 }

@@ -51,7 +51,7 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
 
   useEffect(() => {
     loadPhones();
-  }, []);
+  }, [endPoint]);
 
   const btnPrevRef = useRef<HTMLDivElement>(null);
   const btnNextRef = useRef<HTMLDivElement>(null);
@@ -80,11 +80,10 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
             1200: {
               slidesPerView: 4,
             },
-            // when window width is >= 768px
             768: {
               slidesPerView: 3,
             },
-            640: {
+            642: {
               slidesPerView: 2.4,
             },
             320: {
