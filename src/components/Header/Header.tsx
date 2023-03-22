@@ -14,10 +14,12 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 import './Header.scss';
 import { MenuPage } from '../../pages/MenuPage';
+import { FavoritesContext } from '../FavoritesContext';
 
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme, iconColor } = useContext(ThemeContext);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
     <div className="header">
@@ -56,7 +58,9 @@ export const Header: React.FC = () => {
           <div className="icon__container">
             <NavLink to="favorites" className="icon icon--heart">
               <HeartIcon fill={iconColor} />
-              <span className="counter__number">9</span>
+              {favorites.length > 0 && (
+                <span className="counter__number">{favorites.length}</span>
+              )}
             </NavLink>
           </div>
           <div className="icon__container">
