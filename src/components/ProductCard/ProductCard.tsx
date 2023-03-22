@@ -10,17 +10,19 @@ import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import { ThemeContext } from '../ThemeProvider';
+import { CartContext } from '../CartProvider';
 
 type Props = {
   product: Phone;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
+  const { phoneId, image, name, price, fullPrice, screen, capacity, ram, id }
     = product;
 
   const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
+  const { add } = useContext(CartContext);
 
   const handleFavorite = useCallback(() => {
     setIsFavorite(!isFavorite);
@@ -54,7 +56,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           </div>
         </div>
         <div className="buttons">
-          <button className="buttons_buy-btn">Add to card</button>
+          <button
+            className="buttons_buy-btn"
+            onClick={() => add(id)}
+          >
+            Add to card
+          </button>
           <button
             className="buttons_favorites-btn"
             onClick={handleFavorite}

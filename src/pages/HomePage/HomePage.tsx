@@ -18,7 +18,7 @@ export const HomePage = () => {
     try {
       const categoriesFromServer = await getCategories();
 
-      setCategories(categoriesFromServer.categories);
+      setCategories(categoriesFromServer);
     } catch (error) {
       setIsError(true);
     } finally {

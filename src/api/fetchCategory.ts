@@ -1,8 +1,8 @@
-import { CategoryList } from '../types/CategoryList';
+import { Category } from '../types/Category';
 import { client } from './fetchClient';
 
 export const getCategories = () => {
-  return client.get<CategoryList>(
+  return client.get<Category[]>(
     'products/categories');
 };
 

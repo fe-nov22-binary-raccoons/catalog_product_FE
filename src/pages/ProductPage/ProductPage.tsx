@@ -26,6 +26,7 @@ import { ErrorMessages } from '../../types/ErrorMessages';
 import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
+// import { CartContext } from '../../components/CartProvider';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -35,6 +36,7 @@ export const ProductPage: React.FC = memo(() => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { iconColor } = useContext(ThemeContext);
+  // const { add } = useContext(CartContext);
   const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
 
@@ -227,7 +229,10 @@ export const ProductPage: React.FC = memo(() => {
                   </div>
 
                   <div className="buttons about-right_buttons">
-                    <button className="buttons_buy-btn about-right_buttons-add">
+                    <button
+                      className="buttons_buy-btn about-right_buttons-add"
+                      // onClick={() => add(phoneItem.)}
+                    >
                       Add to card
                     </button>
 
