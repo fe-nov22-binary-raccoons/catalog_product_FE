@@ -1,8 +1,11 @@
 import './CartPage.scss';
 import React from 'react';
 import { CartPageItem } from '../CartPageItem';
+import { ModalAuth } from '../../components/ModalAuth';
 
 export const CartPage: React.FC = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+
   const cost = 2657;
   const counter = [1, 7, 8];
 
@@ -36,10 +39,17 @@ export const CartPage: React.FC = () => {
               </h3>
             </div>
 
-            <button type="submit" className="submit__button">
+            <button type="submit" className="submit__button"
+              onClick={() => setModalShow(true)}>
               Checkout
             </button>
           </div>
+
+          <ModalAuth
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+
         </div>
       </div>
     </div>
