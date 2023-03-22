@@ -1,19 +1,27 @@
-/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable max-len */
 
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
+
 import { Phone } from '../../types/Phone';
-import './ProductSwiper.scss';
 import { Loader } from '../Loader';
 import { client } from '../../api/fetchClient';
 import { PhonesList } from '../../types/PhonesList';
 import { PhoneCardForSwiper } from '../PhoneCardForSwiper';
+
+import './ProductSwiper.scss';
+import {
+  ReactComponent as ArrowLeft,
+} from '../../icons/arrows/arrow-left.svg';
+import {
+  ReactComponent as ArrowRight,
+} from '../../icons/arrows/arrow-right.svg';
+import { ThemeContext } from '../ThemeProvider';
 
 interface Props {
   endPoint: string;
@@ -24,6 +32,7 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [phones, setPhones] = useState<Phone[]>([]);
+  const { iconColor } = useContext(ThemeContext);
 
   const loadPhones = async () => {
     setIsLoading(true);
@@ -53,8 +62,12 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
         <div className="heading-2 product-swiper-box__title">{title}</div>
 
         <div className="product-swiper-box__navigation-buttons">
-          <div className="navPrev-icon" ref={btnPrevRef}></div>
-          <div className="navNext-icon" ref={btnNextRef}></div>
+          <div className="navPrev-icon" ref={btnPrevRef}>
+            <ArrowLeft fill={iconColor} />
+          </div>
+          <div className="navNext-icon" ref={btnNextRef}>
+            <ArrowRight fill={iconColor} />
+          </div>
         </div>
       </div>
 

@@ -59,6 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 32px;
   height: 100%;
   width: 32px;
   background-size: auto;
@@ -70,16 +71,6 @@
   @media (max-width: 639px) {
     display: none;
   }
-}
-
-
-.swiperNavPrev {
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
-  transform: rotate(180deg);
-}
-
-.swiperNavNext {
-  background-image: url("../../images/bannerSwiper/stroke-right-dark.svg");
 }
 
 .swiperNavNext:hover {

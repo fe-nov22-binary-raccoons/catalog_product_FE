@@ -59,34 +59,6 @@
   }
 }
 
-.logo {
-  &__image {
-    width: 64px;
-    height: 20px;
-    position: relative;
-
-    @include onDesktop {
-      width: 80px;
-      height: 30px;
-    }
-
-    &--emoji {
-      position: absolute;
-      height: 12px;
-      width: 9px;
-      top: 13px;
-      left: 46px;
-
-      @include onDesktop {
-        height: 15px;
-        width: 12px;
-        top: 17px;
-        left: 64px;
-      }
-    }
-  }
-}
-
 .nav {
   &__list {
     display: flex;
@@ -178,24 +150,6 @@
   &__container {
     box-shadow: -1px 0 0 $page-elements-color;
   }
-
-  &--close {
-    display: block;
-    background-image: url(../../images/header/close_icon.svg);
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  &--menu {
-    display: block;
-    background-image: url(../../images/header/menu_icon.svg);
-
-    @include onTablet {
-      display: none;
-    }
-  }
 }
 
 .is-open {
@@ -203,5 +157,14 @@
 
   @include onTablet {
     display: none;
+  }
+}
+
+.logo > svg {
+  width: 64px;
+  height: 20px;
+  @include onDesktop {
+    width: 80px;
+    height: 26px;
   }
 }
