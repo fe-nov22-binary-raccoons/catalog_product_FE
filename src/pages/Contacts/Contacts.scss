@@ -1,3 +1,123 @@
+@import "../../index";
+
 .margin-top-50 {
   margin-top: 50px;
+}
+
+.margin-top-100 {
+  margin: 100px 0 30px;
+}
+
+.margin-del {
+  margin: 0;
+}
+
+.position-center {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 15px;
+    color: $page-primary-color;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__person {
+    margin-bottom: 100px;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &-telegram {
+      background-image: url(../../images/contacts/telegram.svg);
+    }
+
+    &-instagram {
+      background-image: url(../../images/contacts/instagram.svg);
+    }
+
+    &-tel {
+      background-image: url(../../images/contacts/call.svg);
+    }
+
+    &-facebook {
+      background-image: url(../../images/contacts/facebook.svg);
+    }
+
+    &-linkedin {
+      background-image: url(../../images/contacts/linkedin.svg);
+    }
+
+    &-gmail {
+      background-image: url(../../images/contacts/gmail.svg);
+    }
+
+    &-gitHub {
+      background-image: url(../../images/contacts/github.svg);
+    }
+
+    &-cv {
+      background-image: url(../../images/contacts/document.svg);
+    }
+  }
+}
+
+.person__photo {
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &-yevhen {
+    background-image: url(../../images/contacts/Yevhen.jpeg);
+  }
+
+  &-tetiana {
+    background-image: url(../../images/contacts/Tetiana.jpeg);
+  }
+
+  &-max {
+    background-image: url(../../images/contacts/Max.jpeg);
+  }
+
+  &-sasha {
+    background-image: url(../../images/contacts/Sasha.jpeg);
+  }
+
+  &-oleh {
+    background-image: url(../../images/contacts/Oleh.jpeg);
+  }
 }

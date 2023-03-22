@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.scss';
 
 import { AccessoriesPage } from './pages/AccessoriesPage';
@@ -16,11 +16,14 @@ import { ProductPage } from './pages/ProductPage';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
 import { TabletsPage } from './pages/TabletsPage';
+import { ActivationPage } from './pages/ActivationPage';
 
 export const App: React.FC = () => {
+  const location = useLocation();
+
   return (
     <div className="flex-wrapper">
-      <Header />
+      {location.pathname !== '/activation' && <Header />}
 
       <main className="page-bg">
         <Routes>
@@ -46,10 +49,11 @@ export const App: React.FC = () => {
           <Route path="rights" element={<Rights />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="menu" element={<MenuPage />} />
+          <Route path="activation" element={<ActivationPage />} />
         </Routes>
       </main>
 
-      <Footer />
+      {location.pathname !== '/activation' && <Footer />}
     </div>
   );
 };

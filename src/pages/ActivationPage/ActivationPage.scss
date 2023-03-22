@@ -1,0 +1,37 @@
+@import "../../index";
+// need add this import @import "../../index.scss";
+
+.activation {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__header {
+    margin: 30px 0 100px;
+  }
+
+  &__verified {
+    height: 100px;
+    width: 100px;
+    // display: flex;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../images/contacts/verified.svg);
+  }
+
+  &__back {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: $page-primary-color;
+    font-size: 20px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $page-secondary-color;
+    }
+  }
+}
