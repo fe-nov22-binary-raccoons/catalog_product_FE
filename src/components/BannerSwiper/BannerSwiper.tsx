@@ -9,8 +9,12 @@ import 'swiper/css';
 import banner1 from '../../images/bannerSwiper/Banner.png';
 import banner2 from '../../images/bannerSwiper/Banner2.png';
 import banner3 from '../../images/bannerSwiper/Banner3.png';
-import { ReactComponent as ArrowLeft } from '../../images/bannerSwiper/stroke-left.svg';
-import { ReactComponent as ArrowRight } from '../../images/bannerSwiper/stroke-right.svg';
+import {
+  ReactComponent as ArrowLeft,
+} from '../../images/bannerSwiper/stroke-left.svg';
+import {
+  ReactComponent as ArrowRight,
+} from '../../images/bannerSwiper/stroke-right.svg';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
 export const BannerSwiper: React.FC = () => {
