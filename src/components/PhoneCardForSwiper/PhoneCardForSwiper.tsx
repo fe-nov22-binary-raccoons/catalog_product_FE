@@ -20,7 +20,6 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
   const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram }
     = phone;
 
-  // const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
 
   const {
@@ -39,12 +38,16 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="phone-card-swiper">
-      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`}>
+      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`} onClick={scrollToTop}>
         <img className="phone-card-swiper_image" src={image} alt={name} />
       </Link>
-      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`}>
+      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`} onClick={scrollToTop}>
         {name}
       </Link>
       <div className="phone-card-swiper_price">
