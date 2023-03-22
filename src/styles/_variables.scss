@@ -1,14 +1,23 @@
-$page-orange-color: #f86800;
-$page-blue-color: #476df4;
-$page-primary-color: #0f0f11;
-$page-secondary-color: #89939a;
-$page-icons-color: #b4bdc4;
-$page-elements-color: #e2e6e9;
-$page-hover-color: #fafbfc;
-$page-white-color: #fff;
-$page-green-color: #27ae60;
-$page-red-color: #eb5757;
+// $page-orange-color: #f86800;
+// $page-blue-color: #476df4;
+// // $page-primary-color: #0f0f11;
+// $page-secondary-color: #89939a;
+// $page-icons-color: #b4bdc4;
+// $page-elements-color: #e2e6e9;
+// // $page-hover-color: #fafbfc;
+// $page-white-color: #fff;
+// $page-green-color: #27ae60;
+// $page-red-color: #eb5757;
 
 $page-color: #d8d8d8;
 
 $main-font: "Mont";
+
+$page-hover-color: var(--page-hover-color);
+$page-primary-color: var(--page-primary-color);
+$page-orange-color: var(--page-orange-color);
+$page-blue-color: var(--page-blue-color);
+$page-secondary-color: var(--page-secondary-color);
+$page-icons-color: var(--page-icons-color);
+$page-elements-color: var(--page-elements-color);
+$page-white-color: var(--page-white-color);

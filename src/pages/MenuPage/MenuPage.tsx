@@ -1,11 +1,24 @@
 import './MenuPage.scss';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MenuNavLink } from './MenuNavLink/MenuNavLink';
 import classNames from 'classnames';
 
+import {
+  ReactComponent as HeartIcon,
+} from '../../images/header/heart_icon.svg';
+import {
+  ReactComponent as BagIcon,
+} from '../../images/header/bag_icon.svg';
+import { ReactComponent as Logo } from '../../images/header/logo.svg';
+import { ReactComponent as Menu } from '../../images/header/menu_icon.svg';
+import { ReactComponent as Close } from '../../images/header/close_icon.svg';
+
+import { ThemeContext } from '../../components/ThemeProvider';
+
 export const MenuPage: React.FC = () => {
   const [isMenuPage, setIsMenuPage] = useState(false);
+  const { iconColor } = useContext(ThemeContext);
   const location = useLocation();
 
   useEffect(() => {
@@ -24,7 +37,7 @@ export const MenuPage: React.FC = () => {
           type="button"
           className="menu__button-icon"
         >
-          <div className="icon icon--menu"></div>
+          <Menu fill={iconColor} />
         </button>
       </div>
 
@@ -33,7 +46,9 @@ export const MenuPage: React.FC = () => {
           <nav className="menu__nav">
             <div className="menu__header">
               <div className="menu__logo">
-                <NavLink to="../home" className="menu__logo-image"></NavLink>
+                <NavLink to="/home" className="menu__logo-image">
+                  <Logo fill={iconColor} />
+                </NavLink>
               </div>
 
               <button
@@ -41,7 +56,7 @@ export const MenuPage: React.FC = () => {
                 type="button"
                 className="menu__button"
               >
-                <div className="icon icon--close"></div>
+                <Close fill={iconColor} />
               </button>
             </div>
 
@@ -82,6 +97,7 @@ export const MenuPage: React.FC = () => {
                   onClick={() => setIsMenuPage(false)}
                   className="icon__action icon__action-favorites"
                 >
+                  <HeartIcon fill={iconColor} />
                   <span className="counter__number">3</span>
                 </NavLink>
               </div>
@@ -96,6 +112,7 @@ export const MenuPage: React.FC = () => {
                   onClick={() => setIsMenuPage(false)}
                   className="icon__action icon__action-bag"
                 >
+                  <BagIcon fill={iconColor} />
                   <span className="counter__number">3</span>
                 </NavLink>
               </div>

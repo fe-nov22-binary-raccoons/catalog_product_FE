@@ -1,11 +1,15 @@
-import { PageNotReady } from '../PageNotReady/PageNotReady';
-
+import underConstruction from '../../images/under-construction.png';
 export const AccessoriesPage: React.FC = () => (
   <div className="home-page container">
     <div className="row">
-      <div className="col-24">
-        <PageNotReady />
-      </div>
+      <h1 className="heading-1 col-24" style={{ marginBottom: '60px' }}>
+        Accessories Page
+      </h1>
+      <img
+        className="col-18"
+        src={underConstruction}
+        alt="under-construction"
+      />
     </div>
   </div>
 );

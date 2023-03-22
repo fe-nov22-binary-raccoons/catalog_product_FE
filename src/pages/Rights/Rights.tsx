@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import './Rights.scss';
-
 export const Rights = () => (
   <div className="container">
     <div className="row">

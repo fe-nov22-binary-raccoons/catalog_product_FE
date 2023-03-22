@@ -85,14 +85,8 @@
 
     &-image {
       display: block;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
       cursor: pointer;
-      background-image: url(../../images/header/logo.svg);
-      width: 64px;
-      height: 20px;
-      margin: 14px 12px;
+      padding: 14px 16px;
     }
   }
 
@@ -101,7 +95,6 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    border-right: 0;
 
     @include onDesktop {
       display: none;
@@ -172,14 +165,6 @@
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
-
-  &-favorites {
-    background-image: url(../../images/header/heart_icon.svg);
-  }
-
-  &-bag {
-    background-image: url(../../images/header/bag_icon.svg);
-  }
 }
 
 .item-active {

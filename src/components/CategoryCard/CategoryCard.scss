@@ -17,10 +17,10 @@
   &_image-link {
     width: 287px;
     height: 287px;
-    background-color: $page-secondary-color;
     border-radius: 8px;
     display: block;
     margin-bottom: 24px;
+    transition: transform 0.5s ease;
 
     @include onTablet {
       width: 187px;
@@ -30,6 +30,10 @@
     @include onDesktop {
       width: 368px;
       height: 368px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 

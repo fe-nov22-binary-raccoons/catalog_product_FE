@@ -1,32 +1,15 @@
-.page-not-found__block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.back-btn {
+  display: block;
+  text-decoration: none;
+  padding-right: 30px;
+}
 
-  &__title {
-    font-family: "Mont", sans-serif;
-    color: #a8a8a8;
-    font-size: 45px;
-    margin-top: 20px;
+.back_home-btn {
+  text-align: center;
+  width: 200px;
 
-    @media (max-width: 768px) {
-      font-size: 35px;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 640px) {
-      font-size: 25px;
-    }
-  }
-
-  &__image {
-    margin-top: 20px;
-    height: 100%;
-    max-width: 400px;
-
-    @media (max-width: 768px) {
-      max-width: 200px;
-      margin-top: 10px;
-    }
+  @media (max-width: 640px) {
+    width: 150px;
+    height: 40px;
   }
 }

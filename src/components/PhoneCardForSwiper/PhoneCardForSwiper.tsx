@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
+import { ThemeContext } from '../ThemeProvider';
+
+import {
+  ReactComponent as HeartIcon,
+} from '../../icons/buttons/add-to-favorite/favorite-btn.svg';
+import {
+  ReactComponent as HeartIconActive,
+} from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './PhoneCardForSwiper.scss';
 
 type Props = {
@@ -11,12 +19,19 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
   const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
     = phone;
 
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { iconColor } = useContext(ThemeContext);
+
+  const handleFavorite = useCallback(() => {
+    setIsFavorite(!isFavorite);
+  }, [isFavorite]);
+
   return (
     <div className="phone-card-swiper">
-      <Link className="phone-card-swiper_image-link" to={`${phoneId}`}>
+      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`}>
         <img className="phone-card-swiper_image" src={image} alt={name} />
       </Link>
-      <Link className="phone-card-swiper_title" to={`${phoneId}`}>
+      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`}>
         {name}
       </Link>
       <div className="phone-card-swiper_price">
@@ -39,7 +54,16 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
       </div>
       <div className="buttons">
         <button className="buttons_buy-btn">Add to card</button>
-        <a href="#" className="buttons_favorites-btn"></a>
+        <button
+          className="buttons_favorites-btn"
+          onClick={handleFavorite}
+        >
+          {!isFavorite ? (
+            <HeartIcon fill={iconColor} />
+          ) : (
+            <HeartIconActive fill="#476df4" />
+          )}
+        </button>
       </div>
     </div>
   );

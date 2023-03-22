@@ -33,6 +33,22 @@
     }
   }
 
+  &__theme-switch {
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e2e6e9;
+    }
+
+    @include onTablet {
+      margin-right: 0;
+    }
+  }
+
   &__container {
     display: flex;
 
@@ -42,22 +58,6 @@
 
     @include onDesktop {
       gap: 24px;
-    }
-  }
-}
-
-.logo {
-  &__image {
-    width: 64px;
-    height: 20px;
-    background-size: contain;
-    background-image: url(../../images/header/logo.svg);
-    position: relative;
-    background-repeat: no-repeat;
-
-    @include onDesktop {
-      width: 80px;
-      height: 30px;
     }
   }
 }
@@ -138,9 +138,6 @@
   width: 16px;
   height: 16px;
   position: relative;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   color: $page-primary-color;
   cursor: pointer;
 
@@ -154,34 +151,7 @@
   }
 
   &__container {
-    box-shadow: -1px 0 0 #e2e6e9;
-  }
-
-  &--heart {
-    background-image: url(../../images/header/heart_icon.svg);
-    position: relative;
-  }
-
-  &--bag {
-    background-image: url(../../images/header/bag_icon.svg);
-  }
-
-  &--close {
-    display: block;
-    background-image: url(../../images/header/close_icon.svg);
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  &--menu {
-    display: block;
-    background-image: url(../../images/header/menu_icon.svg);
-
-    @include onTablet {
-      display: none;
-    }
+    box-shadow: -1px 0 0 $page-elements-color;
   }
 }
 
@@ -190,5 +160,14 @@
 
   @include onTablet {
     display: none;
+  }
+}
+
+.logo > svg {
+  width: 64px;
+  height: 20px;
+  @include onDesktop {
+    width: 80px;
+    height: 26px;
   }
 }
