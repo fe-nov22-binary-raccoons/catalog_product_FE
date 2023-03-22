@@ -36,9 +36,19 @@ export const ProductPage: React.FC = memo(() => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { iconColor } = useContext(ThemeContext);
-  // const { add } = useContext(CartContext);
+  // const { isAdded, remove } = useContext(CartContext);
   const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
+
+  // const handleClickAdded = () => {
+  //   if (isAdded(id)) {
+  //     remove(id);
+
+  //     return;
+  //   }
+
+  //   add(id);
+  // };
 
   const loadPhone = useCallback(async () => {
     try {

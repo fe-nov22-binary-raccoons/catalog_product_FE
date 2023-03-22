@@ -14,10 +14,16 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 import './Header.scss';
 import { MenuPage } from '../../pages/MenuPage';
+import { CartContext } from '../CartProvider';
 
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme, iconColor } = useContext(ThemeContext);
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce(
+    (total, cart) => total + cart.count, 0,
+  );
 
   return (
     <div className="header">
@@ -62,7 +68,7 @@ export const Header: React.FC = () => {
           <div className="icon__container">
             <NavLink to="cart" className="icon icon--bag">
               <BagIcon fill={iconColor} />
-              <span className="counter__number">3</span>
+              <span className="counter__number">{totalItems}</span>
             </NavLink>
           </div>
 

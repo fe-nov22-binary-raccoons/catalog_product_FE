@@ -4,10 +4,15 @@
   &__container {
     display: flex;
     flex-direction: column;
+    margin-top: 24px;
 
     @include onDesktop {
       flex-direction: row;
     }
+  }
+
+  &__prev-btn {
+    margin-top: 16px;
   }
 }
 

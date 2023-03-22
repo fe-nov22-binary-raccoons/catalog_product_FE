@@ -44,7 +44,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
 
     cart.count++;
 
-    setCartItems((currentItems) => [...currentItems]);
+    setCartItems([...cartItems]);
   };
 
   const subtract = (itemId: number) => {
@@ -62,7 +62,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       );
     }
 
-    setCartItems((currentItems) => [...currentItems]);
+    setCartItems([...cartItems]);
   };
 
   const remove = (itemId: number) => {
@@ -72,10 +72,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   };
 
   const getCount = (itemId: number) => {
-    // eslint-disable-next-line no-console, max-len
-    console.log(itemId, 'itemId', cartItems.find(item => item.id !== itemId)?.count);
-
-    return cartItems.find(item => item.id !== itemId)?.count ?? 0;
+    return cartItems.find(item => item.id === itemId)?.count ?? 0;
   };
 
   const isAdded = (productId: number): boolean => (

@@ -1,10 +1,11 @@
 import './CartPage.scss';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { CartPageItem } from '../CartPageItem';
 import { CartContext } from '../../components/CartProvider';
 import { Phone } from '../../types/Phone';
 import { getPhone } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
+import { BackToPrevPage } from '../../components/BackToPrevPage';
 
 export const CartPage: React.FC = () => {
   const { getCount, cartItems } = useContext(CartContext);
@@ -22,15 +23,24 @@ export const CartPage: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [cartItems]);
 
   const totalCost = phones.reduce(
-    (total, product) => total + product.price * getCount(product.id), 0,
+    (total, phone) => total + phone.price * getCount(phone.id), 0,
+  );
+
+  const totalItems = cartItems.reduce(
+    (total, cart) => total + cart.count, 0,
   );
 
 
   return (
     <div className="bag container">
+      <div className="row">
+        <div className="bag__prev-btn col-24">
+          <BackToPrevPage />
+        </div>
+      </div>
       <div className="row">
         <h1 className="heading-1 col-24">Cart</h1>
       </div>
@@ -41,11 +51,11 @@ export const CartPage: React.FC = () => {
             ? <Loader />
             : (!!phones.length
               && phones.map(item => (
-                <CartPageItem
-                  key={item.id}
-                  item={item}
-                  // count={getCount(item.id)}
-                />
+                <Fragment key={item.id}>
+                  <CartPageItem
+                    item={item}
+                  />
+                </Fragment>
               ))
             )}
         </div>
@@ -55,9 +65,9 @@ export const CartPage: React.FC = () => {
             <div className="bag__cost">
               <h3 className="bag__cost-total">$ {totalCost}</h3>
               <h3 className="bag__count-items">
-                {cartItems.length === 1
-                  ? `Total for ${cartItems.length} item`
-                  : `Total for ${cartItems.length} items`}
+                {totalItems === 1
+                  ? `Total for ${totalItems} item`
+                  : `Total for ${totalItems} items`}
               </h3>
             </div>
 

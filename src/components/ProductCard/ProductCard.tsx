@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
+import cn from 'classnames';
 import './ProductCard.scss';
 
 import {
@@ -22,11 +23,21 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
-  const { add } = useContext(CartContext);
+  const { add, isAdded, remove } = useContext(CartContext);
 
   const handleFavorite = useCallback(() => {
     setIsFavorite(!isFavorite);
   }, [isFavorite]);
+
+  const handleClickAdded = () => {
+    if (isAdded(id)) {
+      remove(id);
+
+      return;
+    }
+
+    add(id);
+  };
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
@@ -57,8 +68,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
         <div className="buttons">
           <button
-            className="buttons_buy-btn"
-            onClick={() => add(id)}
+            className={cn('buttons_buy-btn', {
+              'buttons_buy-btn_isAdded': isAdded(id),
+            })}
+            onClick={handleClickAdded}
           >
             Add to card
           </button>
