@@ -4,26 +4,26 @@ import { CartPageItem } from '../CartPageItem';
 import { ModalAuth } from '../../components/ModalAuth';
 
 import { CartContext } from '../../components/CartProvider';
-import { Phone } from '../../types/Phone';
-import { getPhone } from '../../api/fetchProducts';
+import { getItem } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
 import { BackToPrevPage } from '../../components/BackToPrevPage';
 import { checkoutReq } from '../../api/fetchCart';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
 import { AuthError } from '../../api/fetchClient';
+import { PhoneItem } from '../../types/PhoneItem';
 
 export const CartPage: React.FC = () => {
   const { getCount, cartItems } = useContext(CartContext);
-  const [phones, setPhones] = useState<Phone[]>([]);
+  const [phones, setPhones] = useState<PhoneItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [modalShow, setModalShow] = React.useState(true);
+  const [modalShow, setModalShow] = React.useState(false);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const fetchedProducts = await Promise.all(
-        cartItems.map(item => getPhone(item.id)),
+        cartItems.map(item => getItem(item.id)),
       );
 
       setPhones(fetchedProducts);
@@ -34,7 +34,7 @@ export const CartPage: React.FC = () => {
   }, [cartItems]);
 
   const totalCost = phones.reduce(
-    (total, phone) => total + phone.price * getCount(phone.id), 0,
+    (total, phone) => total + phone.priceDiscount * getCount(phone.id), 0,
   );
 
   const totalItems = cartItems.reduce(
@@ -77,10 +77,6 @@ export const CartPage: React.FC = () => {
 
       {!phones.length
       && !isLoading && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
-
-      {/* {!phones.length && isError && (
-        <ErrorMessage text={ErrorMessages.OnLoad} />
-      )} */}
 
       {showCartContent && (
         <div className="bag__container row">

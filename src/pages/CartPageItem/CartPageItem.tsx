@@ -1,7 +1,6 @@
 import './CartPageItem.scss';
 import React, { useContext } from 'react';
 import { CartContext } from '../../components/CartProvider';
-import { Phone } from '../../types/Phone';
 import cn from 'classnames';
 
 import { ReactComponent as Close } from '../../images/header/close_icon.svg';
@@ -9,16 +8,17 @@ import { ReactComponent as Plus } from '../../images/header/icon_plus.svg';
 import { ReactComponent as Minus } from '../../images/header/icon_minus.svg';
 import { ThemeContext } from '../../components/ThemeProvider';
 import { Link } from 'react-router-dom';
+import { PhoneItem } from '../../types/PhoneItem';
 
 type Props = {
-  item: Phone,
+  item: PhoneItem,
 };
 
 export const CartPageItem: React.FC<Props> = ({ item }) => {
   const { add, remove, subtract, getCount } = useContext(CartContext);
   const { iconColor } = useContext(ThemeContext);
 
-  const { id, name, image, price, phoneId } = item;
+  const { id, name, images, priceDiscount } = item;
 
   const isSubtractDisabled = getCount(item.id) === 1;
   const isAddDisabled = getCount(item.id) > 9;
@@ -34,11 +34,11 @@ export const CartPageItem: React.FC<Props> = ({ item }) => {
         </button>
 
         <Link
-          to={`/phones/${phoneId}`}
+          to={`/phones/${id}`}
           className="item__photo-container"
         >
           <img
-            src={image}
+            src={images.find(img => img.includes('00'))}
             alt={name}
             className='item__photo'
           />
@@ -80,7 +80,7 @@ export const CartPageItem: React.FC<Props> = ({ item }) => {
           </div>
         </div>
 
-        <div className="item__price">$ {price}</div>
+        <div className="item__price">$ {priceDiscount}</div>
       </div>
     </div>
   );

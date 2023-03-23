@@ -30,9 +30,6 @@ export const FavoritesPage: React.FC = () => {
       );
 
       setProducts(favoritesPhones);
-      // eslint-disable-next-line no-console
-      console.log(products);
-      // setProductsNum(productsFromServer.total);
     } catch (error) {
       setIsError(true);
     } finally {
