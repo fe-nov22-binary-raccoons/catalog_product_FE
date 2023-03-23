@@ -1,13 +1,11 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.9dfc4035.css",
-    "main.js": "/catalog_product_FE/static/js/main.7da832de.js",
+    "main.css": "/catalog_product_FE/static/css/main.95435ebc.css",
+    "main.js": "/catalog_product_FE/static/js/main.ab236515.js",
     "static/media/logo.svg": "/catalog_product_FE/static/media/logo.4feb0aa9eee144c636912b415fac9de8.svg",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog_product_FE/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/catalog_product_FE/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/Banner.png": "/catalog_product_FE/static/media/Banner.71e7e0917555f044d60b.png",
-    "static/media/Banner2.png": "/catalog_product_FE/static/media/Banner2.71e7e0917555f044d60b.png",
     "static/media/Banner3.png": "/catalog_product_FE/static/media/Banner3.71e7e0917555f044d60b.png",
     "static/media/under-construction.png": "/catalog_product_FE/static/media/under-construction.55d3ef7e4b48ffa6154d.png",
     "static/media/banner-320.png": "/catalog_product_FE/static/media/banner-320.5ab4e0f94787219dc791.png",
@@ -37,11 +35,11 @@
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.58c98b7cda2d7714e1fe1c8ca49a7314.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.f7aa911caef14257bc1d85de688d8629.svg",
     "static/media/icon_minus.svg": "/catalog_product_FE/static/media/icon_minus.73fe573a45dba4a3cbf7bbb495338082.svg",
-    "main.9dfc4035.css.map": "/catalog_product_FE/static/css/main.9dfc4035.css.map",
-    "main.7da832de.js.map": "/catalog_product_FE/static/js/main.7da832de.js.map"
+    "main.95435ebc.css.map": "/catalog_product_FE/static/css/main.95435ebc.css.map",
+    "main.ab236515.js.map": "/catalog_product_FE/static/js/main.ab236515.js.map"
   },
   "entrypoints": [
-    "static/css/main.9dfc4035.css",
-    "static/js/main.7da832de.js"
+    "static/css/main.95435ebc.css",
+    "static/js/main.ab236515.js"
   ]
 }
