@@ -1,6 +1,8 @@
 import './CartPage.scss';
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { CartPageItem } from '../CartPageItem';
+import { ModalAuth } from '../../components/ModalAuth';
+
 import { CartContext } from '../../components/CartProvider';
 import { Phone } from '../../types/Phone';
 import { getPhone } from '../../api/fetchProducts';
@@ -11,6 +13,7 @@ export const CartPage: React.FC = () => {
   const { getCount, cartItems } = useContext(CartContext);
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +35,7 @@ export const CartPage: React.FC = () => {
   const totalItems = cartItems.reduce(
     (total, cart) => total + cart.count, 0,
   );
+
 
 
   return (
@@ -71,10 +75,17 @@ export const CartPage: React.FC = () => {
               </h3>
             </div>
 
-            <button type="submit" className="submit__button">
+            <button type="submit" className="submit__button"
+              onClick={() => setModalShow(true)}>
               Checkout
             </button>
           </div>
+
+          <ModalAuth
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+
         </div>
       </div>
     </div>

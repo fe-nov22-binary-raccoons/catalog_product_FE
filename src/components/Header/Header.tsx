@@ -15,6 +15,8 @@ import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 import './Header.scss';
 import { MenuPage } from '../../pages/MenuPage';
 import { CartContext } from '../CartProvider';
+import { FavoritesContext } from '../FavoritesContext';
+
 
 
 export const Header: React.FC = () => {
@@ -24,6 +26,9 @@ export const Header: React.FC = () => {
   const totalItems = cartItems.reduce(
     (total, cart) => total + cart.count, 0,
   );
+
+  const { favorites } = useContext(FavoritesContext);
+
 
   return (
     <div className="header">
@@ -62,7 +67,9 @@ export const Header: React.FC = () => {
           <div className="icon__container">
             <NavLink to="favorites" className="icon icon--heart">
               <HeartIcon fill={iconColor} />
-              <span className="counter__number">9</span>
+              {favorites.length > 0 && (
+                <span className="counter__number">{favorites.length}</span>
+              )}
             </NavLink>
           </div>
           <div className="icon__container">
