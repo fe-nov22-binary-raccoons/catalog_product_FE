@@ -68,7 +68,11 @@ export const Header: React.FC = () => {
           <div className="icon__container">
             <NavLink to="cart" className="icon icon--bag">
               <BagIcon fill={iconColor} />
-              <span className="counter__number">{totalItems}</span>
+              {!!totalItems && (
+                <span className="counter__number">
+                  {totalItems}
+                </span>
+              )}
             </NavLink>
           </div>
 
