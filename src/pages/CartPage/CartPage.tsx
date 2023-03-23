@@ -22,10 +22,10 @@ export const CartPage: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [cartItems]);
 
   const totalCost = phones.reduce(
-    (total, product) => total + product.price * getCount(product.id), 0,
+    (total, phone) => total + phone.price * getCount(phone.id), 0,
   );
 
 
