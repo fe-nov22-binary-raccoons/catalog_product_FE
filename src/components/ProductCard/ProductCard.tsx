@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import cn from 'classnames';
@@ -11,23 +11,39 @@ import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import { ThemeContext } from '../ThemeProvider';
+
 import { CartContext } from '../CartProvider';
+
+import { FavoritesContext } from '../FavoritesContext';
+
 
 type Props = {
   product: Phone;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { phoneId, image, name, price, fullPrice, screen, capacity, ram, id }
-    = product;
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram }  = product;
+
+  // const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
   const { add, isAdded, remove } = useContext(CartContext);
 
-  const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
-  }, [isFavorite]);
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  } = useContext(FavoritesContext);
+
+  const isFavoriteProduct = isFavorite(id);
+
+  const handleFavorite = () => {
+    if (isFavoriteProduct) {
+      removeFavorite(id);
+    } else {
+      addFavorite(id);
+    }
+  };
 
   const handleClickAdded = () => {
     if (isAdded(id)) {
@@ -79,11 +95,9 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             className="buttons_favorites-btn"
             onClick={handleFavorite}
           >
-            {!isFavorite ? (
-              <HeartIcon fill={iconColor} />
-            ) : (
-              <HeartIconActive fill="#476df4" />
-            )}
+            {!isFavoriteProduct
+              ? (<HeartIcon fill={iconColor} />)
+              : (<HeartIconActive fill="#476df4" />)}
           </button>
         </div>
       </div>
