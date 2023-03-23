@@ -1,23 +1,71 @@
 // import { PageNotReady } from '../PageNotReady/PageNotReady';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import { activateUser } from '../../api/fetchUser';
+import { Loader } from '../../components/Loader';
 import './ActivationPage.scss';
 
-export const ActivationPage: React.FC = () => (
-  <div className="home-page container">
-    <div className="row">
-      <div className="col-24">
-        <div className="activation activation__container">
-          <div className="activation__verified"></div>
+export const ActivationPage: React.FC = () => {
+  const { activationToken = '' } = useParams();
 
-          <h1 className="heading-1 activation__header">
-            Your email has been confirmed
-          </h1>
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isSuccess, setIsSuccess] = useState<boolean>(true);
 
-          <NavLink to="/" className="activation__back">
-            go to home
-          </NavLink>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+  const fetchActivation = async () => {
+    try {
+      await activateUser(activationToken);
+    } catch (error) {
+      setIsSuccess(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchActivation();
+  });
+
+  return (
+    <>
+      {
+        isLoading
+          ? <Loader />
+          : (
+            <div className="home-page container">
+              <div className="row">
+                <div className="col-24">
+                  <div className="activation activation__container">
+                    <div className="activation__verified"></div>
+                    {
+                      isSuccess
+                        ? (
+                          <h1 className="
+                            heading-1
+                            activation__header
+                            activation__confirmed"
+                          >
+                            Your email has been confirmed
+                          </h1>
+                        )
+                        : (
+                          <h1 className="
+                            heading-1
+                            activation__header
+                            activation__rejected"
+                          >
+                            Oops, something went wrong
+                          </h1>
+                        )
+                    }
+                    <NavLink to="/" className="activation__back">
+                      go to home
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+      }
+    </>
+  );
+};
