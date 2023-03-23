@@ -1,15 +1,5 @@
 @import "../../index";
-
-.isDisabled {
-  & > svg {
-    fill: $page-icons-color;
-  }
-
-  &:hover {
-    border-color: $page-icons-color;
-  }
-}
-
+/* stylelint-disable */
 .item {
   padding: 16px;
   border-radius: 16px;
@@ -121,5 +111,15 @@
         fill: $page-primary-color;
       }
     }
+  }
+}
+
+.isDisabled {
+  &>svg {
+    fill: $page-icons-color;
+  }
+
+  &:hover {
+    border-color: $page-icons-color;
   }
 }
