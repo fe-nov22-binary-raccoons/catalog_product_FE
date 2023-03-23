@@ -76,7 +76,7 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
       ) : (
         <Swiper
           breakpoints={{
-            // when window width is >= 640px
+            // when window width is >= 1200px
             1200: {
               slidesPerView: 4,
             },
@@ -100,19 +100,6 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
           slidesPerView={4}
           loop={true}
           className="product-swiper"
-          onInit={(swiper) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            // eslint-disable-next-line no-param-reassign
-            swiper.params.navigation.prevEl = btnPrevRef.current;
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            // eslint-disable-next-line no-param-reassign
-            swiper.params.navigation.nextEl = btnNextRef.current;
-            swiper.navigation.destroy();
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
         >
           {phones.map((phone) => (
             <SwiperSlide key={phone.phoneId}>
