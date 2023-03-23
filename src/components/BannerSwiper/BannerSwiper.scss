@@ -1,5 +1,20 @@
 @import "../../styles/variables";
 
+.swiperSlide {
+  height: 400px;
+  background-image: url("../../images/bannerSwiper/Banner3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+
+  &__link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .swiper-box {
   height: 400px;
   position: relative;

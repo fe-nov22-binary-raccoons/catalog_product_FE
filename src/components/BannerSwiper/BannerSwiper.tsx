@@ -6,9 +6,6 @@ import { Navigation, Pagination } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
-import banner1 from '../../images/bannerSwiper/Banner.png';
-import banner2 from '../../images/bannerSwiper/Banner2.png';
-import banner3 from '../../images/bannerSwiper/Banner3.png';
 import {
   ReactComponent as ArrowLeft,
 } from '../../images/bannerSwiper/stroke-left.svg';
@@ -23,9 +20,14 @@ export const BannerSwiper: React.FC = () => {
   const { iconColor } = useContext(ThemeContext);
 
   const banners = [
-    [banner1, 1],
-    [banner2, 2],
-    [banner3, 3],
+    {
+      id: 1,
+    },
+    { id: 2,
+    },
+    {
+      id:3,
+    },
   ];
 
   return (
@@ -52,25 +54,16 @@ export const BannerSwiper: React.FC = () => {
               bulletClass: 'bullet',
             }}
             className="banner-swiper"
-            onInit={(swiper) => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              // eslint-disable-next-line no-param-reassign
-              swiper.params.navigation.prevEl = prevRef.current;
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              // eslint-disable-next-line no-param-reassign
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.destroy();
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
           >
             {banners.map((banner) => (
-              <SwiperSlide key={banner[1]}>
-                <a href="#/phones/apple-iphone-11-64gb-black">
-                  <img src={banner[0]} className="banner-image" />
-                </a>
+              <SwiperSlide key={banner.id}>
+                <div className='swiperSlide'>
+                  <a
+                    href="#/phones/apple-iphone-11-64gb-black"
+                    className='swiperSlide__link'
+                  >
+                  </a>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
