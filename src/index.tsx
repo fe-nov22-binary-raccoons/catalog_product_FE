@@ -18,13 +18,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-
         <CartProvider>
           <FavoritesProvider>
             <App />
           </FavoritesProvider>
         </CartProvider>
-
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
