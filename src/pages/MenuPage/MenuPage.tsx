@@ -126,7 +126,9 @@ export const MenuPage: React.FC = () => {
                   className="icon__action icon__action-bag"
                 >
                   <BagIcon fill={iconColor} />
-                  <span className="counter__number">{totalItems}</span>
+                  {!!totalItems && (
+                    <span className="counter__number">{totalItems}</span>
+                  )}
                 </NavLink>
               </div>
             </div>
