@@ -39,14 +39,6 @@ export const App: React.FC = () => {
           <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          {/* <Route path="products">
-            <Route path="phones">
-              <Route index element={<PhonesPage />} />
-              <Route path=":phoneId" element={<ProductPage />} />
-            </Route>
-            <Route path="tablets" element={<BannerSwiper />} />
-            <Route path="accessories" element={<AccessoriesPage />} />
-          </Route> */}
           <Route path="phones">
             <Route index element={<PhonesPage />} />
             <Route path=":phoneId" element={<ProductPage />} />

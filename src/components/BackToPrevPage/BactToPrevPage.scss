@@ -5,6 +5,8 @@
 
   &_button {
     display: flex;
+    border: none;
+    background-color: inherit;
   }
 
   &_button-text {
