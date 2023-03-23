@@ -23,7 +23,7 @@ type Props = {
 
 export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
   const {
-    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+    phoneId, image, name, price, fullPrice, screen, capacity, ram,
   } = phone;
 
   const { iconColor } = useContext(ThemeContext);
@@ -35,13 +35,13 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
     isFavorite,
   } = useContext(FavoritesContext);
 
-  const isFavoriteProduct = isFavorite(id);
+  const isFavoriteProduct = isFavorite(phoneId);
 
   const handleFavorite = () => {
     if (isFavoriteProduct) {
-      removeFavorite(id);
+      removeFavorite(phoneId);
     } else {
-      addFavorite(id);
+      addFavorite(phoneId);
     }
   };
 
@@ -92,7 +92,10 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
           })}
           onClick={handleClickAdded}
         >
-          Add to
+          {isAdded(phoneId)
+            ? 'Added to cart'
+            : 'Add to cart'
+          }
         </button>
         <button
           className="buttons_favorites-btn"

@@ -18,6 +18,6 @@ export const getItem = (id: string | number) => {
   return client.get<PhoneItem>(`products/${id}`);
 };
 
-export const getPhone = (id: number) => {
+export const getPhone = (id: string) => {
   return client.get<Phone>(`products/favourites/${id}`);
 };

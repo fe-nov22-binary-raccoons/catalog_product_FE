@@ -27,18 +27,33 @@ import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
 import { CartContext } from '../../components/CartProvider';
+import { FavoritesContext } from '../../components/FavoritesContext';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
   const [mainPhoto, setMainPhoto] = useState<string>('');
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const { iconColor } = useContext(ThemeContext);
   const { isAdded, remove, add } = useContext(CartContext);
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  } = useContext(FavoritesContext);
   const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
+
+  const isFavoriteProduct = isFavorite(phoneId);
+
+  const handleFavorite = () => {
+    if (isFavoriteProduct) {
+      removeFavorite(phoneId);
+    } else {
+      addFavorite(phoneId);
+    }
+  };
 
   const handleClickAdded = () => {
     if (isAdded(phoneId)) {
@@ -106,10 +121,6 @@ export const ProductPage: React.FC = memo(() => {
     (capacity: string) => pathname.split('-').includes(capacity.toLowerCase()),
     [pathname],
   );
-
-  const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
-  }, [isFavorite]);
 
   return (
     <div className="container product">
@@ -256,7 +267,7 @@ export const ProductPage: React.FC = memo(() => {
                       className="buttons_favorites-btn about-right_buttons-like"
                       onClick={handleFavorite}
                     >
-                      {!isFavorite ? (
+                      {!isFavoriteProduct ? (
                         <HeartIcon fill={iconColor} />
                       ) : (
                         <HeartIconActive fill="#476df4" />

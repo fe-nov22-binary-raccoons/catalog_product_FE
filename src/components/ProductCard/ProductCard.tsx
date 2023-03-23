@@ -24,10 +24,9 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product }) => {
 
   const {
-    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+    phoneId, image, name, price, fullPrice, screen, capacity, ram,
   } = product;
 
-  // const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
   const { add, isAdded, remove } = useContext(CartContext);
 
@@ -37,13 +36,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     isFavorite,
   } = useContext(FavoritesContext);
 
-  const isFavoriteProduct = isFavorite(id);
+  const isFavoriteProduct = isFavorite(phoneId);
 
   const handleFavorite = () => {
     if (isFavoriteProduct) {
-      removeFavorite(id);
+      removeFavorite(phoneId);
     } else {
-      addFavorite(id);
+      addFavorite(phoneId);
     }
   };
 
@@ -91,7 +90,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             })}
             onClick={handleClickAdded}
           >
-            Add to card
+            {isAdded(phoneId)
+              ? 'Added to cart'
+              : 'Add to cart'
+            }
           </button>
           <button
             className="buttons_favorites-btn"

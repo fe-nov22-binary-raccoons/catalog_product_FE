@@ -1,16 +1,11 @@
 import { createContext } from 'react';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
-// type ProductFavorites = {
-//   id?: number,
-//   phoneId: string,
-// };
-
 interface ContextType {
-  favorites: number[],
-  addFavorite: (productId: number) => void,
-  removeFavorite: (productId: number) => void,
-  isFavorite: (productId: number) => boolean,
+  favorites: string[],
+  addFavorite: (productId: string) => void,
+  removeFavorite: (productId: string) => void,
+  isFavorite: (productId: string) => boolean,
   removeAllFavorites: () => void,
 }
 
@@ -31,19 +26,19 @@ interface Props {
 export const FavoritesProvider: React.FC<Props> = ({ children }) => {
   const [
     favorites,
-    setFavorites] = useLocalStorage<number[]>('favorites', []);
+    setFavorites] = useLocalStorage<string[]>('favorites', []);
 
-  const addFavorite = (productId: number) => {
+  const addFavorite = (productId: string) => {
     setFavorites(current => [...current, productId]);
   };
 
-  const removeFavorite = (productId: number): void => {
+  const removeFavorite = (productId: string): void => {
     setFavorites(current => (
       current.filter(id => id !== productId)
     ));
   };
 
-  const isFavorite = (productId: number): boolean => (
+  const isFavorite = (productId: string): boolean => (
     favorites.includes(productId)
   );
 
