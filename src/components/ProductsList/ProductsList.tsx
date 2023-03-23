@@ -21,17 +21,17 @@ export const ProductsList: React.FC<Props> = ({
 
   return (
     <div className="container products-list">
+      {!products.length && isError && (
+        <ErrorMessage text={ErrorMessages.OnLoad} />
+      )}
+
+      {showNoProducts && <ErrorMessage text={ErrorMessages.OnEmptyData} />}
+
       <div className="row gy-4">
         {showProductsCards
           && products.map((pr) => <ProductCard product={pr} key={pr.id} />)}
 
         {isLoading && <Loader />}
-
-        {!products.length && isError && (
-          <ErrorMessage text={ErrorMessages.OnLoad} />
-        )}
-
-        {showNoProducts && <ErrorMessage text={ErrorMessages.OnEmptyData} />}
       </div>
     </div>
   );

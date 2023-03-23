@@ -1,10 +1,6 @@
 import { createContext } from 'react';
+import { CartItem } from '../../types/CartItem';
 import { useLocalStorage } from '../../utils/useLocalStorage';
-
-type CartItem = {
-  id: string,
-  count: number,
-};
 
 type ContextType = {
   cartItems: CartItem[],

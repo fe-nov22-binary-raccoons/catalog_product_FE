@@ -22,4 +22,3 @@ export const registerUser = (
 export const activateUser = (activationToken: string) => {
   return client.get(`activation/${activationToken}`);
 };
-

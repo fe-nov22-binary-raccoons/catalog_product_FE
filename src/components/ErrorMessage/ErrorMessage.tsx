@@ -18,5 +18,6 @@ export const ErrorMessage: React.FC<Props> = ({ text }) => (
         Reload
       </button>
     )}
+
   </>
 );
