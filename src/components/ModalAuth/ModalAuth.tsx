@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 import { User } from '../../types/User';
 import { loginUser, registerUser } from '../../api/fetchUser';
 import { Loader } from '../Loader';
-import { ErrorMessage } from '../ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
+import { ValidationError } from '../../api/fetchClient';
 
 type Props = {
   show: boolean,
@@ -21,12 +21,13 @@ export const ModalAuth: React.FC<Props> = (props) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
+  const [userPassConfirm, setUserPassConfirm] = useState('');
+
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [isAuthMess, setIsAuthMess] = useState(false);
-
-  let authErrorMess = ErrorMessages.OnLoad;
+  const [errorMessage, setErrorMessage] = useState(ErrorMessages.OnModalLoad);
 
   const singIn = async () => {
     setIsLoading(true);
@@ -38,7 +39,12 @@ export const ModalAuth: React.FC<Props> = (props) => {
       setUser(loggedInUser);
       setIsAuthMess(true);
     } catch (error) {
+      if (error instanceof ValidationError) {
+        setErrorMessage(ErrorMessages.OnAuth);
+      }
+
       setIsError(true);
+
     }
 
     setIsLoading(false);
@@ -47,6 +53,10 @@ export const ModalAuth: React.FC<Props> = (props) => {
   };
 
   const singUp = async () => {
+    if (userPassConfirm !== userPassword) {
+      return;
+    }
+    
     setIsLoading(true);
 
     try {
@@ -56,16 +66,18 @@ export const ModalAuth: React.FC<Props> = (props) => {
       setUser(loggedInUser);
       setIsAuthMess(true);
     } catch (error) {
+      if (error instanceof ValidationError) {
+        setErrorMessage(ErrorMessages.OnSingUp);
+      }
+
       setIsError(true);
 
-      if (error instanceof Error && error.message.startsWith('4')) {
-        authErrorMess = ErrorMessages.OnAuth;
-      }
     }
 
     setIsLoading(false);
     setUserEmail('');
     setUserPassword('');
+    setUserPassConfirm('');
   };
 
   const reload = () => {
@@ -74,18 +86,16 @@ export const ModalAuth: React.FC<Props> = (props) => {
     setUserPassword('');
     setIsError(false);
     setIsAuthMess(false);
+    setErrorMessage(ErrorMessages.OnModalLoad);
   };
 
   return (
     <Modal
       onExited = {reload}
       {...props}
-      // size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      {/* {`${user}`} */}
-      {/* {`${isError}`} */}
       {!signUpForm
         ? (
           <>
@@ -95,27 +105,19 @@ export const ModalAuth: React.FC<Props> = (props) => {
               </Modal.Title>
             </Modal.Header>
 
-            {user
-            && isAuthMess
-            && <h2 className="heading-2 succes-mssg">Successful sign-in</h2>}
-
-            {isError
-              && (<div className="auth-error">
-                <ErrorMessage text={authErrorMess}/>
-              </div>)
-            }
-
             {isLoading
               && (<div className='auth-loader'>
                 <Loader />
               </div>)}
 
-            {!isError && !isLoading
+
+            {!isLoading
             && (<Modal.Body>
               <Form onSubmit={singIn}>
                 <Form.Group className="mb-4" controlId="formBasicEmail">
                   <Form.Label>Your email</Form.Label>
                   <Form.Control
+                    required
                     type="email"
                     placeholder="name@example.com"
                     value={userEmail}
@@ -126,6 +128,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
                 <Form.Group className="mb-4" controlId="formBasicPassword">
                   <Form.Label>Your password</Form.Label>
                   <Form.Control
+                    required
                     type="password"
                     placeholder="password"
                     value={userPassword}
@@ -133,17 +136,27 @@ export const ModalAuth: React.FC<Props> = (props) => {
                   />
                 </Form.Group>
 
+                {isError
+                && <h4
+                  className="heading-4 align-self-end">{errorMessage}</h4> }
+
+                {user
+                  && isAuthMess
+                  && <h2 className="heading-2">Successful sign-in</h2>}
+
                 <button
                   className="buttons_buy-btn modal-submit" type="submit">
                   Sign in
                 </button>
               </Form>
+
               <div className="auth">
                 <span className="auth_text">Not registered?</span>
                 <a href=""
                   onClick = {(event) => {
                     event.preventDefault();
                     setSignUpForm(true);
+                    reload();
                   }}
                   className="auth_link">
                     Create account
@@ -160,33 +173,18 @@ export const ModalAuth: React.FC<Props> = (props) => {
               </Modal.Title>
             </Modal.Header>
 
-            {user
-            && isAuthMess
-            && <h2 className="heading-2 succes-mssg">Successful sign-up</h2>}
-
-            {isError
-              && (<div className="auth-error">
-                <ErrorMessage text={authErrorMess}/>
-              </div>)
-            }
-
             {isLoading
               && (<div className='auth-loader'>
                 <Loader />
               </div>)}
 
-            {!isError && !isLoading
+            {!isLoading
             && (<Modal.Body>
               <Form onSubmit={singUp}>
-                {/* <Form.Group className="mb-4" controlId="formBasicEmail">
-                  <Form.Label>Your name</Form.Label>
-                  <Form.Control type="text" placeholder="User" />
-                </Form.Group> */}
-
-
                 <Form.Group className="mb-4" controlId="formBasicEmail">
                   <Form.Label>Your email</Form.Label>
                   <Form.Control
+                    required
                     type="email"
                     placeholder="name@example.com"
                     value={userEmail}
@@ -197,6 +195,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
                 <Form.Group className="mb-4" controlId="formBasicPassword">
                   <Form.Label>Your password</Form.Label>
                   <Form.Control
+                    required
                     type="password"
                     placeholder="password"
                     value={userPassword}
@@ -204,10 +203,28 @@ export const ModalAuth: React.FC<Props> = (props) => {
                   />
                 </Form.Group>
 
-                {/* <Form.Group className="mb-4" controlId="formBasicPassword">
+                <Form.Group className="mb-4" controlId="formBasicPassword">
                   <Form.Label>Confirm your password</Form.Label>
-                  <Form.Control type="password" placeholder="password" />
-                </Form.Group> */}
+                  <Form.Control
+                    isInvalid = {userPassword !== userPassConfirm}
+                    type="password"
+                    placeholder="password"
+                    required
+                    value={userPassConfirm}
+                    onChange={(event) => setUserPassConfirm(event.target.value)}
+                  />
+                </Form.Group>
+
+
+                {isError
+                && <h4
+                  className="heading-4 align-self-end">{errorMessage}</h4> }
+
+                {user
+                  && isAuthMess
+                  && <h2 className="heading-2">
+                    Check your email to activate account
+                  </h2>}
 
                 <button
                   className="buttons_buy-btn modal-submit" type="submit">
@@ -220,6 +237,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
                   onClick = {(event) => {
                     event.preventDefault();
                     setSignUpForm(false);
+                    reload();
                   }}
                   className="auth_link">
                     Sign In
