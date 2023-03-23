@@ -80,6 +80,10 @@
   &-title {
     color: $page-secondary-color;
   }
+
+  &-value {
+    color: $page-primary-color;
+  }
 }
 
 @include onTablet {

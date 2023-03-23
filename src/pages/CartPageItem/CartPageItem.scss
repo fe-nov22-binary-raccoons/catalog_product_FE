@@ -28,6 +28,7 @@
   &__amount-number {
     padding: 0 14px;
     width: 32px;
+    color: $page-primary-color;
   }
 
   &__amount-icon {
@@ -49,6 +50,7 @@
     font-size: 22px;
     width: 75px;
     text-align: right;
+    color: $page-primary-color;
   }
 
   &__title {

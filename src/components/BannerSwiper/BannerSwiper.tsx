@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './BannerSwiper.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
+import { Autoplay, Navigation, Pagination } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
@@ -14,10 +14,31 @@ import {
 } from '../../images/bannerSwiper/stroke-right.svg';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
+import Banner from '../../images/bannerSwiper/Banner3.png';
+import Banner320 from '../../images/bannerSwiper/banner-320.png';
+
 export const BannerSwiper: React.FC = () => {
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
   const { iconColor } = useContext(ThemeContext);
+
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 640px)');
+
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   const banners = [
     {
@@ -38,7 +59,7 @@ export const BannerSwiper: React.FC = () => {
         </div>
         <div className="slides-box">
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination, Autoplay]}
             navigation={{
               prevEl: prevRef.current!,
               nextEl: nextRef.current!,
@@ -62,6 +83,20 @@ export const BannerSwiper: React.FC = () => {
                     href="#/phones/apple-iphone-11-64gb-black"
                     className='swiperSlide__link'
                   >
+                    {isMobile
+                      ? (
+                        <img
+                          src={Banner320}
+                          alt="Banner New Phone IPhone 14"
+                          className='swiperSlide__img'
+                        />
+                      ) : (
+                        <img
+                          src={Banner}
+                          alt="Banner New Phone IPhone 14"
+                          className='swiperSlide__img'
+                        />
+                      )}
                   </a>
                 </div>
               </SwiperSlide>
