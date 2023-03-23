@@ -15,13 +15,22 @@ import { ReactComponent as Menu } from '../../images/header/menu_icon.svg';
 import { ReactComponent as Close } from '../../images/header/close_icon.svg';
 
 import { ThemeContext } from '../../components/ThemeProvider';
+
+import { CartContext } from '../../components/CartProvider';
+
 import { FavoritesContext } from '../../components/FavoritesContext';
+
 
 export const MenuPage: React.FC = () => {
   const [isMenuPage, setIsMenuPage] = useState(false);
   const { iconColor } = useContext(ThemeContext);
+  const { cartItems } = useContext(CartContext);
   const location = useLocation();
   const { favorites } = useContext(FavoritesContext);
+
+  const totalItems = cartItems.reduce(
+    (total, cart) => total + cart.count, 0,
+  );
 
   useEffect(() => {
     if (isMenuPage) {
@@ -117,7 +126,7 @@ export const MenuPage: React.FC = () => {
                   className="icon__action icon__action-bag"
                 >
                   <BagIcon fill={iconColor} />
-                  <span className="counter__number">3</span>
+                  <span className="counter__number">{totalItems}</span>
                 </NavLink>
               </div>
             </div>

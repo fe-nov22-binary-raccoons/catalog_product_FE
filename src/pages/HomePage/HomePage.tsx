@@ -18,7 +18,7 @@ export const HomePage = () => {
     try {
       const categoriesFromServer = await getCategories();
 
-      setCategories(categoriesFromServer.categories);
+      setCategories(categoriesFromServer);
     } catch (error) {
       setIsError(true);
     } finally {
@@ -49,7 +49,7 @@ export const HomePage = () => {
       </div>
       <section className="home-page_categories container">
         <div className="row">
-          <h2 className="col-24 heading-2">Shop be category</h2>
+          <h2 className="col-24 heading-2">Shop by category</h2>
         </div>
         <div className="row">
           {isLoading && <Loader />}

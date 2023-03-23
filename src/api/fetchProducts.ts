@@ -14,7 +14,7 @@ export const getProducts = (
   );
 };
 
-export const getItem = (id: string) => {
+export const getItem = (id: string | number) => {
   return client.get<PhoneItem>(`products/${id}`);
 };
 

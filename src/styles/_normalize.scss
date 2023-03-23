@@ -84,7 +84,7 @@ select::-ms-expand {
       box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
     }
 
-    &:active {
+    &_isAdded {
       box-shadow: none;
       color: $page-orange-color;
       border: 1px solid $page-elements-color;

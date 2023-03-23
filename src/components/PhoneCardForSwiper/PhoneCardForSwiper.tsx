@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { ThemeContext } from '../ThemeProvider';
+import cn from 'classnames';
 
 import {
   ReactComponent as HeartIcon,
@@ -10,17 +11,21 @@ import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './PhoneCardForSwiper.scss';
+
+import { CartContext } from '../CartProvider';
+
 import { FavoritesContext } from '../FavoritesContext';
+
 
 type Props = {
   phone: Phone;
 };
 
 export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
-  const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram }
-    = phone;
+const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram } = phone;
 
   const { iconColor } = useContext(ThemeContext);
+  const { add, isAdded, remove } = useContext(CartContext);
 
   const {
     addFavorite,
@@ -40,6 +45,16 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  const handleClickAdded = () => {
+    if (isAdded(id)) {
+      remove(id);
+
+      return;
+    }
+
+    add(id);
   };
 
   return (
@@ -69,7 +84,14 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
         </div>
       </div>
       <div className="buttons">
-        <button className="buttons_buy-btn">Add to card</button>
+        <button
+          className={cn('buttons_buy-btn', {
+            'buttons_buy-btn_isAdded': isAdded(id),
+          })}
+          onClick={handleClickAdded}
+        >
+          Add to
+        </button>
         <button
           className="buttons_favorites-btn"
           onClick={handleFavorite}
