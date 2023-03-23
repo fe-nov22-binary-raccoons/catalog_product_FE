@@ -62,6 +62,7 @@ export const CartPage: React.FC = () => {
 
   const showCartContent = !!phones.length && !isError && !isLoading;
 
+
   return (
     <div className="bag container">
       <div className="row">
@@ -72,7 +73,7 @@ export const CartPage: React.FC = () => {
       <div className="row">
         <h1 className="heading-1 col-24">Cart</h1>
       </div>
-
+      
       {isLoading && <Loader />}
 
       {!phones.length
@@ -117,6 +118,12 @@ export const CartPage: React.FC = () => {
             />
 
           </div>
+
+          <ModalAuth
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+
         </div>
       )}
 

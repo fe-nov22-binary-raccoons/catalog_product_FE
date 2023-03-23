@@ -20,9 +20,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-
   const [userPassConfirm, setUserPassConfirm] = useState('');
-
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -44,7 +42,6 @@ export const ModalAuth: React.FC<Props> = (props) => {
       }
 
       setIsError(true);
-
     }
 
     setIsLoading(false);
@@ -71,7 +68,6 @@ export const ModalAuth: React.FC<Props> = (props) => {
       }
 
       setIsError(true);
-
     }
 
     setIsLoading(false);
@@ -109,7 +105,6 @@ export const ModalAuth: React.FC<Props> = (props) => {
               && (<div className='auth-loader'>
                 <Loader />
               </div>)}
-
 
             {!isLoading
             && (<Modal.Body>

@@ -95,9 +95,7 @@ export const Contacts = () => {
                     </a>
                   </div>
                 </div>
-
               </div>
-
             </div>
 
             <div className="contacts__person">
@@ -135,7 +133,7 @@ export const Contacts = () => {
             <div className="contacts__person">
               <div className="contacts__name">
                 <div className="person__photo person__photo-oleh"></div>
-
+                
                 <div className="person__container">
                   <h3 className="heading-3 margin-del position-start">
                 Holovnykh Oleh
@@ -163,7 +161,6 @@ export const Contacts = () => {
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div className="contacts__person">
@@ -197,12 +194,12 @@ export const Contacts = () => {
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div className="contacts__person">
               <div className="contacts__name">
                 <div className="person__photo person__photo-sasha"></div>
+
                 <div className="person__container">
                   <h3 className="heading-3 margin-del position-start">
                     Semenyuk Oleksandr
@@ -230,7 +227,6 @@ export const Contacts = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

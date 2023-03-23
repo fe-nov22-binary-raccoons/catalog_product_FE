@@ -58,7 +58,7 @@ export const App: React.FC = () => {
           <Route path="rights" element={<Rights />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="menu" element={<MenuPage />} />
-          <Route path="activation" element={<ActivationPage />} />
+          <Route path="activation/:activationToken" element={<ActivationPage />} />
         </Routes>
       </main>
 
