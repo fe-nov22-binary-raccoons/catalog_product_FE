@@ -17,6 +17,17 @@
   justify-content: center;
 }
 
+.position-start {
+  display: flex;
+  justify-content: start;
+}
+
+.persons__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .contacts {
   &__list {
     display: flex;
@@ -27,19 +38,35 @@
     display: flex;
     align-items: center;
     height: 50px;
-    width: 150px;
+    justify-content: start;
+    margin-right: 5px;
   }
 
   &__label {
     font-weight: 600;
     font-size: 15px;
     color: $page-primary-color;
+    border: 1px solid $page-elements-color;
+    border-radius: 40px;
+    padding: 5px;
+    transition: border 0.3s;
+
+    &:hover {
+      border: 1px solid $page-orange-color;
+    }
+
+    &:active {
+      box-shadow: none;
+      border: 1px solid $page-elements-color;
+      color: $page-orange-color;
+      background-color: $page-white-color;
+    }
   }
 
   &__info {
     display: flex;
-    margin-top: 15px;
     align-items: center;
+    justify-content: center;
   }
 
   &__person {
@@ -54,7 +81,7 @@
   &__img {
     height: 35px;
     width: 35px;
-    margin-right: 10px;
+    margin-right: 5px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -74,10 +101,10 @@
   height: 100px;
   width: 100px;
   border-radius: 50px;
+  margin-right: 10px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  margin-right: 20px;
 
   &-yevhen {
     background-image: url(../../images/contacts/Yevhen.jpeg);
@@ -131,7 +158,7 @@
   padding: 14px 16px;
   background-color: $page-white-color;
   font-size: 16px;
-  border-radius: 40px;
+  border-radius: 20px;
   border: 1px solid $page-elements-color;
   transition: all 0.3s;
   color: $page-primary-color;
@@ -144,41 +171,36 @@
     outline: none;
     border: 1px solid $page-orange-color;
   }
-}
 
-.form__item__button {
-  align-items: center;
-  background-color: $page-orange-color;
-  border: none;
-  color: $page-white-color;
-  display: flex;
-  height: 56px;
-  justify-content: center;
-  transition: all 0.3s;
+  &-button {
+    align-items: center;
+    background-color: $page-orange-color;
+    border: none;
+    color: $page-white-color;
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    transition: all 0.3s;
 
-  &:hover {
-    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      box-shadow: none;
+      border: 1px solid $page-elements-color;
+      color: $page-orange-color;
+      background-color: $page-white-color;
+    }
   }
 
-  &:active {
-    box-shadow: none;
-    border: 1px solid $page-elements-color;
-    color: $page-orange-color;
-    background-color: $page-white-color;
+  &-textarea {
+    box-sizing: border-box;
+    color: $page-primary-color;
+    display: block;
+    resize: none;
+    height: 150px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
   }
-}
-
-.form__item--textarea {
-  border-radius: 40px;
-  box-sizing: border-box;
-  color: $page-primary-color;
-  display: block;
-  resize: none;
-  transition: border-color 0.3s ease;
-}
-
-.persons__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
