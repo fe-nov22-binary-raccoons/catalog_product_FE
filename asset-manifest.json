@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.39817e47.css",
-    "main.js": "/catalog_product_FE/static/js/main.516b6f59.js",
+    "main.css": "/catalog_product_FE/static/css/main.65ceac07.css",
+    "main.js": "/catalog_product_FE/static/js/main.24faa6e6.js",
     "static/media/logo.svg": "/catalog_product_FE/static/media/logo.4feb0aa9eee144c636912b415fac9de8.svg",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog_product_FE/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
@@ -16,8 +16,6 @@
     "static/media/Oleh.jpeg": "/catalog_product_FE/static/media/Oleh.f5013744d8c39ae8a262.jpeg",
     "static/media/Yevhen.jpeg": "/catalog_product_FE/static/media/Yevhen.3f28fac26388b11441d3.jpeg",
     "static/media/Sasha.jpeg": "/catalog_product_FE/static/media/Sasha.e13767bcd01c7392190c.jpeg",
-    "static/media/instagram.svg": "/catalog_product_FE/static/media/instagram.2b1ee55f7750fb049498.svg",
-    "static/media/gmail.svg": "/catalog_product_FE/static/media/gmail.d2cbd990eeb1fd087cd3.svg",
     "static/media/bag_icon.svg": "/catalog_product_FE/static/media/bag_icon.f12f16f3d17f0f8a798f4ffcf6b4d35c.svg",
     "static/media/favorite-btn.svg": "/catalog_product_FE/static/media/favorite-btn.8cc768065a7836aa1fde4efda30ec9c2.svg",
     "static/media/heart_icon.svg": "/catalog_product_FE/static/media/heart_icon.7bd52d4cf79a6b3946ff3f88f7384e84.svg",
@@ -26,14 +24,11 @@
     "static/media/linkedin.svg": "/catalog_product_FE/static/media/linkedin.3acc04feb700f6fcc642.svg",
     "static/media/favorite-btn-active.svg": "/catalog_product_FE/static/media/favorite-btn-active.5c7a0056b84fa78523668805df000c2a.svg",
     "static/media/github.svg": "/catalog_product_FE/static/media/github.3180505b44353fbb3a5d.svg",
-    "static/media/call.svg": "/catalog_product_FE/static/media/call.d8d97711d3f2b4a20ac1.svg",
-    "static/media/telegram.svg": "/catalog_product_FE/static/media/telegram.ad948e9c27589a809772.svg",
-    "static/media/facebook.svg": "/catalog_product_FE/static/media/facebook.c36ec985b19da74eddae.svg",
-    "static/media/close_icon.svg": "/catalog_product_FE/static/media/close_icon.cdfb6ae506fe360c9ad495bfc61f521d.svg",
+    "static/media/github-white.svg": "/catalog_product_FE/static/media/github-white.26b8cb557a2b7313a5de.svg",
+    "static/media/close_icon.svg": "/catalog_product_FE/static/media/close_icon.65e0bc119c9c3635fc97809f80c697be.svg",
     "static/media/menu_icon.svg": "/catalog_product_FE/static/media/menu_icon.94552a34892df6880d09ad187ca63ef3.svg",
-    "static/media/icon_plus.svg": "/catalog_product_FE/static/media/icon_plus.d886cbead86167dad78e.svg",
+    "static/media/icon_plus.svg": "/catalog_product_FE/static/media/icon_plus.f6cd49aac7b39e5c165bbe0fa75f359b.svg",
     "index.html": "/catalog_product_FE/index.html",
-    "static/media/document.svg": "/catalog_product_FE/static/media/document.5426b97f1efb3da91640.svg",
     "static/media/stroke-right.svg": "/catalog_product_FE/static/media/stroke-right.4426b24b39186441749ea9964c6ca031.svg",
     "static/media/arrow-left-bl.svg": "/catalog_product_FE/static/media/arrow-left-bl.1294c0964ba5fbe4eb7573bc0bb2e9ad.svg",
     "static/media/stroke-left.svg": "/catalog_product_FE/static/media/stroke-left.4fdaf1f4a5dbd68afdd9839281122c15.svg",
@@ -41,12 +36,12 @@
     "static/media/arrow-right.svg": "/catalog_product_FE/static/media/arrow-right.fe5ffc5973adae02aabb6802f0e96d9f.svg",
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.58c98b7cda2d7714e1fe1c8ca49a7314.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.f7aa911caef14257bc1d85de688d8629.svg",
-    "static/media/icon_minus.svg": "/catalog_product_FE/static/media/icon_minus.6147cb5db4c975f91de0.svg",
-    "main.39817e47.css.map": "/catalog_product_FE/static/css/main.39817e47.css.map",
-    "main.516b6f59.js.map": "/catalog_product_FE/static/js/main.516b6f59.js.map"
+    "static/media/icon_minus.svg": "/catalog_product_FE/static/media/icon_minus.73fe573a45dba4a3cbf7bbb495338082.svg",
+    "main.65ceac07.css.map": "/catalog_product_FE/static/css/main.65ceac07.css.map",
+    "main.24faa6e6.js.map": "/catalog_product_FE/static/js/main.24faa6e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.39817e47.css",
-    "static/js/main.516b6f59.js"
+    "static/css/main.65ceac07.css",
+    "static/js/main.24faa6e6.js"
   ]
 }
