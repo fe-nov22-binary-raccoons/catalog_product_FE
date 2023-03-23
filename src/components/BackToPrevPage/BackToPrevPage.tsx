@@ -1,22 +1,34 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   ReactComponent as ArrowLeft,
 } from '../../icons/arrows/arrow-left-bl.svg';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 import './BactToPrevPage.scss';
 
-export const BackToPrevPage: React.FC = () => {
+interface Props {
+  path?: string
+}
+
+export const BackToPrevPage: React.FC<Props> = ({ path }) => {
   const { iconColor } = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (path) {
+      return navigate(`/${path}`, { replace: true });
+    }
+
+    return navigate(-1);
+  };
 
   return (
     <div className="row">
       <div className="col-24 back-to-prev">
-        <Link to={'../'} className="back-to-prev_button">
+        <button className="back-to-prev_button" onClick={handleClick}>
           <ArrowLeft fill={iconColor} />
-
           <span className="back-to-prev_button-text">Back</span>
-        </Link>
+        </button>
       </div>
     </div>
   );

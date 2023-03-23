@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from '../../images/header/logo.svg';
 import { ReactComponent as BackToTop } from '../../icons/arrows/arrow-up.svg';
 import { useContext } from 'react';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   function scrollToTop() {
@@ -14,9 +15,13 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__block">
-        <a className="footer__logo" href="/">
+        <Link
+          className="footer__logo"
+          to='/'
+          onClick={() => scrollToTop()}
+        >
           <Logo fill={iconColor} />
-        </a>
+        </Link>
 
         <div className="footer__links-block">
           <a
@@ -27,21 +32,23 @@ export const Footer: React.FC = () => {
           >
             github
           </a>
-          <a
+          <Link
             className="footer__links-block__link"
-            href="#/contacts"
+            to="contacts"
             rel="noreferrer"
+            onClick={() => scrollToTop()}
           >
             contacts
-          </a>
+          </Link>
 
-          <a
+          <Link
             className="footer__links-block__link"
-            href="#/rights"
+            to="rights"
             rel="noreferrer"
+            onClick={() => scrollToTop()}
           >
             rights
-          </a>
+          </Link>
         </div>
 
         <button className="to-top-btn" onClick={scrollToTop}>

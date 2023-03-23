@@ -21,13 +21,12 @@ import { ReactComponent as HeartIcon } from '../../icons/buttons/add-to-favorite
 import { ReactComponent as HeartIconActive } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './ProductPage.scss';
 import { ThemeContext } from '../../components/ThemeProvider/ThemeProvider';
-import { ErrorMessage } from '../../components/ErrorMessage';
-import { ErrorMessages } from '../../types/ErrorMessages';
 import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
 import { CartContext } from '../../components/CartProvider';
 import { FavoritesContext } from '../../components/FavoritesContext';
+import { PageNotFound } from '../NotFoundPage';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -124,260 +123,264 @@ export const ProductPage: React.FC = memo(() => {
 
   return (
     <div className="container product">
-      <BreadCrumbs name={phoneItem?.name} id={phoneId} />
-      <div className="row">
-        <div className="col-24">
-          <BackToPrevPage />
-        </div>
-      </div>
-      {isLoading && <Loader />}
-
-      {isError && <ErrorMessage text={ErrorMessages.OnLoad} />}
-
-      {!!phoneItem && (
-        <>
-          <div className="row">
-            <div className="product_title col-24">
-              <h1 className="heading-2">
-                {`${phoneItem.name}`}
-              </h1>
+      {isError
+        ? <PageNotFound />
+        : (
+          <>
+            <BreadCrumbs name={phoneItem?.name} id={phoneId} />
+            <div className="row">
+              <div className="col-24">
+                <BackToPrevPage path={'phones'} />
+              </div>
             </div>
-          </div>
-          <section className="product_info">
-            <article className="product_info-fp">
-              <div className="row">
-                <div className="col-xl-13 col-md-14 col-sm-24">
-                  <div className="row product_info-fp-photos">
-                    <ul className="col-xl-4 col-md-4 col-sm-24 product_info-fp-photos-gallery">
-                      {phoneItem.images.map((img) => (
-                        <li
-                          key={img}
-                          className={cn('product_info-fp-photos-gallery-item', {
-                            'is-img-selected': mainPhoto === img,
-                          })}
-                          onClick={() => setMainPhoto(img)}
-                        >
-                          <img
-                            src={img}
-                            alt={phoneItem.name}
-                            className="product_info-fp-photos-gallery-img"
-                          />
-                        </li>
-                      ))}
-                    </ul>
+            {isLoading && <Loader />}
 
-                    <div className="col-xl-20 col-md-20 col-sm-24">
-                      <div className="product_info-fp-photos-main-photo">
-                        <img
-                          src={mainPhoto}
-                          alt={phoneItem.name}
-                          className="product_info-fp-photos-main-photo-img"
-                        />
+            {!!phoneItem && (
+              <>
+                <div className="row">
+                  <div className="product_title col-24">
+                    <h1 className="heading-2">
+                      {`${phoneItem.name}`}
+                    </h1>
+                  </div>
+                </div>
+                <section className="product_info">
+                  <article className="product_info-fp">
+                    <div className="row">
+                      <div className="col-xl-13 col-md-14 col-sm-24">
+                        <div className="row product_info-fp-photos">
+                          <ul className="col-xl-4 col-md-4 col-sm-24 product_info-fp-photos-gallery">
+                            {phoneItem.images.map((img) => (
+                              <li
+                                key={img}
+                                className={cn('product_info-fp-photos-gallery-item', {
+                                  'is-img-selected': mainPhoto === img,
+                                })}
+                                onClick={() => setMainPhoto(img)}
+                              >
+                                <img
+                                  src={img}
+                                  alt={phoneItem.name}
+                                  className="product_info-fp-photos-gallery-img"
+                                />
+                              </li>
+                            ))}
+                          </ul>
+
+                          <div className="col-xl-20 col-md-20 col-sm-24">
+                            <div className="product_info-fp-photos-main-photo">
+                              <img
+                                src={mainPhoto}
+                                alt={phoneItem.name}
+                                className="product_info-fp-photos-main-photo-img"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-xl-7 col-md-10 product_info-fp-about-right about-right">
+                        <div className="about-right_color-selector">
+                          <p className="about-right_color-selector-title">
+                            Available colors
+                          </p>
+
+                          <ul className="about-right_color-selector-list">
+                            {phoneItem.colorsAvailable.map((color) => {
+                              const colorToType = color as keyof Colors;
+                              const colorToRender = colors[colorToType] ?? color;
+
+                              return (
+                                <li
+                                  key={colorToRender}
+                                  style={{ backgroundColor: colorToRender }}
+                                  className={cn('about-right_color-selector-item', {
+                                    'is-color-selected': isColorSelected(color),
+                                  })}
+                                >
+                                  <Link
+                                    to={getNewPhoneByParam(
+                                      phoneItem.id,
+                                      'color',
+                                      color,
+                                    )}
+                                    className="about-right_color-selector-link"
+                                  ></Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+
+                        <div className="about-right_capacity-selector">
+                          <p className="about-right_capacity-selector-title">
+                            Select capacity
+                          </p>
+
+                          <ul className="about-right_capacity-selector-list">
+                            {phoneItem.capacityAvailable.map((capacity) => (
+                              <li
+                                key={capacity}
+                                className="about-right_capacity-selector-item"
+                              >
+                                <Link
+                                  to={getNewPhoneByParam(
+                                    phoneItem.id,
+                                    'capacity',
+                                    capacity,
+                                  )}
+                                  className={cn(
+                                    'about-right_capacity-selector-link',
+                                    {
+                                      'is-capacity-selected':
+                                        isCapacitySelected(capacity),
+                                    },
+                                  )}
+                                >
+                                  {capacity}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="about-right_prices">
+                          <p className="about-right_current-price">
+                            ${phoneItem.priceDiscount}
+                          </p>
+                          <p className="about-right_old-price">
+                            ${phoneItem.priceRegular}
+                          </p>
+                        </div>
+
+                        <div className="buttons about-right_buttons">
+                          <button
+                            className={cn('buttons_buy-btn about-right_buttons-add', {
+                              'buttons_buy-btn_isAdded': isAdded(phoneId),
+                            })}
+                            onClick={handleClickAdded}
+                          >
+                            {isAdded(phoneId)
+                              ? 'Added to cart'
+                              : 'Add to cart'}
+                          </button>
+
+                          <button
+                            className="buttons_favorites-btn about-right_buttons-like"
+                            onClick={handleFavorite}
+                          >
+                            {!isFavoriteProduct ? (
+                              <HeartIcon fill={iconColor} />
+                            ) : (
+                              <HeartIconActive fill="#476df4" />
+                            )}
+                          </button>
+                        </div>
+                        <div className="about-right_descriptions">
+                          <div className="characteristic">
+                            <p className="characteristic-title">Screen</p>
+                            <p className="characteristic-value">{phoneItem.screen}</p>
+                          </div>
+
+                          <div className="characteristic">
+                            <p className="characteristic-title">Resolution</p>
+                            <p className="characteristic-value">
+                              {phoneItem.resolution}
+                            </p>
+                          </div>
+
+                          <div className="characteristic">
+                            <p className="characteristic-title">Processor</p>
+                            <p className="characteristic-value">
+                              {phoneItem.processor}
+                            </p>
+                          </div>
+
+                          <div className="characteristic">
+                            <p className="characteristic-title">Ram</p>
+                            <p className="characteristic-value">{phoneItem.ram}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="col-xl-7 col-md-10 product_info-fp-about-right about-right">
-                  <div className="about-right_color-selector">
-                    <p className="about-right_color-selector-title">
-                      Available colors
-                    </p>
+                  </article>
+                  <article className="product_info-sp">
+                    <div className="row">
+                      <div className="product_info-sp-block col-xl-13 col-md-24">
+                        <div className="product_info-sp-title">
+                          <p className="heading-3">About</p>
+                        </div>
+                        {phoneItem.description.map(({ title, text }) => (
+                          <Fragment key={`${title}${text}`}>
+                            <p className="heading-4 product_info-sp-subtitle">
+                              {title}
+                            </p>
+                            <p className="product_info-sp-text">{text}</p>
+                          </Fragment>
+                        ))}
+                      </div>
+                      <div className="product_info-sp-block col-xl-11 col-md-24">
+                        <div className="product_info-sp-title">
+                          <p className="heading-3">Tech specs</p>
+                        </div>
 
-                    <ul className="about-right_color-selector-list">
-                      {phoneItem.colorsAvailable.map((color) => {
-                        const colorToType = color as keyof Colors;
-                        const colorToRender = colors[colorToType] ?? color;
+                        <div className="product_info-sp-descriptions">
+                          <div className="characteristic">
+                            <p className="characteristic-title">Screen</p>
+                            <p className="characteristic-value">{phoneItem.screen}</p>
+                          </div>
 
-                        return (
-                          <li
-                            key={colorToRender}
-                            style={{ backgroundColor: colorToRender }}
-                            className={cn('about-right_color-selector-item', {
-                              'is-color-selected': isColorSelected(color),
-                            })}
-                          >
-                            <Link
-                              to={getNewPhoneByParam(
-                                phoneItem.id,
-                                'color',
-                                color,
-                              )}
-                              className="about-right_color-selector-link"
-                            ></Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
+                          <div className="characteristic">
+                            <p className="characteristic-title">Resolution</p>
+                            <p className="characteristic-value">
+                              {phoneItem.resolution}
+                            </p>
+                          </div>
 
-                  <div className="about-right_capacity-selector">
-                    <p className="about-right_capacity-selector-title">
-                      Select capacity
-                    </p>
+                          <div className="characteristic">
+                            <p className="characteristic-title">Processor</p>
+                            <p className="characteristic-value">
+                              {phoneItem.processor}
+                            </p>
+                          </div>
 
-                    <ul className="about-right_capacity-selector-list">
-                      {phoneItem.capacityAvailable.map((capacity) => (
-                        <li
-                          key={capacity}
-                          className="about-right_capacity-selector-item"
-                        >
-                          <Link
-                            to={getNewPhoneByParam(
-                              phoneItem.id,
-                              'capacity',
-                              capacity,
-                            )}
-                            className={cn(
-                              'about-right_capacity-selector-link',
-                              {
-                                'is-capacity-selected':
-                                  isCapacitySelected(capacity),
-                              },
-                            )}
-                          >
-                            {capacity}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                          <div className="characteristic">
+                            <p className="characteristic-title">RAM</p>
+                            <p className="characteristic-value">{phoneItem.ram}</p>
+                          </div>
 
-                  <div className="about-right_prices">
-                    <p className="about-right_current-price">
-                      ${phoneItem.priceDiscount}
-                    </p>
-                    <p className="about-right_old-price">
-                      ${phoneItem.priceRegular}
-                    </p>
-                  </div>
+                          <div className="characteristic">
+                            <p className="characteristic-title">Built in memory</p>
+                            <p className="characteristic-value">
+                              {phoneItem.capacity}
+                            </p>
+                          </div>
 
-                  <div className="buttons about-right_buttons">
-                    <button
-                      className={cn('buttons_buy-btn about-right_buttons-add', {
-                        'buttons_buy-btn_isAdded': isAdded(phoneId),
-                      })}
-                      onClick={handleClickAdded}
-                    >
-                      {isAdded(phoneId)
-                        ? 'Added to cart'
-                        : 'Add to cart'}
-                    </button>
+                          <div className="characteristic">
+                            <p className="characteristic-title">Camera</p>
+                            <p className="characteristic-value">{phoneItem.camera}</p>
+                          </div>
 
-                    <button
-                      className="buttons_favorites-btn about-right_buttons-like"
-                      onClick={handleFavorite}
-                    >
-                      {!isFavoriteProduct ? (
-                        <HeartIcon fill={iconColor} />
-                      ) : (
-                        <HeartIconActive fill="#476df4" />
-                      )}
-                    </button>
-                  </div>
-                  <div className="about-right_descriptions">
-                    <div className="characteristic">
-                      <p className="characteristic-title">Screen</p>
-                      <p className="characteristic-value">{phoneItem.screen}</p>
+                          <div className="characteristic">
+                            <p className="characteristic-title">Zoom</p>
+                            <p className="characteristic-value">{phoneItem.zoom}</p>
+                          </div>
+
+                          <div className="characteristic">
+                            <p className="characteristic-title">Cell</p>
+                            <p className="characteristic-value">
+                              {phoneItem.cell.join(', ')}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Resolution</p>
-                      <p className="characteristic-value">
-                        {phoneItem.resolution}
-                      </p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Processor</p>
-                      <p className="characteristic-value">
-                        {phoneItem.processor}
-                      </p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Ram</p>
-                      <p className="characteristic-value">{phoneItem.ram}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article className="product_info-sp">
-              <div className="row">
-                <div className="product_info-sp-block col-xl-13 col-md-24">
-                  <div className="product_info-sp-title">
-                    <p className="heading-3">About</p>
-                  </div>
-                  {phoneItem.description.map(({ title, text }) => (
-                    <Fragment key={`${title}${text}`}>
-                      <p className="heading-4 product_info-sp-subtitle">
-                        {title}
-                      </p>
-                      <p className="product_info-sp-text">{text}</p>
-                    </Fragment>
-                  ))}
-                </div>
-                <div className="product_info-sp-block col-xl-11 col-md-24">
-                  <div className="product_info-sp-title">
-                    <p className="heading-3">Tech specs</p>
-                  </div>
-
-                  <div className="product_info-sp-descriptions">
-                    <div className="characteristic">
-                      <p className="characteristic-title">Screen</p>
-                      <p className="characteristic-value">{phoneItem.screen}</p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Resolution</p>
-                      <p className="characteristic-value">
-                        {phoneItem.resolution}
-                      </p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Processor</p>
-                      <p className="characteristic-value">
-                        {phoneItem.processor}
-                      </p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">RAM</p>
-                      <p className="characteristic-value">{phoneItem.ram}</p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Built in memory</p>
-                      <p className="characteristic-value">
-                        {phoneItem.capacity}
-                      </p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Camera</p>
-                      <p className="characteristic-value">{phoneItem.camera}</p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Zoom</p>
-                      <p className="characteristic-value">{phoneItem.zoom}</p>
-                    </div>
-
-                    <div className="characteristic">
-                      <p className="characteristic-title">Cell</p>
-                      <p className="characteristic-value">
-                        {phoneItem.cell.join(', ')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-          <ProductSwiper endPoint={`products/${phoneId}/recommended`} title="You may also like" />
-        </>
-      )}
+                  </article>
+                </section>
+                <ProductSwiper endPoint={`products/${phoneId}/recommended`} title="You may also like" />
+              </>
+            )}
+          </>
+        )}
     </div>
   );
 });
