@@ -26,19 +26,44 @@ import { ErrorMessages } from '../../types/ErrorMessages';
 import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
-// import { CartContext } from '../../components/CartProvider';
+import { CartContext } from '../../components/CartProvider';
+import { FavoritesContext } from '../../components/FavoritesContext';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
   const [mainPhoto, setMainPhoto] = useState<string>('');
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const { iconColor } = useContext(ThemeContext);
-  // const { add } = useContext(CartContext);
+  const { isAdded, remove, add } = useContext(CartContext);
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  } = useContext(FavoritesContext);
   const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
+
+  const isFavoriteProduct = isFavorite(phoneId);
+
+  const handleFavorite = () => {
+    if (isFavoriteProduct) {
+      removeFavorite(phoneId);
+    } else {
+      addFavorite(phoneId);
+    }
+  };
+
+  const handleClickAdded = () => {
+    if (isAdded(phoneId)) {
+      remove(phoneId);
+
+      return;
+    }
+
+    add(phoneId);
+  };
 
   const loadPhone = useCallback(async () => {
     try {
@@ -97,10 +122,6 @@ export const ProductPage: React.FC = memo(() => {
     [pathname],
   );
 
-  const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
-  }, [isFavorite]);
-
   return (
     <div className="container product">
       <BreadCrumbs name={phoneItem?.name} id={phoneId} />
@@ -116,8 +137,10 @@ export const ProductPage: React.FC = memo(() => {
       {!!phoneItem && (
         <>
           <div className="row">
-            <div className="col-24">
-              <h1 className="product_title heading-2">{`${phoneItem.name}`}</h1>
+            <div className="product_title col-24">
+              <h1 className="heading-2">
+                {`${phoneItem.name}`}
+              </h1>
             </div>
           </div>
           <section className="product_info">
@@ -230,17 +253,21 @@ export const ProductPage: React.FC = memo(() => {
 
                   <div className="buttons about-right_buttons">
                     <button
-                      className="buttons_buy-btn about-right_buttons-add"
-                      // onClick={() => add(phoneItem.)}
+                      className={cn('buttons_buy-btn about-right_buttons-add', {
+                        'buttons_buy-btn_isAdded': isAdded(phoneId),
+                      })}
+                      onClick={handleClickAdded}
                     >
-                      Add to card
+                      {isAdded(phoneId)
+                        ? 'Added to cart'
+                        : 'Add to cart'}
                     </button>
 
                     <button
                       className="buttons_favorites-btn about-right_buttons-like"
                       onClick={handleFavorite}
                     >
-                      {!isFavorite ? (
+                      {!isFavoriteProduct ? (
                         <HeartIcon fill={iconColor} />
                       ) : (
                         <HeartIconActive fill="#476df4" />
@@ -278,8 +305,9 @@ export const ProductPage: React.FC = memo(() => {
             <article className="product_info-sp">
               <div className="row">
                 <div className="product_info-sp-block col-xl-13 col-md-24">
-                  <p className="heading-3 product_info-sp-title">About</p>
-
+                  <div className="product_info-sp-title">
+                    <p className="heading-3">About</p>
+                  </div>
                   {phoneItem.description.map(({ title, text }) => (
                     <Fragment key={`${title}${text}`}>
                       <p className="heading-4 product_info-sp-subtitle">
@@ -290,7 +318,9 @@ export const ProductPage: React.FC = memo(() => {
                   ))}
                 </div>
                 <div className="product_info-sp-block col-xl-11 col-md-24">
-                  <p className="heading-3 product_info-sp-title">Tech specs</p>
+                  <div className="product_info-sp-title">
+                    <p className="heading-3">Tech specs</p>
+                  </div>
 
                   <div className="product_info-sp-descriptions">
                     <div className="characteristic">

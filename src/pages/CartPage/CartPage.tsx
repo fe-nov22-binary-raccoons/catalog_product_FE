@@ -1,20 +1,24 @@
 import './CartPage.scss';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { CartPageItem } from '../CartPageItem';
+import { ModalAuth } from '../../components/ModalAuth';
+
 import { CartContext } from '../../components/CartProvider';
-import { Phone } from '../../types/Phone';
-import { getPhone } from '../../api/fetchProducts';
+import { getItem } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
+import { BackToPrevPage } from '../../components/BackToPrevPage';
+import { PhoneItem } from '../../types/PhoneItem';
 
 export const CartPage: React.FC = () => {
   const { getCount, cartItems } = useContext(CartContext);
-  const [phones, setPhones] = useState<Phone[]>([]);
+  const [phones, setPhones] = useState<PhoneItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const fetchedProducts = await Promise.all(
-        cartItems.map(item => getPhone(item.id)),
+        cartItems.map(item => getItem(item.id)),
       );
 
       setPhones(fetchedProducts);
@@ -25,12 +29,22 @@ export const CartPage: React.FC = () => {
   }, [cartItems]);
 
   const totalCost = phones.reduce(
-    (total, phone) => total + phone.price * getCount(phone.id), 0,
+    (total, phone) => total + phone.priceDiscount * getCount(phone.id), 0,
   );
+
+  const totalItems = cartItems.reduce(
+    (total, cart) => total + cart.count, 0,
+  );
+
 
 
   return (
     <div className="bag container">
+      <div className="row">
+        <div className="bag__prev-btn col-24">
+          <BackToPrevPage />
+        </div>
+      </div>
       <div className="row">
         <h1 className="heading-1 col-24">Cart</h1>
       </div>
@@ -41,11 +55,11 @@ export const CartPage: React.FC = () => {
             ? <Loader />
             : (!!phones.length
               && phones.map(item => (
-                <CartPageItem
-                  key={item.id}
-                  item={item}
-                  // count={getCount(item.id)}
-                />
+                <Fragment key={item.id}>
+                  <CartPageItem
+                    item={item}
+                  />
+                </Fragment>
               ))
             )}
         </div>
@@ -55,16 +69,23 @@ export const CartPage: React.FC = () => {
             <div className="bag__cost">
               <h3 className="bag__cost-total">$ {totalCost}</h3>
               <h3 className="bag__count-items">
-                {cartItems.length === 1
-                  ? `Total for ${cartItems.length} item`
-                  : `Total for ${cartItems.length} items`}
+                {totalItems === 1
+                  ? `Total for ${totalItems} item`
+                  : `Total for ${totalItems} items`}
               </h3>
             </div>
 
-            <button type="submit" className="submit__button">
+            <button type="submit" className="submit__button"
+              onClick={() => setModalShow(true)}>
               Checkout
             </button>
           </div>
+
+          <ModalAuth
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+
         </div>
       </div>
     </div>

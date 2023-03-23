@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
+import cn from 'classnames';
 import './ProductCard.scss';
 
 import {
@@ -10,23 +11,50 @@ import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import { ThemeContext } from '../ThemeProvider';
+
 import { CartContext } from '../CartProvider';
+
+import { FavoritesContext } from '../FavoritesContext';
+
 
 type Props = {
   product: Phone;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { phoneId, image, name, price, fullPrice, screen, capacity, ram, id }
-    = product;
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  const {
+    phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = product;
+
   const { iconColor } = useContext(ThemeContext);
-  const { add } = useContext(CartContext);
+  const { add, isAdded, remove } = useContext(CartContext);
 
-  const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
-  }, [isFavorite]);
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  } = useContext(FavoritesContext);
+
+  const isFavoriteProduct = isFavorite(phoneId);
+
+  const handleFavorite = () => {
+    if (isFavoriteProduct) {
+      removeFavorite(phoneId);
+    } else {
+      addFavorite(phoneId);
+    }
+  };
+
+  const handleClickAdded = () => {
+    if (isAdded(phoneId)) {
+      remove(phoneId);
+
+      return;
+    }
+
+    add(phoneId);
+  };
 
   return (
     <div className="col-xl-6 col-lg-8 col-md-12 col-sm-24">
@@ -57,20 +85,23 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
         <div className="buttons">
           <button
-            className="buttons_buy-btn"
-            onClick={() => add(id)}
+            className={cn('buttons_buy-btn', {
+              'buttons_buy-btn_isAdded': isAdded(phoneId),
+            })}
+            onClick={handleClickAdded}
           >
-            Add to card
+            {isAdded(phoneId)
+              ? 'Added to cart'
+              : 'Add to cart'
+            }
           </button>
           <button
             className="buttons_favorites-btn"
             onClick={handleFavorite}
           >
-            {!isFavorite ? (
-              <HeartIcon fill={iconColor} />
-            ) : (
-              <HeartIconActive fill="#476df4" />
-            )}
+            {!isFavoriteProduct
+              ? (<HeartIcon fill={iconColor} />)
+              : (<HeartIconActive fill="#476df4" />)}
           </button>
         </div>
       </div>

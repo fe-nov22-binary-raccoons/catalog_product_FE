@@ -1,7 +1,8 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { ThemeContext } from '../ThemeProvider';
+import cn from 'classnames';
 
 import {
   ReactComponent as HeartIcon,
@@ -11,27 +12,59 @@ import {
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
 import './PhoneCardForSwiper.scss';
 
+import { CartContext } from '../CartProvider';
+
+import { FavoritesContext } from '../FavoritesContext';
+
+
 type Props = {
   phone: Phone;
 };
 
 export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
-  const { phoneId, image, name, price, fullPrice, screen, capacity, ram }
-    = phone;
+  const {
+    phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = phone;
 
-  const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
+  const { add, isAdded, remove } = useContext(CartContext);
 
-  const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
-  }, [isFavorite]);
+  const {
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  } = useContext(FavoritesContext);
+
+  const isFavoriteProduct = isFavorite(phoneId);
+
+  const handleFavorite = () => {
+    if (isFavoriteProduct) {
+      removeFavorite(phoneId);
+    } else {
+      addFavorite(phoneId);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const handleClickAdded = () => {
+    if (isAdded(phoneId)) {
+      remove(phoneId);
+
+      return;
+    }
+
+    add(phoneId);
+  };
 
   return (
     <div className="phone-card-swiper">
-      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`}>
+      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`} onClick={scrollToTop}>
         <img className="phone-card-swiper_image" src={image} alt={name} />
       </Link>
-      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`}>
+      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`} onClick={scrollToTop}>
         {name}
       </Link>
       <div className="phone-card-swiper_price">
@@ -53,16 +86,24 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
         </div>
       </div>
       <div className="buttons">
-        <button className="buttons_buy-btn">Add to card</button>
+        <button
+          className={cn('buttons_buy-btn', {
+            'buttons_buy-btn_isAdded': isAdded(phoneId),
+          })}
+          onClick={handleClickAdded}
+        >
+          {isAdded(phoneId)
+            ? 'Added to cart'
+            : 'Add to cart'
+          }
+        </button>
         <button
           className="buttons_favorites-btn"
           onClick={handleFavorite}
         >
-          {!isFavorite ? (
-            <HeartIcon fill={iconColor} />
-          ) : (
-            <HeartIconActive fill="#476df4" />
-          )}
+          {!isFavoriteProduct
+            ? (<HeartIcon fill={iconColor} />)
+            : (<HeartIconActive fill="#476df4" />)}
         </button>
       </div>
     </div>

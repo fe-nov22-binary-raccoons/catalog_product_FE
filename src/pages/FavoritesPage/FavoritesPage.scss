@@ -1,4 +1,8 @@
-.delete-all {
+@import "../../index";
+
+button.delete-all {
   margin-bottom: 40px;
   width: 100%;
+  color: $page-orange-color;
+  background-color: $page-hover-color;
 }

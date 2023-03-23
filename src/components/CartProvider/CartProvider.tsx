@@ -2,17 +2,17 @@ import { createContext } from 'react';
 import { useLocalStorage } from '../../utils/useLocalStorage';
 
 type CartItem = {
-  id: number,
+  id: string,
   count: number,
 };
 
 type ContextType = {
   cartItems: CartItem[],
-  getCount: (itemId: number) => number;
-  add: (itemId: number) => void,
-  subtract: (itemId: number) => void,
-  remove: (itemId: number) => void,
-  isAdded: (productId: number) => boolean,
+  getCount: (itemId: string) => number;
+  add: (itemId: string) => void,
+  subtract: (itemId: string) => void,
+  remove: (itemId: string) => void,
+  isAdded: (itemId: string) => boolean,
 };
 
 interface Props {
@@ -31,7 +31,7 @@ export const CartContext = createContext<ContextType>({
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>('cart', []);
 
-  const add = (itemId: number) => {
+  const add = (itemId: string) => {
     const cart = cartItems.find(({ id }) => itemId === id);
 
     if (!cart) {
@@ -44,10 +44,10 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
 
     cart.count++;
 
-    setCartItems((currentItems) => [...currentItems]);
+    setCartItems([...cartItems]);
   };
 
-  const subtract = (itemId: number) => {
+  const subtract = (itemId: string) => {
     const cart = cartItems.find(({ id }) => itemId === id);
 
     if (!cart) {
@@ -62,23 +62,20 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       );
     }
 
-    setCartItems((currentItems) => [...currentItems]);
+    setCartItems([...cartItems]);
   };
 
-  const remove = (itemId: number) => {
+  const remove = (itemId: string) => {
     return setCartItems(
       (currentItems) => currentItems.filter(({ id }) => id !== itemId),
     );
   };
 
-  const getCount = (itemId: number) => {
-    // eslint-disable-next-line no-console, max-len
-    console.log(itemId, 'itemId', cartItems.find(item => item.id !== itemId)?.count);
-
-    return cartItems.find(item => item.id !== itemId)?.count ?? 0;
+  const getCount = (itemId: string) => {
+    return cartItems.find(item => item.id === itemId)?.count ?? 0;
   };
 
-  const isAdded = (productId: number): boolean => (
+  const isAdded = (productId: string): boolean => (
     cartItems.some(({ id }) => id === productId)
   );
 
