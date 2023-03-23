@@ -20,6 +20,9 @@ import { Rights } from './pages/Rights';
 import { TabletsPage } from './pages/TabletsPage';
 import { ActivationPage } from './pages/ActivationPage';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const App: React.FC = () => {
   const location = useLocation();
 
@@ -34,6 +37,7 @@ export const App: React.FC = () => {
   return (
     <div className="flex-wrapper">
       {location.pathname !== '/activation' && <Header />}
+      <ToastContainer />
 
       <main className="page-bg">
         <Routes>

@@ -59,3 +59,19 @@
     background-color: $page-white-color;
   }
 }
+
+.toast-style {
+  font-family: $main-font;
+  font-size: 14px;
+  background-color: $page-hover-color;
+  color: $page-secondary-color;
+  font-weight: 700px;
+}
+
+.Toastify__toast-theme--light.Toastify__toast--success {
+  background: $page-hover-color;
+}
+
+[data-theme="dark"] .Toastify__close-button.Toastify__close-button--light {
+  color: white;
+}
