@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useContext } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
 import { AccessoriesPage } from './pages/AccessoriesPage';
@@ -8,20 +8,19 @@ import { FavoritesPage } from './pages/FavoritesPage';
 import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
-
 import { CartPage } from './pages/CartPage';
 import { MenuPage } from './pages/MenuPage';
 import { Footer } from './components/Footer';
-import { PageNotFound } from './pages/NotFoundPage';
 import { ProductPage } from './pages/ProductPage';
 import { ThemeContext } from './components/ThemeProvider/ThemeProvider';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
 import { TabletsPage } from './pages/TabletsPage';
 import { ActivationPage } from './pages/ActivationPage';
+import { PageNotFound } from './pages/PageNotFound/PageNotFound';
+
 
 export const App: React.FC = () => {
-  const location = useLocation();
 
   const { theme } = useContext(ThemeContext);
 
@@ -33,7 +32,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="flex-wrapper">
-      {location.pathname !== '/activation' && <Header />}
+      <Header />
 
       <main className="page-bg">
         <Routes>
@@ -63,7 +62,7 @@ export const App: React.FC = () => {
         </Routes>
       </main>
 
-      {location.pathname !== '/activation' && <Footer />}
+      <Footer />
     </div>
   );
 };
