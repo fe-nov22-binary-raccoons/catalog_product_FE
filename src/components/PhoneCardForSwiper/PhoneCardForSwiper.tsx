@@ -22,7 +22,9 @@ type Props = {
 };
 
 export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
-const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram } = phone;
+  const {
+    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = phone;
 
   const { iconColor } = useContext(ThemeContext);
   const { add, isAdded, remove } = useContext(CartContext);
@@ -48,13 +50,13 @@ const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram } = ph
   };
 
   const handleClickAdded = () => {
-    if (isAdded(id)) {
-      remove(id);
+    if (isAdded(phoneId)) {
+      remove(phoneId);
 
       return;
     }
 
-    add(id);
+    add(phoneId);
   };
 
   return (
@@ -86,7 +88,7 @@ const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram } = ph
       <div className="buttons">
         <button
           className={cn('buttons_buy-btn', {
-            'buttons_buy-btn_isAdded': isAdded(id),
+            'buttons_buy-btn_isAdded': isAdded(phoneId),
           })}
           onClick={handleClickAdded}
         >

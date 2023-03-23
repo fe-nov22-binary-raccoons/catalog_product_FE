@@ -1,5 +1,10 @@
 import { createContext } from 'react';
-import { useLocalStorage } from '../../helpers/UseLocalStorage';
+import { useLocalStorage } from '../../utils/useLocalStorage';
+
+// type ProductFavorites = {
+//   id?: number,
+//   phoneId: string,
+// };
 
 interface ContextType {
   favorites: number[],
@@ -26,7 +31,7 @@ interface Props {
 export const FavoritesProvider: React.FC<Props> = ({ children }) => {
   const [
     favorites,
-    setFavorites] = useLocalStorage('favorites', []);
+    setFavorites] = useLocalStorage<number[]>('favorites', []);
 
   const addFavorite = (productId: number) => {
     setFavorites(current => [...current, productId]);

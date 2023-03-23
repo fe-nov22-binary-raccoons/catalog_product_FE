@@ -62,7 +62,7 @@ export const FavoritesPage: React.FC = () => {
           {!!products.length && (
             <div
               className="col-xl-4 col-lg-4 col-md-24 col-sm-24 align-self-end"
-             >
+            >
               <button
                 onClick={handleDelete}
                 className="buttons_buy-btn delete-all"

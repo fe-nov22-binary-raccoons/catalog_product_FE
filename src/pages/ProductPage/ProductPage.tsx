@@ -26,7 +26,7 @@ import { ErrorMessages } from '../../types/ErrorMessages';
 import { Colors } from '../../types/Colors';
 import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
-// import { CartContext } from '../../components/CartProvider';
+import { CartContext } from '../../components/CartProvider';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
@@ -36,19 +36,19 @@ export const ProductPage: React.FC = memo(() => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { iconColor } = useContext(ThemeContext);
-  // const { isAdded, remove } = useContext(CartContext);
+  const { isAdded, remove, add } = useContext(CartContext);
   const { pathname } = useLocation();
   const { phoneId = '' } = useParams();
 
-  // const handleClickAdded = () => {
-  //   if (isAdded(id)) {
-  //     remove(id);
+  const handleClickAdded = () => {
+    if (isAdded(phoneId)) {
+      remove(phoneId);
 
-  //     return;
-  //   }
+      return;
+    }
 
-  //   add(id);
-  // };
+    add(phoneId);
+  };
 
   const loadPhone = useCallback(async () => {
     try {
@@ -126,8 +126,10 @@ export const ProductPage: React.FC = memo(() => {
       {!!phoneItem && (
         <>
           <div className="row">
-            <div className="col-24">
-              <h1 className="product_title heading-2">{`${phoneItem.name}`}</h1>
+            <div className="product_title col-24">
+              <h1 className="heading-2">
+                {`${phoneItem.name}`}
+              </h1>
             </div>
           </div>
           <section className="product_info">
@@ -240,10 +242,14 @@ export const ProductPage: React.FC = memo(() => {
 
                   <div className="buttons about-right_buttons">
                     <button
-                      className="buttons_buy-btn about-right_buttons-add"
-                      // onClick={() => add(phoneItem.)}
+                      className={cn('buttons_buy-btn about-right_buttons-add', {
+                        'buttons_buy-btn_isAdded': isAdded(phoneId),
+                      })}
+                      onClick={handleClickAdded}
                     >
-                      Add to card
+                      {isAdded(phoneId)
+                        ? 'Added to cart'
+                        : 'Add to cart'}
                     </button>
 
                     <button
@@ -288,8 +294,9 @@ export const ProductPage: React.FC = memo(() => {
             <article className="product_info-sp">
               <div className="row">
                 <div className="product_info-sp-block col-xl-13 col-md-24">
-                  <p className="heading-3 product_info-sp-title">About</p>
-
+                  <div className="product_info-sp-title">
+                    <p className="heading-3">About</p>
+                  </div>
                   {phoneItem.description.map(({ title, text }) => (
                     <Fragment key={`${title}${text}`}>
                       <p className="heading-4 product_info-sp-subtitle">
@@ -300,7 +307,9 @@ export const ProductPage: React.FC = memo(() => {
                   ))}
                 </div>
                 <div className="product_info-sp-block col-xl-11 col-md-24">
-                  <p className="heading-3 product_info-sp-title">Tech specs</p>
+                  <div className="product_info-sp-title">
+                    <p className="heading-3">Tech specs</p>
+                  </div>
 
                   <div className="product_info-sp-descriptions">
                     <div className="characteristic">

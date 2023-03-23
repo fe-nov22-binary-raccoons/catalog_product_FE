@@ -23,7 +23,9 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
 
-  const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram }  = product;
+  const {
+    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = product;
 
   // const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
@@ -46,13 +48,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   };
 
   const handleClickAdded = () => {
-    if (isAdded(id)) {
-      remove(id);
+    if (isAdded(phoneId)) {
+      remove(phoneId);
 
       return;
     }
 
-    add(id);
+    add(phoneId);
   };
 
   return (
@@ -85,7 +87,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <div className="buttons">
           <button
             className={cn('buttons_buy-btn', {
-              'buttons_buy-btn_isAdded': isAdded(id),
+              'buttons_buy-btn_isAdded': isAdded(phoneId),
             })}
             onClick={handleClickAdded}
           >
