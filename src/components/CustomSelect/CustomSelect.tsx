@@ -49,7 +49,7 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
     setSelectedOnKey(option);
   };
 
-  function useOutsideAlerter(ref: React.RefObject<HTMLDivElement>) {
+  function useOutsideClick(ref: React.RefObject<HTMLDivElement>) {
     useEffect(() => {
       function handleClickOutside(event: MouseEvent) {
         if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -67,7 +67,7 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
 
   const wrapperRef = useRef(null);
 
-  useOutsideAlerter(wrapperRef);
+  useOutsideClick(wrapperRef);
 
   return (
     <div
