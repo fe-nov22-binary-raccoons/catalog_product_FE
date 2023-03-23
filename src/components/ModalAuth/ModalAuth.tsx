@@ -7,6 +7,7 @@ import { loginUser, registerUser } from '../../api/fetchUser';
 import { Loader } from '../Loader';
 import { ErrorMessage } from '../ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
+import { ValidationError } from '../../api/fetchClient';
 
 type Props = {
   show: boolean,
@@ -25,8 +26,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [isAuthMess, setIsAuthMess] = useState(false);
-
-  let authErrorMess = ErrorMessages.OnLoad;
+  const [errorMessage, setErrorMessage] = useState(ErrorMessages.OnModalLoad);
 
   const singIn = async () => {
     setIsLoading(true);
@@ -38,12 +38,19 @@ export const ModalAuth: React.FC<Props> = (props) => {
       setUser(loggedInUser);
       setIsAuthMess(true);
     } catch (error) {
+      if (error instanceof ValidationError) {
+        setErrorMessage(ErrorMessages.OnAuth);
+
+      }
+
       setIsError(true);
+
     }
 
     setIsLoading(false);
     setUserEmail('');
     setUserPassword('');
+    setErrorMessage(ErrorMessages.OnModalLoad);
   };
 
   const singUp = async () => {
@@ -56,16 +63,18 @@ export const ModalAuth: React.FC<Props> = (props) => {
       setUser(loggedInUser);
       setIsAuthMess(true);
     } catch (error) {
+      if (error instanceof ValidationError) {
+        setErrorMessage(ErrorMessages.OnSingUp);
+      }
+
       setIsError(true);
 
-      if (error instanceof Error && error.message.startsWith('4')) {
-        authErrorMess = ErrorMessages.OnAuth;
-      }
     }
 
     setIsLoading(false);
     setUserEmail('');
     setUserPassword('');
+    setErrorMessage(ErrorMessages.OnModalLoad);
   };
 
   const reload = () => {
@@ -97,20 +106,21 @@ export const ModalAuth: React.FC<Props> = (props) => {
 
             {user
             && isAuthMess
-            && <h2 className="heading-2 succes-mssg">Successful sign-in</h2>}
+            && <h2 className="heading-2">Successful sign-in</h2>}
 
-            {isError
+            {/* {isError
               && (<div className="auth-error">
-                <ErrorMessage text={authErrorMess}/>
+                <ErrorMessage text={errorMessage}/>
               </div>)
-            }
+            } */}
 
             {isLoading
               && (<div className='auth-loader'>
                 <Loader />
               </div>)}
 
-            {!isError && !isLoading
+
+            {!isLoading
             && (<Modal.Body>
               <Form onSubmit={singIn}>
                 <Form.Group className="mb-4" controlId="formBasicEmail">
@@ -133,11 +143,16 @@ export const ModalAuth: React.FC<Props> = (props) => {
                   />
                 </Form.Group>
 
+                {isError
+                && <h4
+                  className="heading-4 align-self-end">{errorMessage}</h4> }
+
                 <button
                   className="buttons_buy-btn modal-submit" type="submit">
                   Sign in
                 </button>
               </Form>
+
               <div className="auth">
                 <span className="auth_text">Not registered?</span>
                 <a href=""
@@ -166,7 +181,7 @@ export const ModalAuth: React.FC<Props> = (props) => {
 
             {isError
               && (<div className="auth-error">
-                <ErrorMessage text={authErrorMess}/>
+                <ErrorMessage text={errorMessage}/>
               </div>)
             }
 

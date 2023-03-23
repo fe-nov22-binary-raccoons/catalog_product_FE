@@ -4,6 +4,20 @@ const BASE_URL = 'https://gadgets-catalog.onrender.com/';
 // To have autocompletion and avoid mistypes
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
+export class AuthError extends Error {
+  constructor(message = '') {
+    super(message);
+    this.name = 'AuthError';
+  }
+}
+
+export class ValidationError extends Error {
+  constructor(message = '') {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
 async function request<T>(
   url: string,
   method: RequestMethod = 'GET',
@@ -20,17 +34,23 @@ async function request<T>(
   }
 
   // we wait for testing purpose to see loaders
-  try {
-    const res = await fetch(BASE_URL + url, options);
+  const res = await fetch(BASE_URL + url, options);
 
-    if (!res.ok) {
-      throw new Error(`${res.status} ${res.statusText}`);
-    }
-
-    return await res.json();
-  } catch (error) {
-    throw new Error();
+  if (res.status === 401) {
+    throw new AuthError();
   }
+
+  if (res.status === 400) {
+    throw new ValidationError();
+  }
+
+  if (!res.ok) {
+    throw new Error(`${res.status} ${res.statusText}`);
+  }
+
+  const resonseBody = await res.json();
+
+  return resonseBody;
 }
 
 export const client = {
