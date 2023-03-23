@@ -22,7 +22,9 @@ type Props = {
 };
 
 export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
-const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram } = phone;
+  const {
+    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = phone;
 
   const { iconColor } = useContext(ThemeContext);
   const { add, isAdded, remove } = useContext(CartContext);

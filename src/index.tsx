@@ -19,11 +19,11 @@ root.render(
     <Router>
       <ThemeProvider>
 
-      <CartProvider>
-        <FavoritesProvider>
-          <App />
-        </FavoritesProvider>
-       </CartProvider>
+        <CartProvider>
+          <FavoritesProvider>
+            <App />
+          </FavoritesProvider>
+        </CartProvider>
 
       </ThemeProvider>
     </Router>

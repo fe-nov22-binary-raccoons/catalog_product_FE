@@ -23,7 +23,9 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
 
-  const { id, phoneId, image, name, price, fullPrice, screen, capacity, ram }  = product;
+  const {
+    id, phoneId, image, name, price, fullPrice, screen, capacity, ram,
+  } = product;
 
   // const [isFavorite, setIsFavorite] = useState(false);
   const { iconColor } = useContext(ThemeContext);
