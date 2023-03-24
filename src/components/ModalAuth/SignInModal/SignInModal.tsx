@@ -3,7 +3,7 @@ import '../ModalAuth.scss';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { Loader } from '../../Loader';
-import { User } from '../../../types/User';
+// import { User } from '../../../types/User';
 import { ErrorMessages } from '../../../types/ErrorMessages';
 import { ValidationError } from '../../../api/fetchClient';
 import { loginUser } from '../../../api/fetchUser';
@@ -18,7 +18,7 @@ type Props = {
 export const SignInModal: React.FC<Props> = ({
   setSignUpForm, reset, onHide,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [isError, setIsError] = useState<boolean>(false);
@@ -33,7 +33,11 @@ export const SignInModal: React.FC<Props> = ({
       setIsError(false);
       const loggedInUser = await loginUser(userEmail, userPassword);
 
-      setUser(loggedInUser);
+      const { accessToken } = loggedInUser;
+
+      window.localStorage.setItem('accessToken', accessToken);
+
+      setToken(accessToken);
       setIsAuthMess(true);
       toast.success('Successful sign-in', {
         hideProgressBar: true,
@@ -109,7 +113,7 @@ export const SignInModal: React.FC<Props> = ({
           && <h4
             className="heading-4 align-self-end">{errorMessage}</h4> }
 
-          {user
+          {token
             && isAuthMess
             && <h2 className="heading-2">Successful sign-in</h2>}
 
