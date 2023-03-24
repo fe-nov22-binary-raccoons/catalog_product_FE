@@ -26,7 +26,7 @@ import { colors } from '../../utils/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
 import { CartContext } from '../../components/CartProvider';
 import { FavoritesContext } from '../../components/FavoritesContext';
-import { PageNotFound } from '../NotFoundPage';
+import { PageNotFound } from '../PageNotFound';
 
 export const ProductPage: React.FC = memo(() => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);

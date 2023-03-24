@@ -57,8 +57,8 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
   const btnNextRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="product-swiper-box row">
-      <div className="col-24 product-swiper-box__header">
+    <div className="product-swiper-box">
+      <div className="product-swiper-box__header">
         <div className="heading-2 product-swiper-box__title">{title}</div>
 
         <div className="product-swiper-box__navigation-buttons">
@@ -83,11 +83,29 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
             768: {
               slidesPerView: 3,
             },
-            642: {
+            640: {
               slidesPerView: 2.4,
             },
+            569: {
+              slidesPerView: 2.6,
+            },
+            519: {
+              slidesPerView: 2.4,
+            },
+            480: {
+              slidesPerView: 2,
+            },
+            412: {
+              slidesPerView:1.8,
+            },
+            360: {
+              slidesPerView: 1.6,
+            },
             320: {
-              slidesPerView: 1.3,
+              slidesPerView: 1.4,
+            },
+            1: {
+              slidesPerView: 1,
             },
           }}
           modules={[Navigation]}
@@ -109,7 +127,7 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
         </Swiper>
       )}
 
-      {!isLoading && isError && <p>loading error</p>}
+      {!isLoading && isError && <div className='heading-3'>Loading Error</div>}
     </div>
   );
 };
