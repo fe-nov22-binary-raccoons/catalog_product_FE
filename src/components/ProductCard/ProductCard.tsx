@@ -47,7 +47,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        pauseOnHover: false,
+        autoClose: 1000,
         icon: '❌',
       });
     } else {
@@ -56,7 +57,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        autoClose: 1000,
+        pauseOnHover: false,
         icon: <img src={Sasha} />,
         // icon:'❤️',
       });
@@ -70,7 +72,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        autoClose: 1000,
+        pauseOnHover: false,
         icon: '❌',
       });
 
@@ -82,7 +85,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       hideProgressBar: true,
       theme: 'light',
       bodyClassName: 'toast-style',
-      autoClose: 3000,
+      autoClose: 1000,
+      pauseOnHover: false,
     });
   };
 
