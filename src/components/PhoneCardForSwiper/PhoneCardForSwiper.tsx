@@ -45,7 +45,8 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        autoClose: 1000,
+        pauseOnHover: false,
         icon: '❌',
       });
     } else {
@@ -54,7 +55,8 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        autoClose: 1000,
+        pauseOnHover: false,
         icon:'❤️',
       });
     }
@@ -71,7 +73,8 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 3000,
+        autoClose: 1000,
+        pauseOnHover: false,
         icon: '❌',
       });
 
@@ -83,7 +86,8 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
       hideProgressBar: true,
       theme: 'light',
       bodyClassName: 'toast-style',
-      autoClose: 3000,
+      autoClose: 1000,
+      pauseOnHover: false,
     });
   };
 
