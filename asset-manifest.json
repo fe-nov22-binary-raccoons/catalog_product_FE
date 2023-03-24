@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.74330883.css",
-    "main.js": "/catalog_product_FE/static/js/main.e8f17990.js",
+    "main.css": "/catalog_product_FE/static/css/main.8165382b.css",
+    "main.js": "/catalog_product_FE/static/js/main.6128f3db.js",
     "static/media/logo.svg": "/catalog_product_FE/static/media/logo.4feb0aa9eee144c636912b415fac9de8.svg",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/catalog_product_FE/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
@@ -14,6 +14,7 @@
     "static/media/Oleh.jpeg": "/catalog_product_FE/static/media/Oleh.f5013744d8c39ae8a262.jpeg",
     "static/media/Yevhen.jpeg": "/catalog_product_FE/static/media/Yevhen.3f28fac26388b11441d3.jpeg",
     "static/media/Sasha.jpeg": "/catalog_product_FE/static/media/Sasha.e13767bcd01c7392190c.jpeg",
+    "static/media/error__icon.jpeg": "/catalog_product_FE/static/media/error__icon.7a10d5c3b3f90a244a2b.jpeg",
     "static/media/bag_icon.svg": "/catalog_product_FE/static/media/bag_icon.f12f16f3d17f0f8a798f4ffcf6b4d35c.svg",
     "static/media/favorite-btn.svg": "/catalog_product_FE/static/media/favorite-btn.8cc768065a7836aa1fde4efda30ec9c2.svg",
     "static/media/heart_icon.svg": "/catalog_product_FE/static/media/heart_icon.7bd52d4cf79a6b3946ff3f88f7384e84.svg",
@@ -36,11 +37,11 @@
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.58c98b7cda2d7714e1fe1c8ca49a7314.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.f7aa911caef14257bc1d85de688d8629.svg",
     "static/media/icon_minus.svg": "/catalog_product_FE/static/media/icon_minus.73fe573a45dba4a3cbf7bbb495338082.svg",
-    "main.74330883.css.map": "/catalog_product_FE/static/css/main.74330883.css.map",
-    "main.e8f17990.js.map": "/catalog_product_FE/static/js/main.e8f17990.js.map"
+    "main.8165382b.css.map": "/catalog_product_FE/static/css/main.8165382b.css.map",
+    "main.6128f3db.js.map": "/catalog_product_FE/static/js/main.6128f3db.js.map"
   },
   "entrypoints": [
-    "static/css/main.74330883.css",
-    "static/js/main.e8f17990.js"
+    "static/css/main.8165382b.css",
+    "static/js/main.6128f3db.js"
   ]
 }
