@@ -16,7 +16,7 @@ export const AcceptForm: React.FC<Props> = ({ setAcceptForm }) => (
             <div className="form__verified"></div>
 
             <h1 className="form__header">
-              Your message was added
+              Your message was sent
             </h1>
           </div>
 
