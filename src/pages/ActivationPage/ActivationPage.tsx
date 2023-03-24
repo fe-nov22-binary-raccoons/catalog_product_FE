@@ -1,12 +1,13 @@
 // import { PageNotReady } from '../PageNotReady/PageNotReady';
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { activateUser } from '../../api/fetchUser';
 import { Loader } from '../../components/Loader';
 import './ActivationPage.scss';
 
 export const ActivationPage: React.FC = () => {
   const { activationToken = '' } = useParams();
+  const nav = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isSuccess, setIsSuccess] = useState<boolean>(true);
@@ -18,6 +19,7 @@ export const ActivationPage: React.FC = () => {
       const { accessToken } = res;
 
       window.localStorage.setItem('accessToken', accessToken);
+      nav('/');
     } catch (error) {
       setIsSuccess(false);
     } finally {
