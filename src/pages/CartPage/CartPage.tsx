@@ -2,7 +2,6 @@ import './CartPage.scss';
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { CartPageItem } from '../CartPageItem';
 import { ModalAuth } from '../../components/ModalAuth';
-
 import { CartContext } from '../../components/CartProvider';
 import { getItem } from '../../api/fetchProducts';
 import { Loader } from '../../components/Loader';
@@ -12,11 +11,12 @@ import { ErrorMessage } from '../../components/ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
 import { AuthError } from '../../api/fetchClient';
 import { PhoneItem } from '../../types/PhoneItem';
+import { toast } from 'react-toastify';
 
 export const CartPage: React.FC = () => {
   const { getCount, cartItems } = useContext(CartContext);
   const [phones, setPhones] = useState<PhoneItem[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [modalShow, setModalShow] = React.useState(false);
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -47,6 +47,14 @@ export const CartPage: React.FC = () => {
     try {
       setIsError(false);
       await checkoutReq(cartItems);
+      localStorage.removeItem('cart');
+      setPhones([]);
+      toast.success('Your order is processing!', {
+        hideProgressBar: true,
+        theme: 'light',
+        bodyClassName: 'toast-style',
+        autoClose: 4000,
+      });
 
     } catch (error) {
       if (error instanceof AuthError) {
@@ -61,6 +69,7 @@ export const CartPage: React.FC = () => {
   };
 
   const showCartContent = !!phones.length && !isError && !isLoading;
+  const showError = !phones.length && !isLoading;
 
 
   return (
@@ -76,9 +85,8 @@ export const CartPage: React.FC = () => {
       
       {isLoading && <Loader />}
 
-      {!phones.length
-      && !isLoading && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
-
+      {showError && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
+      
       {showCartContent && (
         <div className="bag__container row">
           <div

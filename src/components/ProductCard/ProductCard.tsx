@@ -15,6 +15,7 @@ import { ThemeContext } from '../ThemeProvider';
 import { CartContext } from '../CartProvider';
 
 import { FavoritesContext } from '../FavoritesContext';
+import { toast } from 'react-toastify';
 
 
 type Props = {
@@ -41,19 +42,46 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const handleFavorite = () => {
     if (isFavoriteProduct) {
       removeFavorite(phoneId);
+      toast.success('Removed from favorites', {
+        hideProgressBar: true,
+        theme: 'light',
+        bodyClassName: 'toast-style',
+        autoClose: 3000,
+        icon: '❌',
+      });
     } else {
       addFavorite(phoneId);
+      toast.success('Added to favorites', {
+        hideProgressBar: true,
+        theme: 'light',
+        bodyClassName: 'toast-style',
+        autoClose: 3000,
+        icon:'❤️',
+      });
     }
   };
 
   const handleClickAdded = () => {
     if (isAdded(phoneId)) {
       remove(phoneId);
+      toast.success('Removed from cart', {
+        hideProgressBar: true,
+        theme: 'light',
+        bodyClassName: 'toast-style',
+        autoClose: 3000,
+        icon: '❌',
+      });
 
       return;
     }
 
     add(phoneId);
+    toast.success('Added to cart', {
+      hideProgressBar: true,
+      theme: 'light',
+      bodyClassName: 'toast-style',
+      autoClose: 4000,
+    });
   };
 
   return (

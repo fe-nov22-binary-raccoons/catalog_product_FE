@@ -20,6 +20,9 @@ import { ActivationPage } from './pages/ActivationPage';
 import { PageNotFound } from './pages/PageNotFound/PageNotFound';
 
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const App: React.FC = () => {
 
   const { theme } = useContext(ThemeContext);
@@ -33,6 +36,7 @@ export const App: React.FC = () => {
   return (
     <div className="flex-wrapper">
       <Header />
+      <ToastContainer />
 
       <main className="page-bg">
         <Routes>

@@ -11,12 +11,6 @@ export const FavoritesPage: React.FC = () => {
   const [products, setProducts] = useState<Phone[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const [productsNum, setProductsNum] = useState<number>(0);
-
-  // const [searchParams] = useSearchParams();
-  // const currentPage = searchParams.get('page') || '1';
-  // const pageSize = searchParams.get('size') || '16';
-  // const pageSize = '5';
 
   const { favorites, removeAllFavorites } = useContext(FavoritesContext);
 
