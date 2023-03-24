@@ -1,3 +1,4 @@
+import { LoginResponse } from '../types/LoginResponse';
 import { User } from '../types/User';
 import { client } from './fetchClient';
 
@@ -5,7 +6,7 @@ export const loginUser = (
   email: string,
   password: string,
 ) => {
-  return client.post<User>(
+  return client.post<LoginResponse>(
     'login', { email, password },
   );
 };
@@ -20,5 +21,5 @@ export const registerUser = (
 };
 
 export const activateUser = (activationToken: string) => {
-  return client.get(`activation/${activationToken}`);
+  return client.get<LoginResponse>(`activation/${activationToken}`);
 };

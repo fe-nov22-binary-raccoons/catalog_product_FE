@@ -9,12 +9,11 @@ import { BackToPrevPage } from '../../components/BackToPrevPage';
 import { checkoutReq } from '../../api/fetchCart';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { ErrorMessages } from '../../types/ErrorMessages';
-import { AuthError } from '../../api/fetchClient';
 import { PhoneItem } from '../../types/PhoneItem';
 import { toast } from 'react-toastify';
 
 export const CartPage: React.FC = () => {
-  const { getCount, cartItems } = useContext(CartContext);
+  const { getCount, cartItems, cleanCart } = useContext(CartContext);
   const [phones, setPhones] = useState<PhoneItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [modalShow, setModalShow] = React.useState(false);
@@ -42,12 +41,21 @@ export const CartPage: React.FC = () => {
   );
 
   const checkout = async () => {
-    setIsLoading(true);
+    const accessToken = window.localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      setModalShow(true);
+
+      return;
+    }
 
     try {
+      setIsLoading(true);
       setIsError(false);
-      await checkoutReq(cartItems);
-      localStorage.removeItem('cart');
+
+      await checkoutReq({ cart: cartItems, accessToken });
+      window.localStorage.removeItem('cart');
+      cleanCart();
       setPhones([]);
       toast.success('Your order is processing!', {
         hideProgressBar: true,
@@ -57,12 +65,7 @@ export const CartPage: React.FC = () => {
       });
 
     } catch (error) {
-      if (error instanceof AuthError) {
-        setModalShow(true);
-      } else {
-        setIsError(true);
-      }
-
+      setIsError(true);
     }
 
     setIsLoading(false);
@@ -82,11 +85,11 @@ export const CartPage: React.FC = () => {
       <div className="row">
         <h1 className="heading-1 col-24">Cart</h1>
       </div>
-      
+
       {isLoading && <Loader />}
 
       {showError && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
-      
+
       {showCartContent && (
         <div className="bag__container row">
           <div

@@ -13,7 +13,11 @@ export const ActivationPage: React.FC = () => {
 
   const fetchActivation = async () => {
     try {
-      await activateUser(activationToken);
+      const res = await activateUser(activationToken);
+
+      const { accessToken } = res;
+
+      window.localStorage.setItem('accessToken', accessToken);
     } catch (error) {
       setIsSuccess(false);
     } finally {

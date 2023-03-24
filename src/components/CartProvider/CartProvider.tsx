@@ -9,6 +9,7 @@ type ContextType = {
   subtract: (itemId: string) => void,
   remove: (itemId: string) => void,
   isAdded: (itemId: string) => boolean,
+  cleanCart: () => void,
 };
 
 interface Props {
@@ -22,6 +23,7 @@ export const CartContext = createContext<ContextType>({
   subtract: () => {},
   remove: () => { },
   isAdded: () => false,
+  cleanCart: () => {},
 });
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
@@ -75,6 +77,10 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     cartItems.some(({ id }) => id === productId)
   );
 
+  const cleanCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -84,6 +90,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
         remove,
         getCount,
         isAdded,
+        cleanCart,
       }}
     >
       {children}
