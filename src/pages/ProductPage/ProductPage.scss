@@ -100,6 +100,9 @@
         object-position: center;
         object-fit: scale-down;
         border-radius: 30px;
+        @media (max-width: 1199px) {
+          border-radius: 20px;
+        }
       }
     }
   }
