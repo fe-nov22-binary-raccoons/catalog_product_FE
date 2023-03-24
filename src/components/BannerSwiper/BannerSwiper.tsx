@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './BannerSwiper.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
+import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
@@ -25,7 +26,7 @@ export const BannerSwiper: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 640px)');
+    const mediaQuery = window.matchMedia('(max-width: 639px)');
 
     setIsMobile(mediaQuery.matches);
 
@@ -64,6 +65,7 @@ export const BannerSwiper: React.FC = () => {
               prevEl: prevRef.current!,
               nextEl: nextRef.current!,
             }}
+            autoplay={{ delay: 1500 }}
             spaceBetween={10}
             speed={800}
             slidesPerView={1}
