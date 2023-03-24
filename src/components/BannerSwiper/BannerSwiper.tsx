@@ -15,8 +15,13 @@ import {
 } from '../../images/bannerSwiper/stroke-right.svg';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
-import Banner from '../../images/bannerSwiper/Banner3.png';
+import Banner from '../../images/bannerSwiper/banner.png';
 import Banner320 from '../../images/bannerSwiper/banner-320.png';
+import Banner2 from '../../images/bannerSwiper/banner2-wide.png';
+import Banner2Small from '../../images/bannerSwiper/banner2-320.png';
+import Banner3 from '../../images/bannerSwiper/banner3-wide.png';
+import Banner3Small from '../../images/bannerSwiper/banner3-320.png';
+import Banner4 from '../../images/bannerSwiper/banner4-wide.png';
 
 export const BannerSwiper: React.FC = () => {
   const prevRef = useRef<HTMLDivElement>(null);
@@ -44,11 +49,26 @@ export const BannerSwiper: React.FC = () => {
   const banners = [
     {
       id: 1,
+      wide: Banner,
+      small: Banner320,
+      link: '#/phones/apple-iphone-11-pro-max-512gb-spacegray',
     },
     { id: 2,
+      wide: Banner2,
+      small: Banner2Small,
+      link: '#/phones/apple-iphone-11-64gb-black',
     },
     {
       id:3,
+      wide: Banner4,
+      small: Banner320,
+      link: 'https://youtu.be/hp_-RlwNg04?t=65',
+    },
+    {
+      id:4,
+      wide: Banner3,
+      small: Banner3Small,
+      link: '#/phones/apple-iphone-11-128gb-purple',
     },
   ];
 
@@ -82,19 +102,19 @@ export const BannerSwiper: React.FC = () => {
               <SwiperSlide key={banner.id}>
                 <div className='swiperSlide'>
                   <a
-                    href="#/phones/apple-iphone-11-64gb-black"
+                    href={banner.link}
                     className='swiperSlide__link'
                   >
                     {isMobile
                       ? (
                         <img
-                          src={Banner320}
+                          src={banner.small}
                           alt="Banner New Phone IPhone 14"
                           className='swiperSlide__img'
                         />
                       ) : (
                         <img
-                          src={Banner}
+                          src={banner.wide}
                           alt="Banner New Phone IPhone 14"
                           className='swiperSlide__img'
                         />

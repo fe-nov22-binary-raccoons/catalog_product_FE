@@ -127,7 +127,9 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
         </Swiper>
       )}
 
-      {!isLoading && isError && <div className='heading-3'>Loading Error</div>}
+      {!isLoading && isError && <div className='heading-3 error-message'>
+        Loading Error
+      </div>}
     </div>
   );
 };

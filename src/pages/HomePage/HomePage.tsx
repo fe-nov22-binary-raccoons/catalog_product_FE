@@ -6,8 +6,6 @@ import { getCategories } from '../../api/fetchCategory';
 import { useEffect, useState } from 'react';
 import { Category } from '../../types/Category';
 import { Loader } from '../../components/Loader';
-import { ErrorMessage } from '../../components/ErrorMessage';
-import { ErrorMessages } from '../../types/ErrorMessages';
 
 export const HomePage = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -54,7 +52,10 @@ export const HomePage = () => {
         <div className="row">
           {isLoading && <Loader />}
 
-          {isError && <ErrorMessage text={ErrorMessages.OnLoad} />}
+          {isError && (
+            <div className='heading-3 error-message'>
+              Loading Error
+            </div>)}
 
           {!!categories && (
             categories.map((category) => (
