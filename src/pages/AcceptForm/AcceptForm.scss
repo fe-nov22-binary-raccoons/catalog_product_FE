@@ -55,12 +55,13 @@
   }
 
   &__verified {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     margin-right: 10px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../../images/contacts/verified.svg);
+    // background-image: url(../../images/contacts/verified.svg);
+    background-image: url(../../images/contacts/verified.jpeg);
   }
 }
