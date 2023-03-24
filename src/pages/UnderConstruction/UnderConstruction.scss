@@ -1,0 +1,74 @@
+@import "../../index";
+
+.notready {
+  color: $page-primary-color;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+
+  &__sorry {
+    font-family: GeometriaLight, sans-serif;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    @include onTablet {
+      font-size: 70px;
+    }
+  }
+
+  &__icon {
+    width: 160px;
+    height: 300px;
+    background-size: contain;
+    background-position: bottom ;
+    background-repeat: no-repeat;
+    display: none;
+    margin-left: 20px;
+    background-image: url(../../images/error__artur.jpeg);
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__error {
+    display: flex;
+    align-items: end;
+    font-family: GeometriaBold, sans-serif;
+    font-size: 70px;
+    line-height: 1.08;
+  }
+
+  &__pageParagraph {
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+
+    & span {
+      color: $page-orange-color;
+      font-weight: bold;
+    }
+  }
+
+  &__backPage {
+    margin-top: 50px;
+  }
+
+  &__backParagraph {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  &__back {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: $page-primary-color;
+
+    &:hover {
+      color: $page-secondary-color;
+    }
+  }
+}

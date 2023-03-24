@@ -6,7 +6,7 @@ export const PageNotFound: React.FC = () => (
     <div className="row">
       <div className="col-24 notfound">
         <div className="notfound__holy">
-          Holy raccoons
+            Holy raccoons
           <span className='notfound__icon notfound__icon-up'></span>
         </div>
 
