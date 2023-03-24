@@ -71,6 +71,7 @@
 
 .Toastify__toast-theme--light.Toastify__toast--success {
   background: $page-hover-color;
+  border: 1px solid $page-icons-color;
 }
 
 [data-theme="dark"] .Toastify__close-button.Toastify__close-button--light {

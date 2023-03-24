@@ -44,6 +44,7 @@ export const SignInModal: React.FC<Props> = ({
         theme: 'light',
         bodyClassName: 'toast-style',
         autoClose: 4000,
+        // icon: ,
       });
       onHide();
     } catch (error) {
