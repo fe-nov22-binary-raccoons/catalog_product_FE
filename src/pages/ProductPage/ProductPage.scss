@@ -82,6 +82,7 @@
       width: 288px;
       height: 288px;
       margin-bottom: 16px;
+      display: flex;
 
       @include onTablet {
         margin-bottom: 0;
@@ -93,10 +94,12 @@
       }
 
       &-img {
-        width: 100%;
+        width: max-content;
         height: 100%;
+        margin: auto;
         object-position: center;
         object-fit: scale-down;
+        border-radius: 30px;
       }
     }
   }
