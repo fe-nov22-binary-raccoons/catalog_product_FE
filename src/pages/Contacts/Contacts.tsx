@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { AcceptForm } from '../AcceptForm';
 import './Contacts.scss';
 
@@ -14,9 +15,16 @@ export const Contacts = () => {
 
   return (
     <div className="container contacts">
+      <BreadCrumbs />
       <div className="row">
         <div className="col-24">
-          <h1 className="heading-1 margin-top-50 position-center">Contact us:</h1>
+          <h1 className="heading-1">Contacts</h1>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-24">
+          <h1 className="heading-2 margin-top-40 position-center">Get in touch with us:</h1>
 
           {acceptForm && (
             <AcceptForm setAcceptForm={setAcceptForm}/>
@@ -133,7 +141,7 @@ export const Contacts = () => {
             <div className="contacts__person">
               <div className="contacts__name">
                 <div className="person__photo person__photo-oleh"></div>
-                
+
                 <div className="person__container">
                   <h3 className="heading-3 margin-del position-start">
                 Holovnykh Oleh

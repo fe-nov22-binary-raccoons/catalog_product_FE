@@ -72,13 +72,14 @@ export const CartPage: React.FC = () => {
   };
 
   const showCartContent = !!phones.length && !isError && !isLoading;
-  const showError = !phones.length && !isLoading;
+  const showEmpty = !phones.length && !isLoading;
+  const showError = !isLoading && isError;
 
 
   return (
-    <div className="bag container">
+    <div className="cart container">
       <div className="row">
-        <div className="bag__prev-btn col-24">
+        <div className="cart__prev-btn col-24">
           <BackToPrevPage />
         </div>
       </div>
@@ -88,12 +89,14 @@ export const CartPage: React.FC = () => {
 
       {isLoading && <Loader />}
 
-      {showError && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
+      {showEmpty && <ErrorMessage text={ErrorMessages.OnEmptyCart} />}
+
+      {showError && <ErrorMessage text={ErrorMessages.OnLoad} />}
 
       {showCartContent && (
-        <div className="bag__container row">
+        <div className="cart__container row">
           <div
-            className="bag__item-list col-xl-16 col-lg-24 col-md-24 col-sm-24"
+            className="cart__item-list col-xl-16 col-lg-24 col-md-24 col-sm-24"
           >
 
             {phones.map(item => (
@@ -106,10 +109,10 @@ export const CartPage: React.FC = () => {
           </div>
 
           <div className="col-xl-8 col-lg-24 col-md-24 col-sm-24">
-            <div className="bag__item-cost">
-              <div className="bag__cost">
-                <h3 className="bag__cost-total">$ {totalCost}</h3>
-                <h3 className="bag__count-items">
+            <div className="cart__item-cost">
+              <div className="cart__cost">
+                <h3 className="cart__cost-total">$ {totalCost}</h3>
+                <h3 className="cart__count-items">
                   {totalItems === 1
                     ? `Total for ${totalItems} item`
                     : `Total for ${totalItems} items`}

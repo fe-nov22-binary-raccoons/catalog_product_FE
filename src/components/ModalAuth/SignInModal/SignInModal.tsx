@@ -44,7 +44,7 @@ export const SignInModal: React.FC<Props> = ({
         bodyClassName: 'toast-style',
         autoClose: 3000,
       });
-      
+
       setTimeout(() => {
         onHide();
       }, 1000);
@@ -121,7 +121,7 @@ export const SignInModal: React.FC<Props> = ({
             && <h2 className="heading-2">Successful sign-in</h2>}
 
           <button
-            className="buttons_buy-btn modal-submit" type="submit">
+            className="buy-btn modal-submit" type="submit">
             Sign in
           </button>
         </Form>

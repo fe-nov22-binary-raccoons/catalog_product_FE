@@ -12,7 +12,7 @@ export const ErrorMessage: React.FC<Props> = ({ text }) => (
 
     {text === ErrorMessages.OnLoad && (
       <button
-        className="buttons_buy-btn reload-btn"
+        className="reload-btn"
         onClick={() => window.location.reload()}
       >
         Reload

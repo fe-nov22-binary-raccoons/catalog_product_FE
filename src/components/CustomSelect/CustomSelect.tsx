@@ -25,23 +25,36 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
   const handleOptionKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const index = selectedOnKey ? options.indexOf(selectedOnKey) : 0;
 
-    if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      const nextIndex = index === 0 ? options.length - 1 : index - 1;
+    switch (event.key) {
+      case 'ArrowUp': {
+        event.preventDefault();
+        const nextIndex = index === 0 ? options.length - 1 : index - 1;
 
-      setSelectedOnKey(options[nextIndex]);
-    } else if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      const nextIndex = index === options.length - 1 ? 0 : index + 1;
+        setSelectedOnKey(options[nextIndex]);
+        break;
+      }
 
-      setSelectedOnKey(options[nextIndex]);
-    } else if (event.key === 'Escape') {
-      setIsOpen(false);
-    } else if (event.key === 'Enter' || event.key === ' ') {
-      setIsOpen((prev) => !prev);
-      onChange(selectedOnKey?.value || value);
-    } else if (event.key === 'Tab') {
-      setIsOpen(false);
+      case 'ArrowDown': {
+        event.preventDefault();
+        const nextIndex = index === options.length - 1 ? 0 : index + 1;
+
+        setSelectedOnKey(options[nextIndex]);
+        break;
+      }
+
+      case 'Escape':
+        setIsOpen(false);
+        break;
+      case 'Enter':
+      case ' ':
+        setIsOpen((prev) => !prev);
+        onChange(selectedOnKey?.value || value);
+        break;
+      case 'Tab':
+        setIsOpen(false);
+        break;
+      default:
+        break;
     }
   };
 
@@ -85,7 +98,7 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
         </div>
         <ArrowDown
           fill={iconColor === '#0f0f11' ? '#b4bdc4' : '#4a4d58'}
-          className={isOpen ? 'select-icon' : ''} />
+          className={classNames({ 'select-icon': isOpen })} />
       </div>
       {isOpen && (
         <div className="options-wrapper">

@@ -1,10 +1,11 @@
-@import "../../index";
+@import "../../styles/utils";
 
 .error-msg {
   margin-top: 20px;
 }
 
-button.reload-btn {
+.reload-btn {
+  @include button($page-orange-color, $page-orange-color, $page-white-color);
   padding: 8px 20px;
   max-width: 280px;
   margin-bottom: 20px;

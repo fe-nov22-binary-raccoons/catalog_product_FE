@@ -12,7 +12,7 @@ import { Phone } from '../../types/Phone';
 import { Loader } from '../Loader';
 import { client } from '../../api/fetchClient';
 import { PhonesList } from '../../types/PhonesList';
-import { PhoneCardForSwiper } from '../PhoneCardForSwiper';
+import { PhoneCardForSwiper } from '../SwiperCard';
 
 import './ProductSwiper.scss';
 import {

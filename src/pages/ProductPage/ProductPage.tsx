@@ -254,8 +254,8 @@ export const ProductPage: React.FC = memo(() => {
 
                         <div className="buttons about-right_buttons">
                           <button
-                            className={cn('buttons_buy-btn about-right_buttons-add', {
-                              'buttons_buy-btn_isAdded': isAdded(phoneId),
+                            className={cn('button buy-btn about-right_buttons-add', {
+                              'buy-btn_isAdded': isAdded(phoneId),
                             })}
                             onClick={handleClickAdded}
                           >
@@ -265,7 +265,7 @@ export const ProductPage: React.FC = memo(() => {
                           </button>
 
                           <button
-                            className="buttons_favorites-btn about-right_buttons-like"
+                            className="favorites-btn about-right_buttons-like"
                             onClick={handleFavorite}
                           >
                             {!isFavoriteProduct ? (

@@ -10,7 +10,7 @@ import {
 import {
   ReactComponent as HeartIconActive,
 } from '../../icons/buttons/add-to-favorite/favorite-btn-active.svg';
-import './PhoneCardForSwiper.scss';
+import './SwiperCard.scss';
 
 import { CartContext } from '../CartProvider';
 
@@ -92,18 +92,18 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
   };
 
   return (
-    <div className="phone-card-swiper">
-      <Link className="phone-card-swiper_image-link" to={`/phones/${phoneId}`} onClick={scrollToTop}>
-        <img className="phone-card-swiper_image" src={image} alt={name} />
+    <div className="product-card swiper-card">
+      <Link className="product-card_image-link" to={`/phones/${phoneId}`} onClick={scrollToTop}>
+        <img className="product-card_image" src={image} alt={name} />
       </Link>
-      <Link className="phone-card-swiper_title" to={`/phones/${phoneId}`} onClick={scrollToTop}>
+      <Link className="product-card_title" to={`/phones/${phoneId}`} onClick={scrollToTop}>
         {name}
       </Link>
-      <div className="phone-card-swiper_price">
-        <p className="phone-card-swiper_current-price">${price}</p>
-        <p className="phone-card-swiper_old-price">${fullPrice}</p>
+      <div className="product-card_price swiper-price">
+        <p className="product-card_current-price">${price}</p>
+        <p className="product-card_old-price">${fullPrice}</p>
       </div>
-      <div className="phone-card-swiper_descriptions">
+      <div className="product-card_descriptions">
         <div className="characteristic">
           <p className="characteristic-title">Screen</p>
           <p className="characteristic-value">{screen}</p>
@@ -119,8 +119,8 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
       </div>
       <div className="buttons">
         <button
-          className={cn('buttons_buy-btn', {
-            'buttons_buy-btn_isAdded': isAdded(phoneId),
+          className={cn('button buy-btn', {
+            'buy-btn_isAdded': isAdded(phoneId),
           })}
           onClick={handleClickAdded}
         >
@@ -130,7 +130,7 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
           }
         </button>
         <button
-          className="buttons_favorites-btn"
+          className="favorites-btn"
           onClick={handleFavorite}
         >
           {!isFavoriteProduct
