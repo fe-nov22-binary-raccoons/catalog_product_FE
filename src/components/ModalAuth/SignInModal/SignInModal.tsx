@@ -32,7 +32,6 @@ export const SignInModal: React.FC<Props> = ({
     try {
       setIsError(false);
       const loggedInUser = await loginUser(userEmail, userPassword);
-
       const { accessToken } = loggedInUser;
 
       window.localStorage.setItem('accessToken', accessToken);
@@ -43,10 +42,13 @@ export const SignInModal: React.FC<Props> = ({
         hideProgressBar: true,
         theme: 'light',
         bodyClassName: 'toast-style',
-        autoClose: 4000,
-        // icon: ,
+        autoClose: 3000,
       });
-      onHide();
+      
+      setTimeout(() => {
+        onHide();
+      }, 1000);
+
     } catch (error) {
       if (error instanceof ValidationError) {
         setErrorMessage(ErrorMessages.OnAuth);

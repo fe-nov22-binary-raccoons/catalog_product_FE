@@ -43,6 +43,7 @@
     width: 100%;
     object-position: 40px 30px;
     border-radius: 0 0 8px;
+    transition: transform 0.5s ease;
 
     @include onTablet {
       object-position: 25px 20px;

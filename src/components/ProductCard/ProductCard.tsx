@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import cn from 'classnames';
 import './ProductCard.scss';
-import Sasha from '../../images/mate/sasha.png';
 
 import {
   ReactComponent as HeartIcon,
@@ -59,8 +58,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         bodyClassName: 'toast-style',
         autoClose: 1000,
         pauseOnHover: false,
-        icon: <img src={Sasha} />,
-        // icon:'❤️',
+        icon:'❤️',
       });
     }
   };

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { CartItem } from '../../types/CartItem';
-import { useLocalStorage } from '../../utils/useLocalStorage';
+import { useLocalStorage } from '../../helpers/useLocalStorage';
 
 type ContextType = {
   cartItems: CartItem[],
@@ -19,11 +19,11 @@ interface Props {
 export const CartContext = createContext<ContextType>({
   cartItems: [],
   getCount: () => 0,
-  add: () => {},
-  subtract: () => {},
+  add: () => { },
+  subtract: () => { },
   remove: () => { },
   isAdded: () => false,
-  cleanCart: () => {},
+  cleanCart: () => { },
 });
 
 export const CartProvider: React.FC<Props> = ({ children }) => {

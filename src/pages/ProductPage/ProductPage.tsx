@@ -22,7 +22,7 @@ import { ReactComponent as HeartIconActive } from '../../icons/buttons/add-to-fa
 import './ProductPage.scss';
 import { ThemeContext } from '../../components/ThemeProvider/ThemeProvider';
 import { Colors } from '../../types/Colors';
-import { colors } from '../../utils/colorCollection';
+import { colors } from '../../helpers/colorCollection';
 import { ProductSwiper } from '../../components/ProductSwiper';
 import { CartContext } from '../../components/CartProvider';
 import { FavoritesContext } from '../../components/FavoritesContext';
