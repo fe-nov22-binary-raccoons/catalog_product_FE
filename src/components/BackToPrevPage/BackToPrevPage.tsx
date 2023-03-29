@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ReactComponent as ArrowLeft,
@@ -10,7 +10,7 @@ interface Props {
   path?: string
 }
 
-export const BackToPrevPage: React.FC<Props> = ({ path }) => {
+export const BackToPrevPage: React.FC<Props> = memo(({ path }) => {
   const { iconColor } = useContext(ThemeContext);
   const navigate = useNavigate();
 
@@ -32,4 +32,6 @@ export const BackToPrevPage: React.FC<Props> = ({ path }) => {
       </div>
     </div>
   );
-};
+});
+
+BackToPrevPage.displayName = 'BackToPrevPage';

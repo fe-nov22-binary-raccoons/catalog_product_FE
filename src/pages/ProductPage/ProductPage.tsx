@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import {
   Fragment,
-  memo,
   useCallback,
   useContext,
   useEffect,
@@ -28,7 +27,7 @@ import { CartContext } from '../../components/CartProvider';
 import { FavoritesContext } from '../../components/FavoritesContext';
 import { PageNotFound } from '../PageNotFound';
 
-export const ProductPage: React.FC = memo(() => {
+export const ProductPage: React.FC = () => {
   const [phoneItem, setPhoneItem] = useState<PhoneItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
@@ -46,15 +45,15 @@ export const ProductPage: React.FC = memo(() => {
 
   const isFavoriteProduct = isFavorite(phoneId);
 
-  const handleFavorite = () => {
+  const handleFavorite = useCallback(() => {
     if (isFavoriteProduct) {
       removeFavorite(phoneId);
     } else {
       addFavorite(phoneId);
     }
-  };
+  }, [isFavoriteProduct]);
 
-  const handleClickAdded = () => {
+  const handleClickAdded = useCallback(() => {
     if (isAdded(phoneId)) {
       remove(phoneId);
 
@@ -62,7 +61,7 @@ export const ProductPage: React.FC = memo(() => {
     }
 
     add(phoneId);
-  };
+  }, [isAdded]);
 
   const loadPhone = useCallback(async () => {
     try {
@@ -383,6 +382,4 @@ export const ProductPage: React.FC = memo(() => {
         )}
     </div>
   );
-});
-
-ProductPage.displayName = 'ProductPage';
+};

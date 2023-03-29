@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import './CategoryCard.scss';
 
@@ -9,7 +10,7 @@ type Props = {
   backgroundColor: string;
 };
 
-export const CategoryCard: React.FC<Props> = ({
+export const CategoryCard: React.FC<Props> = memo(({
   name,
   itemsCount,
   img,
@@ -31,4 +32,6 @@ export const CategoryCard: React.FC<Props> = ({
       <p className="category-card_subtitle">{`${itemsCount} models`}</p>
     </div>
   );
-};
+});
+
+CategoryCard.displayName = 'CategoryCard';

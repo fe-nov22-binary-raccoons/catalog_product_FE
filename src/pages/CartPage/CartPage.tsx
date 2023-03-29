@@ -1,6 +1,12 @@
 import './CartPage.scss';
-import React, { Fragment, useContext, useEffect, useState } from 'react';
-import { CartPageItem } from '../CartPageItem';
+import {
+  Fragment,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { CartPageItem } from './CartPageItem';
 import { ModalAuth } from '../../components/ModalAuth';
 import { CartContext } from '../../components/CartProvider';
 import { getItem } from '../../api/fetchProducts';
@@ -16,7 +22,7 @@ export const CartPage: React.FC = () => {
   const { getCount, cartItems, cleanCart } = useContext(CartContext);
   const [phones, setPhones] = useState<PhoneItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,13 +38,15 @@ export const CartPage: React.FC = () => {
     fetchData();
   }, [cartItems]);
 
-  const totalCost = phones.reduce(
-    (total, phone) => total + phone.priceDiscount * getCount(phone.id), 0,
-  );
+  const totalCost = useMemo(() => {
+    return phones.reduce(
+      (total, phone) => total + phone.priceDiscount * getCount(phone.id),
+      0);
+  }, [phones, getCount]);
 
-  const totalItems = cartItems.reduce(
-    (total, cart) => total + cart.count, 0,
-  );
+  const totalItems = useMemo(() => {
+    return cartItems.reduce((total, cart) => total + cart.count, 0);
+  }, [cartItems]);
 
   const checkout = async () => {
     const accessToken = window.localStorage.getItem('accessToken');

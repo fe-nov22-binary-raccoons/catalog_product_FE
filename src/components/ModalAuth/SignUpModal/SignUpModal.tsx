@@ -13,7 +13,9 @@ type Props = {
   reset: (arg: () => void) => void
 };
 
-export const SignUpModal: React.FC<Props> = ({ setSignUpForm, reset }) => {
+export const SignUpModal: React.FC<Props> = React.memo(({
+  setSignUpForm, reset,
+}) => {
   const [user, setUser] = useState<User | null>(null);
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -143,4 +145,6 @@ export const SignUpModal: React.FC<Props> = ({ setSignUpForm, reset }) => {
       </Modal.Body>)}
     </>
   );
-};
+});
+
+SignUpModal.displayName = 'SighUpModel';

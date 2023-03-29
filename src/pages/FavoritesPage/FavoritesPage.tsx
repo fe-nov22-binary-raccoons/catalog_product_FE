@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
 import { getPhone } from '../../api/fetchProducts';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { FavoritesContext } from '../../components/FavoritesContext';

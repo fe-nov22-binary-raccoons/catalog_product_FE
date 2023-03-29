@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getNumbers } from '../../helpers/paginationHelper';
 import { SearchLink } from '../SearchLink';
@@ -16,7 +16,7 @@ type Props = {
   pageSize: number;
 };
 
-export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
+export const Pagination: React.FC<Props> = memo(({ total, pageSize }) => {
   const { iconColor } = useContext(ThemeContext);
   const [searchParams] = useSearchParams();
   const currentPage = searchParams.get('page') || '1';
@@ -80,4 +80,6 @@ export const Pagination: React.FC<Props> = ({ total, pageSize }) => {
       </div>
     </div>
   );
-};
+});
+
+Pagination.displayName = 'Pagination';

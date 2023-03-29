@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import './Rights.scss';
+
 export const Rights = () => (
   <div className="container">
     <BreadCrumbs />

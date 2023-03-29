@@ -1,7 +1,7 @@
 import './MenuPage.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { MenuNavLink } from './MenuNavLink/MenuNavLink';
+import { MenuNavLink } from './MenuNavLink';
 import classNames from 'classnames';
 
 import {

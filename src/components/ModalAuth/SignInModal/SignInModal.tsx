@@ -15,7 +15,7 @@ type Props = {
   onHide:() => void
 };
 
-export const SignInModal: React.FC<Props> = ({
+export const SignInModal: React.FC<Props> = React.memo(({
   setSignUpForm, reset, onHide,
 }) => {
   const [token, setToken] = useState<string | null>(null);
@@ -141,4 +141,6 @@ export const SignInModal: React.FC<Props> = ({
       </Modal.Body>)}
     </>
   );
-};
+});
+
+SignInModal.displayName = 'SignInModal';

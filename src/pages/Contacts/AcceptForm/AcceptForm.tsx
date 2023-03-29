@@ -1,12 +1,11 @@
-// import { PageNotReady } from '../PageNotReady/PageNotReady';
-// import { NavLink } from 'react-router-dom';
+import { memo } from 'react';
 import './AcceptForm.scss';
 
 type Props = {
   setAcceptForm: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-export const AcceptForm: React.FC<Props> = ({ setAcceptForm }) => (
+export const AcceptForm: React.FC<Props> = memo(({ setAcceptForm }) => (
   <div className="home-page container">
     <div className="row">
       <div className="col-24">
@@ -30,4 +29,6 @@ export const AcceptForm: React.FC<Props> = ({ setAcceptForm }) => (
       </div>
     </div>
   </div>
-);
+));
+
+AcceptForm.displayName = 'AcceptForm';

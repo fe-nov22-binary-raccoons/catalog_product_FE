@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ErrorMessages } from '../../types/ErrorMessages';
 import { Phone } from '../../types/Phone';
 import { ErrorMessage } from '../ErrorMessage';
@@ -11,7 +12,7 @@ type Props = {
   isLoading: boolean;
 };
 
-export const ProductsList: React.FC<Props> = ({
+export const ProductsList: React.FC<Props> = memo(({
   products,
   isError,
   isLoading,
@@ -35,4 +36,6 @@ export const ProductsList: React.FC<Props> = ({
       </div>
     </div>
   );
-};
+});
+
+ProductsList.displayName = 'ProductList';

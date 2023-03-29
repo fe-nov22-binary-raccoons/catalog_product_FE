@@ -10,10 +10,10 @@ export const UnderConstruction: React.FC = () => (
             This page is not ready yet
           </div>
           <div className="notready__pageParagraph">
-            WE WILL FINISH IT
+            Sorry for the inconvenience
           </div>
           <div className="notready__pageParagraph">
-            give to us more time
+            It will be ready soon
           </div>
 
           <div className="notready__backPage">
@@ -26,8 +26,6 @@ export const UnderConstruction: React.FC = () => (
             </p>
           </div>
         </div>
-
-        {/* <span className='notready__icon'></span> */}
       </div>
     </div>
   </div>

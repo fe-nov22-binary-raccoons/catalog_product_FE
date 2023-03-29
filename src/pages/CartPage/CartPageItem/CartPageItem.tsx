@@ -1,20 +1,20 @@
 import './CartPageItem.scss';
-import React, { useContext } from 'react';
-import { CartContext } from '../../components/CartProvider';
+import React, { memo, useContext } from 'react';
+import { CartContext } from '../../../components/CartProvider';
 import cn from 'classnames';
 
-import { ReactComponent as Close } from '../../images/header/close_icon.svg';
-import { ReactComponent as Plus } from '../../images/header/icon_plus.svg';
-import { ReactComponent as Minus } from '../../images/header/icon_minus.svg';
-import { ThemeContext } from '../../components/ThemeProvider';
+import { ReactComponent as Close } from '../../../images/header/close_icon.svg';
+import { ReactComponent as Plus } from '../../../images/header/icon_plus.svg';
+import { ReactComponent as Minus } from '../../../images/header/icon_minus.svg';
+import { ThemeContext } from '../../../components/ThemeProvider';
 import { Link } from 'react-router-dom';
-import { PhoneItem } from '../../types/PhoneItem';
+import { PhoneItem } from '../../../types/PhoneItem';
 
 type Props = {
   item: PhoneItem,
 };
 
-export const CartPageItem: React.FC<Props> = ({ item }) => {
+export const CartPageItem: React.FC<Props> = memo(({ item }) => {
   const { add, remove, subtract, getCount } = useContext(CartContext);
   const { iconColor } = useContext(ThemeContext);
 
@@ -84,4 +84,6 @@ export const CartPageItem: React.FC<Props> = ({ item }) => {
       </div>
     </div>
   );
-};
+});
+
+CartPageItem.displayName = 'CartPageItem';

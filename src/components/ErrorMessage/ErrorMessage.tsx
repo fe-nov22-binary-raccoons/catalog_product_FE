@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { ErrorMessages } from '../../types/ErrorMessages';
 import './ErrorMessage.scss';
 
@@ -6,7 +6,7 @@ type Props = {
   text: string;
 };
 
-export const ErrorMessage: React.FC<Props> = ({ text }) => (
+export const ErrorMessage: React.FC<Props> = memo(({ text }) => (
   <>
     <h2 className="heading-2 error-msg">{text}</h2>
 
@@ -20,4 +20,6 @@ export const ErrorMessage: React.FC<Props> = ({ text }) => (
     )}
 
   </>
-);
+));
+
+ErrorMessage.displayName = 'ErrorMessage';

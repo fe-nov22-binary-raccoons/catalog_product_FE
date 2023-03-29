@@ -1,4 +1,4 @@
-@import "../../styles/utils";
+@import "../../../styles/utils";
 
 .form {
   &__container {
@@ -62,6 +62,6 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../../images/contacts/verified.svg);
+    background-image: url(../../../images/contacts/verified.svg);
   }
 }
