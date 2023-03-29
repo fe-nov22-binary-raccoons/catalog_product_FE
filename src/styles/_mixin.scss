@@ -17,3 +17,19 @@
   font-size: $fs;
   line-height: $lh;
 }
+
+@mixin button($bc, $bg, $tc) {
+  flex: 1 1 auto;
+  padding: 9px 0;
+  background-color: $bg;
+  border: solid 1px $bc;
+  border-radius: 8px;
+  color: $tc;
+  font-weight: 700;
+  font-size: 14px;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+  }
+}

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getNumbers } from '../../utils/paginationHelper';
+import { getNumbers } from '../../helpers/paginationHelper';
 import { SearchLink } from '../SearchLink';
 
 import { ReactComponent as ArrowLeft } from '../../icons/arrows/arrow-left.svg';

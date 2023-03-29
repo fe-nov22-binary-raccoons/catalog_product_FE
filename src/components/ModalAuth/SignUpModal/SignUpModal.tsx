@@ -124,7 +124,7 @@ export const SignUpModal: React.FC<Props> = ({ setSignUpForm, reset }) => {
             </h2>}
 
           <button
-            className="buttons_buy-btn modal-submit" type="submit">
+            className="buy-btn modal-submit" type="submit">
             Sign up
           </button>
         </Form>

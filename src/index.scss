@@ -1,7 +1,25 @@
 @import "./styles/variables";
+@import "./styles/utils";
 @import "./styles/reset";
-@import "./styles/normalize";
-@import "./styles/mixin";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $main-font, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  text-transform: uppercase;
+  list-style: none;
+}
 
 :root {
   --page-hover-color: #fafbfc;
@@ -12,7 +30,7 @@
   --page-icons-color: #b4bdc4;
   --page-elements-color: #e2e6e9;
   --page-white-color: #fff;
-  --github_icon: url(images/contacts/github.svg);
+  --github_icon: url(./images/contacts/github.svg);
 }
 
 [data-theme="dark"] {
@@ -24,13 +42,7 @@
   --page-icons-color: #4a4d58;
   --page-elements-color: #323542;
   --page-white-color: #0f1121;
-  --github_icon: url(images/contacts/github-white.svg);
-}
-
-@font-face {
-  font-family: "Mont";
-  src: local("Mont"), url("./fonts/Mont/Mont-Bold.otf") format("truetype");
-  font-weight: 800;
+  --github_icon: url(./images/contacts/github-white.svg);
 }
 
 @font-face {
@@ -43,4 +55,102 @@
   font-family: "Mont";
   src: local("Mont"), url("./fonts/Mont/Mont-SemiBold.otf") format("truetype");
   font-weight: 700;
+}
+
+@font-face {
+  font-family: "Mont";
+  src: local("Mont"), url("./fonts/Mont/Mont-Bold.otf") format("truetype");
+  font-weight: 800;
+}
+
+.heading-1 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: $page-primary-color;
+}
+
+.heading-2 {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 31px;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  color: $page-primary-color;
+}
+
+.heading-3 {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 8px;
+  color: $page-primary-color;
+}
+
+.heading-4 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 8px;
+  color: $page-primary-color;
+}
+
+@include onTablet {
+  .heading-1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .heading-2 {
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-3 {
+    font-size: 22px;
+    line-height: 140%;
+  }
+
+  .heading-4 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy-btn {
+  flex: 1 1 auto;
+  margin-right: 8px;
+  @include button($page-orange-color, $page-orange-color, $page-white-color);
+
+  &_isAdded {
+    box-shadow: none;
+    @include button(
+      $page-elements-color,
+      $page-white-color,
+      $page-orange-color
+    );
+  }
+}
+
+.favorites-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  background-color: $page-white-color;
+  border: 1px solid $page-icons-color;
+  border-radius: 48px;
+  transition: background-image 0.5s, border-color 0.5s;
+
+  &:hover {
+    border-color: $page-primary-color;
+  }
 }

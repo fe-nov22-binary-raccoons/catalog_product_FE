@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import cn from 'classnames';
 import './ProductCard.scss';
-import Sasha from '../../images/mate/sasha.png';
 
 import {
   ReactComponent as HeartIcon,
@@ -59,8 +58,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         bodyClassName: 'toast-style',
         autoClose: 1000,
         pauseOnHover: false,
-        icon: <img src={Sasha} />,
-        // icon:'❤️',
+        icon:'❤️',
       });
     }
   };
@@ -119,8 +117,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
         <div className="buttons">
           <button
-            className={cn('buttons_buy-btn', {
-              'buttons_buy-btn_isAdded': isAdded(phoneId),
+            className={cn('button buy-btn', {
+              'buy-btn_isAdded': isAdded(phoneId),
             })}
             onClick={handleClickAdded}
           >
@@ -130,7 +128,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             }
           </button>
           <button
-            className="buttons_favorites-btn"
+            className="favorites-btn"
             onClick={handleFavorite}
           >
             {!isFavoriteProduct

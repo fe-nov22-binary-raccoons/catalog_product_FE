@@ -1,6 +1,6 @@
-@import "../../index";
+@import "../../styles/utils";
 
-.bag {
+.cart {
   &__container {
     display: flex;
     flex-direction: column;
@@ -16,21 +16,21 @@
   }
 }
 
-.bag__item-cost {
+.cart__item-cost {
   border: 1px solid $page-elements-color;
   border-radius: 16px;
   text-align: center;
   padding: 24px;
 }
 
-.bag__cost-total {
+.cart__cost-total {
   font-weight: 800;
   font-size: 32px;
   line-height: 41px;
   color: $page-primary-color;
 }
 
-.bag__count-items {
+.cart__count-items {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -41,17 +41,9 @@
 }
 
 .submit__button {
-  background-color: $page-orange-color;
-  color: $page-white-color;
-  border-radius: 8px;
-  border: 0;
+  @include button($page-orange-color, $page-orange-color, $page-white-color);
   width: 100%;
   height: 48px;
-  transition: box-shadow 0.3s;
-
-  &:hover {
-    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-  }
 
   &:active {
     box-shadow: none;

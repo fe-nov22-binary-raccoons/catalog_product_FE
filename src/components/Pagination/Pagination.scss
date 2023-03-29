@@ -1,4 +1,4 @@
-@import "../../index";
+@import "../../styles/utils";
 
 .pagination-wrap {
   display: flex;
@@ -30,6 +30,8 @@
     box-shadow: none;
     outline: none;
     border-color: $page-primary-color;
+    color: $page-primary-color;
+    background-color: $page-hover-color;
   }
 
   &:hover {
