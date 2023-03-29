@@ -1,9 +1,7 @@
 {
   "files": {
-    "main.css": "/catalog_product_FE/static/css/main.927127a5.css",
-    "main.js": "/catalog_product_FE/static/js/main.4d3689c1.js",
-    "static/media/error__artur.jpeg": "/catalog_product_FE/static/media/error__artur.425e26ecd1776c52b32b.jpeg",
-    "static/media/banner4-wide.png": "/catalog_product_FE/static/media/banner4-wide.17d78fc1f61a88349236.png",
+    "main.css": "/catalog_product_FE/static/css/main.7a112e81.css",
+    "main.js": "/catalog_product_FE/static/js/main.b3408700.js",
     "static/media/logo.svg": "/catalog_product_FE/static/media/logo.4feb0aa9eee144c636912b415fac9de8.svg",
     "static/media/banner2-wide.png": "/catalog_product_FE/static/media/banner2-wide.fd6f6d3de63248e6b401.png",
     "static/media/Mont-Regular.otf": "/catalog_product_FE/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -11,7 +9,6 @@
     "static/media/Mont-Bold.otf": "/catalog_product_FE/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
     "static/media/banner3-wide.png": "/catalog_product_FE/static/media/banner3-wide.a7ce7655c21b258dacb0.png",
     "static/media/banner.png": "/catalog_product_FE/static/media/banner.71e7e0917555f044d60b.png",
-    "static/media/sasha.png": "/catalog_product_FE/static/media/sasha.dabf3e8c53a173ad0cb4.png",
     "static/media/banner2-320.png": "/catalog_product_FE/static/media/banner2-320.b2abb4755bd52114be7f.png",
     "static/media/banner3-320.png": "/catalog_product_FE/static/media/banner3-320.bd15f88d2dc715156303.png",
     "static/media/banner-320.png": "/catalog_product_FE/static/media/banner-320.5ab4e0f94787219dc791.png",
@@ -19,12 +16,11 @@
     "static/media/Tetiana.jpeg": "/catalog_product_FE/static/media/Tetiana.53333c8a069014e99a24.jpeg",
     "static/media/Oleh.jpeg": "/catalog_product_FE/static/media/Oleh.f5013744d8c39ae8a262.jpeg",
     "static/media/Yevhen.jpeg": "/catalog_product_FE/static/media/Yevhen.3f28fac26388b11441d3.jpeg",
-    "static/media/error__icon.jpeg": "/catalog_product_FE/static/media/error__icon.184aad05cb7ddeded0f9.jpeg",
     "static/media/Sasha.jpeg": "/catalog_product_FE/static/media/Sasha.e13767bcd01c7392190c.jpeg",
-    "static/media/verified.jpeg": "/catalog_product_FE/static/media/verified.12dbdefc4ed99bc62a69.jpeg",
     "static/media/bag_icon.svg": "/catalog_product_FE/static/media/bag_icon.f12f16f3d17f0f8a798f4ffcf6b4d35c.svg",
     "static/media/favorite-btn.svg": "/catalog_product_FE/static/media/favorite-btn.8cc768065a7836aa1fde4efda30ec9c2.svg",
     "static/media/heart_icon.svg": "/catalog_product_FE/static/media/heart_icon.7bd52d4cf79a6b3946ff3f88f7384e84.svg",
+    "static/media/verified.svg": "/catalog_product_FE/static/media/verified.a60560c6d5f7fd7a9ba6.svg",
     "static/media/home.svg": "/catalog_product_FE/static/media/home.cf8946cdd26293689914903f2de823cc.svg",
     "static/media/linkedin.svg": "/catalog_product_FE/static/media/linkedin.3acc04feb700f6fcc642.svg",
     "static/media/favorite-btn-active.svg": "/catalog_product_FE/static/media/favorite-btn-active.5c7a0056b84fa78523668805df000c2a.svg",
@@ -43,11 +39,11 @@
     "static/media/arrow-down.svg": "/catalog_product_FE/static/media/arrow-down.58c98b7cda2d7714e1fe1c8ca49a7314.svg",
     "static/media/arrow-up.svg": "/catalog_product_FE/static/media/arrow-up.f7aa911caef14257bc1d85de688d8629.svg",
     "static/media/icon_minus.svg": "/catalog_product_FE/static/media/icon_minus.73fe573a45dba4a3cbf7bbb495338082.svg",
-    "main.927127a5.css.map": "/catalog_product_FE/static/css/main.927127a5.css.map",
-    "main.4d3689c1.js.map": "/catalog_product_FE/static/js/main.4d3689c1.js.map"
+    "main.7a112e81.css.map": "/catalog_product_FE/static/css/main.7a112e81.css.map",
+    "main.b3408700.js.map": "/catalog_product_FE/static/js/main.b3408700.js.map"
   },
   "entrypoints": [
-    "static/css/main.927127a5.css",
-    "static/js/main.4d3689c1.js"
+    "static/css/main.7a112e81.css",
+    "static/js/main.b3408700.js"
   ]
 }
