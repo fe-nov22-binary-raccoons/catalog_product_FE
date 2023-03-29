@@ -1,0 +1,12 @@
+@import "../../styles/utils";
+
+@media (max-width: 639px) {
+  .swiper-card {
+    width: 212px;
+    padding: 20px;
+  }
+
+  .swiper-price {
+    font-size: 18px;
+  }
+}

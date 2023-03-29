@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useLocalStorage } from '../../utils/useLocalStorage';
+import { useLocalStorage } from '../../helpers/useLocalStorage';
 
 interface ContextType {
   favorites: string[],
@@ -11,10 +11,10 @@ interface ContextType {
 
 const defaultContext: ContextType = {
   favorites: [],
-  addFavorite: () => {},
-  removeFavorite: () => {},
+  addFavorite: () => { },
+  removeFavorite: () => { },
   isFavorite: () => false,
-  removeAllFavorites: () => {},
+  removeAllFavorites: () => { },
 };
 
 export const FavoritesContext = createContext(defaultContext);

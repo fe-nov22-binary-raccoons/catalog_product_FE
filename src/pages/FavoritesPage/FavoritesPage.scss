@@ -1,8 +1,7 @@
-@import "../../index";
+@import "../../styles/utils";
 
-button.delete-all {
+.delete-all {
+  @include button($page-orange-color, $page-hover-color, $page-orange-color);
   margin-bottom: 40px;
   width: 100%;
-  color: $page-orange-color;
-  background-color: $page-hover-color;
 }

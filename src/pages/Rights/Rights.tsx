@@ -1,10 +1,18 @@
 /* eslint-disable max-len */
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 import './Rights.scss';
 export const Rights = () => (
   <div className="container">
+    <BreadCrumbs />
     <div className="row">
       <div className="col-24">
-        <h3 className="heading-2 margin-top-50 position__center">
+        <h1 className="heading-1">Rights</h1>
+      </div>
+    </div>
+
+    <div className="row">
+      <div className="col-24">
+        <h3 className="heading-2 position__center">
           User agreement
         </h3>
         <p className="page__text">

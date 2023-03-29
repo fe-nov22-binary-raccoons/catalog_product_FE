@@ -1,12 +1,13 @@
-@import "../../index";
+@import "../../styles/utils";
 /* stylelint-disable */
 
 .modal-content {
   background-color: $page-hover-color;
   padding: 10px;
-  border: 2px solid $page-secondary-color;
   border-radius: 8px;
   color: $page-primary-color;
+  min-height: 356px;
+  max-width: 500px;
 }
 
 .modal-header {

@@ -1,4 +1,4 @@
-@import "../../index";
+@import "../../styles/utils";
 
 .margin-top-50 {
   margin-top: 50px;
@@ -11,4 +11,5 @@
 
 .page__text {
   color: $page-primary-color;
+  font-size: 14px;
 }
