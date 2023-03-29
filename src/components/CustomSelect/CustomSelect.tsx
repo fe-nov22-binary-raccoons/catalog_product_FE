@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { memo, useContext, useEffect, useRef, useState } from 'react';
 import { CustomSelectProps } from '../../types/CustomSelectProps';
 import { Option } from '../../types/Option';
 import './CustomSelect.scss';
@@ -7,7 +7,11 @@ import './CustomSelect.scss';
 import { ReactComponent as ArrowDown } from '../../icons/arrows/arrow-down.svg';
 import { ThemeContext } from '../ThemeProvider/ThemeProvider';
 
-export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
+export const CustomSelect: React.FC<CustomSelectProps> = memo(({
+  options,
+  value,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { iconColor } = useContext(ThemeContext);
   const selectedOption = options.find((option) => option.value === value);
@@ -120,4 +124,6 @@ export function CustomSelect({ options, value, onChange }: CustomSelectProps) {
       )}
     </div>
   );
-}
+});
+
+CustomSelect.displayName = 'CustomSelect';

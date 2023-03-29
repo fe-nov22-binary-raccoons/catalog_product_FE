@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   title: string;
 };
 
-export const PageNavLink: React.FC<Props> = ({ to, title }) => (
+export const PageNavLink: React.FC<Props> = memo(({ to, title }) => (
   <NavLink
     className={({ isActive }) =>
       classNames('nav__item', {
@@ -17,4 +18,6 @@ export const PageNavLink: React.FC<Props> = ({ to, title }) => (
   >
     {title}
   </NavLink>
-);
+));
+
+PageNavLink.displayName = 'PageNavLink';

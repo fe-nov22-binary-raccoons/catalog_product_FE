@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 import { useState } from 'react';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-import { AcceptForm } from '../AcceptForm';
+import { AcceptForm } from './AcceptForm';
 import './Contacts.scss';
 
 export const Contacts = () => {
   const [acceptForm, setAcceptForm] = useState(false);
 
-  const hendelForm = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setAcceptForm(true);
@@ -36,7 +36,7 @@ export const Contacts = () => {
                 action="#"
                 method="post"
                 className="contacts__form"
-                onSubmit={hendelForm}
+                onSubmit={handleForm}
               >
                 <input
                   type="text"

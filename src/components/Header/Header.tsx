@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { PageNavLink } from './PageNavLink/PageNavLink';
+import { PageNavLink } from './PageNavLink';
 
 import { ReactComponent as Logo } from '../../images/header/logo.svg';
 import {
@@ -11,7 +11,7 @@ import {
 } from '../../images/header/bag_icon.svg';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { ThemeContext } from '../ThemeProvider/ThemeProvider';
+import { ThemeContext } from '../ThemeProvider';
 import './Header.scss';
 import { MenuPage } from '../../pages/MenuPage';
 import { CartContext } from '../CartProvider';

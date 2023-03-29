@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import cn from 'classnames';
@@ -22,7 +22,7 @@ type Props = {
   product: Phone;
 };
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = memo(({ product }) => {
 
   const {
     phoneId, image, name, price, fullPrice, screen, capacity, ram,
@@ -139,4 +139,6 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </div>
     </div>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';

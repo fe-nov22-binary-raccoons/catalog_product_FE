@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
-import { useContext, useEffect, useRef, useState } from 'react';
+import { memo, useContext, useEffect, useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
@@ -28,7 +28,7 @@ interface Props {
   title: string;
 }
 
-export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
+export const ProductSwiper: React.FC<Props> = memo(({ endPoint, title }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -76,7 +76,6 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
       ) : (
         <Swiper
           breakpoints={{
-            // when window width is >= 1200px
             1200: {
               slidesPerView: 4,
             },
@@ -132,4 +131,6 @@ export const ProductSwiper: React.FC<Props> = ({ endPoint, title }) => {
       </div>}
     </div>
   );
-};
+});
+
+ProductSwiper.displayName = 'ProductSwiper';

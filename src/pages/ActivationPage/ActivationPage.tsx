@@ -1,4 +1,3 @@
-// import { PageNotReady } from '../PageNotReady/PageNotReady';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { activateUser } from '../../api/fetchUser';

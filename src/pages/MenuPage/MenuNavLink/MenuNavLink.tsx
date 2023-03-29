@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 type Props = {
@@ -7,7 +8,11 @@ type Props = {
   setIsMenuPage: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const MenuNavLink: React.FC<Props> = ({ to, title, setIsMenuPage }) => (
+export const MenuNavLink: React.FC<Props> = memo(({
+  to,
+  title,
+  setIsMenuPage,
+}) => (
   <NavLink
     to={to}
     onClick={() => setIsMenuPage(false)}
@@ -17,4 +22,6 @@ export const MenuNavLink: React.FC<Props> = ({ to, title, setIsMenuPage }) => (
   >
     {title}
   </NavLink>
-);
+));
+
+MenuNavLink.displayName = 'MenuNavLink';

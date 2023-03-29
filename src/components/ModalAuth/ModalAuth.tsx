@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import './ModalAuth.scss';
 import Modal from 'react-bootstrap/Modal';
 import { SignInModal } from './SignInModal';
@@ -9,7 +9,7 @@ type Props = {
   onHide:() => void
 };
 
-export const ModalAuth: React.FC<Props> = (props) => {
+export const ModalAuth: React.FC<Props> = memo((props) => {
   const [signUpForm, setSignUpForm] = useState(false);
 
   const reset = (callback: () => void) => callback;
@@ -31,4 +31,6 @@ export const ModalAuth: React.FC<Props> = (props) => {
         )}
     </Modal>
   );
-};
+});
+
+ModalAuth.displayName = 'ModalAuth';

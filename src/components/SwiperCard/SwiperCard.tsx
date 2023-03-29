@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { ThemeContext } from '../ThemeProvider';
@@ -22,7 +22,7 @@ type Props = {
   phone: Phone;
 };
 
-export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
+export const PhoneCardForSwiper: React.FC<Props> = memo(({ phone }) => {
   const {
     phoneId, image, name, price, fullPrice, screen, capacity, ram,
   } = phone;
@@ -140,4 +140,6 @@ export const PhoneCardForSwiper: React.FC<Props> = ({ phone }) => {
       </div>
     </div>
   );
-};
+});
+
+PhoneCardForSwiper.displayName = 'PhoneCardForSwiper';

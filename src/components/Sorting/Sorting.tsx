@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Option } from '../../types/Option';
 import { SortBy } from '../../types/SortBy';
@@ -8,7 +9,7 @@ type Props = {
   total: number;
 };
 
-export const Sorting: React.FC<Props> = ({ total }) => {
+export const Sorting: React.FC<Props> = memo(({ total }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageSize = searchParams.get('size') || '16';
   const sortBy = searchParams.get('sort') || 'age';
@@ -73,4 +74,6 @@ export const Sorting: React.FC<Props> = ({ total }) => {
       </div>
     </>
   );
-};
+});
+
+Sorting.displayName = 'Sorting';
