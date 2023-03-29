@@ -3,7 +3,6 @@
 .notready {
   color: $page-primary-color;
   display: flex;
-  // justify-content: center;
   align-items: center;
 
   &__sorry {
@@ -27,7 +26,6 @@
     background-repeat: no-repeat;
     display: none;
     margin-left: 20px;
-    background-image: url(../../images/error__artur.jpeg);
 
     @include onTablet {
       display: block;
@@ -47,10 +45,10 @@
     line-height: 30px;
     text-transform: uppercase;
 
-    & span {
-      color: $page-orange-color;
-      font-weight: bold;
-    }
+    // & span {
+    //   color: $page-orange-color;
+    //   font-weight: bold;
+    // }
   }
 
   &__backPage {

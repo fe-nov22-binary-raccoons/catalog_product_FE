@@ -31,7 +31,7 @@ export const Contacts = () => {
           )}
 
           {!acceptForm && (
-            <div className="contacts__form-container">
+            <div className="contacts__container">
               <form
                 action="#"
                 method="post"
@@ -42,7 +42,7 @@ export const Contacts = () => {
                   type="text"
                   name="name"
                   placeholder="Name:"
-                  className="contact__field form__item"
+                  className="form__item contact__field"
                   required
                 />
                 <input

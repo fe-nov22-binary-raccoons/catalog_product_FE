@@ -91,6 +91,16 @@
       background-image: $page-github-icon;
     }
   }
+
+  &__form {
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+
+    @include onTablet {
+      width: 50%;
+    }
+  }
 }
 
 .person__photo {
@@ -133,16 +143,6 @@
   line-height: 20px;
   padding: 14px 16px;
   margin-top: 20px;
-}
-
-.contacts__form {
-  margin: 0 auto;
-  flex-direction: column;
-  width: 100%;
-
-  @include onTablet {
-    width: 50%;
-  }
 }
 
 .form__item {

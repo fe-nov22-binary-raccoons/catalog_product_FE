@@ -57,7 +57,11 @@ export const MenuPage: React.FC = () => {
           <nav className="menu__nav">
             <div className="menu__header">
               <div className="menu__logo">
-                <NavLink to="/home" className="menu__logo-image">
+                <NavLink
+                  to="/home"
+                  className="menu__logo-image"
+                  onClick={() => setIsMenuPage(false)}
+                >
                   <Logo fill={iconColor} />
                 </NavLink>
               </div>
