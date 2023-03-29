@@ -12,21 +12,6 @@
     flex-wrap: wrap;
   }
 
-  &__icon {
-    width: 100px;
-    height: 100px;
-    background-size: contain;
-    background-position: bottom ;
-    background-repeat: no-repeat;
-    display: none;
-    background-image: url(../../images/error__icon.jpeg);
-
-    @include onTablet {
-      display: block;
-      margin-left: 20px;
-    }
-  }
-
   &__error {
     display: flex;
     align-items: end;

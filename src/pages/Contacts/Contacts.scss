@@ -95,13 +95,22 @@
       background-image: $page-github-icon;
     }
   }
+
+  &__form {
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+
+    @include onTablet {
+      width: 50%;
+    }
+  }
 }
 
 .person__photo {
   height: 100px;
   width: 100px;
   border-radius: 50px;
-  margin-right: 10px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -125,28 +134,6 @@
 
   &-oleh {
     background-image: url(../../images/contacts/Oleh.jpeg);
-  }
-}
-
-.contacts__form-containere {
-  border: 1px solid transparent;
-  border-radius: 40px;
-  box-sizing: border-box;
-  font-size: 14px;
-  font-weight: 400;
-  height: 48px;
-  line-height: 20px;
-  padding: 14px 16px;
-
-}
-
-.contacts__form {
-  margin: 0 auto;
-  flex-direction: column;
-  width: 100%;
-
-  @include onTablet {
-    width: 50%;
   }
 }
 

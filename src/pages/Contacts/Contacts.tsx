@@ -23,7 +23,7 @@ export const Contacts = () => {
           )}
 
           {!acceptForm && (
-            <div className="contacts__form-container">
+            <div className="contacts__container">
               <form
                 action="#"
                 method="post"
@@ -34,7 +34,7 @@ export const Contacts = () => {
                   type="text"
                   name="name"
                   placeholder="Name:"
-                  className="contact__field form__item"
+                  className="form__item contact__field"
                   required
                 />
                 <input
@@ -133,7 +133,7 @@ export const Contacts = () => {
             <div className="contacts__person">
               <div className="contacts__name">
                 <div className="person__photo person__photo-oleh"></div>
-                
+
                 <div className="person__container">
                   <h3 className="heading-3 margin-del position-start">
                 Holovnykh Oleh
