@@ -120,6 +120,24 @@ export const ProductPage: React.FC = () => {
     [pathname],
   );
 
+  const swiperBreakpoints = {
+    1200: {
+      slidesPerView: 4,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    640: {
+      slidesPerView: 2.4,
+    },
+    320: {
+      slidesPerView: 1.3,
+    },
+    1: {
+      slidesPerView: 1,
+    },
+  };
+
   return (
     <div className="container product">
       {isError
@@ -375,7 +393,10 @@ export const ProductPage: React.FC = () => {
                     </div>
                   </article>
                 </section>
-                <ProductSwiper endPoint={`products/${phoneId}/recommended`} title="You may also like" />
+                <ProductSwiper
+                  swiperBreakpoints = {swiperBreakpoints}
+                  endPoint={`products/${phoneId}/recommended`}
+                  title="You may also like" />
               </>
             )}
           </>

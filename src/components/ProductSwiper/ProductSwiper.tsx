@@ -26,9 +26,14 @@ import { ThemeContext } from '../ThemeProvider';
 interface Props {
   endPoint: string;
   title: string;
+  swiperBreakpoints: Record<number, { slidesPerView: number }>
 }
 
-export const ProductSwiper: React.FC<Props> = memo(({ endPoint, title }) => {
+export const ProductSwiper: React.FC<Props> = memo(({
+  endPoint,
+  title,
+  swiperBreakpoints,
+}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -75,38 +80,41 @@ export const ProductSwiper: React.FC<Props> = memo(({ endPoint, title }) => {
         <Loader />
       ) : (
         <Swiper
-          breakpoints={{
-            1200: {
-              slidesPerView: 4,
-            },
-            768: {
-              slidesPerView: 3,
-            },
-            640: {
-              slidesPerView: 2.4,
-            },
-            569: {
-              slidesPerView: 2.6,
-            },
-            519: {
-              slidesPerView: 2.4,
-            },
-            480: {
-              slidesPerView: 2,
-            },
-            412: {
-              slidesPerView:1.8,
-            },
-            360: {
-              slidesPerView: 1.6,
-            },
-            320: {
-              slidesPerView: 1.4,
-            },
-            1: {
-              slidesPerView: 1,
-            },
-          }}
+          breakpoints={
+            swiperBreakpoints
+          //   {
+          //   1200: {
+          //     slidesPerView: 4,
+          //   },
+          //   768: {
+          //     slidesPerView: 3,
+          //   },
+          //   640: {
+          //     slidesPerView: 2.4,
+          //   },
+          //   569: {
+          //     slidesPerView: 2.6,
+          //   },
+          //   519: {
+          //     slidesPerView: 2.4,
+          //   },
+          //   480: {
+          //     slidesPerView: 2,
+          //   },
+          //   412: {
+          //     slidesPerView:1.8,
+          //   },
+          //   360: {
+          //     slidesPerView: 1.6,
+          //   },
+          //   320: {
+          //     slidesPerView: 1.5,
+          //   },
+          //   1: {
+          //     slidesPerView: 1,
+          //   },
+          // }
+          }
           modules={[Navigation]}
           navigation={{
             prevEl: btnPrevRef.current!,

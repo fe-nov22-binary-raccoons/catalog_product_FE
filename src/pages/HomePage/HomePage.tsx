@@ -28,6 +28,40 @@ export const HomePage = () => {
     loadCategories();
   }, []);
 
+
+  const swiperBreakpoints = {
+    1200: {
+      slidesPerView: 4,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    640: {
+      slidesPerView: 2.4,
+    },
+    569: {
+      slidesPerView: 2.6,
+    },
+    519: {
+      slidesPerView: 2.4,
+    },
+    480: {
+      slidesPerView: 2,
+    },
+    412: {
+      slidesPerView:1.8,
+    },
+    360: {
+      slidesPerView: 1.6,
+    },
+    320: {
+      slidesPerView: 1.5,
+    },
+    1: {
+      slidesPerView: 1,
+    },
+  };
+
   return (
     <>
       <div className="home-page container">
@@ -43,7 +77,11 @@ export const HomePage = () => {
         <BannerSwiper />
       </div>
       <div className="new-products-block">
-        <ProductSwiper endPoint="products/new" title="Brand new models" />
+        <ProductSwiper
+          swiperBreakpoints = {swiperBreakpoints}
+          endPoint="products/new"
+          title="Brand new models"
+        />
       </div>
       <section className="home-page_categories container">
         <div className="row">
@@ -72,7 +110,11 @@ export const HomePage = () => {
         </div>
       </section>
       <div className="discount-products-block">
-        <ProductSwiper endPoint="products/discount" title="Hot prices" />
+        <ProductSwiper
+          swiperBreakpoints = {swiperBreakpoints}
+          endPoint="products/discount"
+          title="Hot prices"
+        />
       </div>
     </>
   );
